@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Home from './components/home.js';
 import Overview from './components/overview.js';
 import Settings from './components/settings.js';
@@ -56,9 +56,3 @@ const styles = StyleSheet.create({
   },
 });
 
-/*
-  <SafeAreaView>
-          {this.getDisplay()}
-          <Menu />
-        </SafeAreaView>
-*/
