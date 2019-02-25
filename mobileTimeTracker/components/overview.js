@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Dropdown from './Inputs/dropdown';
 
 //temporary options for the dropdown menu
-let options = ["option 1", "option 2", "option 3"]
+let options = ["test 1", "test 2", "tralala 3"]
 
 export default class Overview extends React.Component {
   constructor(props) {

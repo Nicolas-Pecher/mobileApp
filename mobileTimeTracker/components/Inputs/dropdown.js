@@ -24,7 +24,6 @@ export default class Dropdown extends Component {
                         this.setState({ selected: itemValue })
                     }>
                     {this.state.options.map((option) => {
-                        console.log(option)
                         return <Picker.Item label = {option} value = {option} key={option}/>
                      })}
                 </Picker>
