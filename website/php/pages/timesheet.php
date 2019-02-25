@@ -1,29 +1,29 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Time Tracker</title>
-    <link type="text/css" href="./css/global.css" rel="stylesheet">
+    <title>Time sheets</title>
+    <link type="text/css" href="../../css/global.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
     <div id="wrapper">
         <div id="leftWrapper">
-            <h4><b>Timesheet Web App</b></h4>  
-            <a class="selected" href="./index.php"><img src='./pictures/tachometer.svg' alt='tachometerIcon'/> Dashboard</a>
-            <a href="./php/pages/timesheet.php"><img src='./pictures/calendar.svg' alt='calendarIcon'/>Timesheets</a>
+            <?php 
+                include '../navigation_bar/sidebar.php';
+            ?>
         <div>  
     </div>
         </div>
     <div id="rightWrapper">
         <div id="topmenu">
-            <img src="./pictures/notification.svg" alt="notification Icon">
-            <img src="./pictures/userIcon.svg" alt="user Icon">
+            <img src="../../pictures/notification.svg" alt="notification Icon">
+            <img src="../../pictures/userIcon.svg" alt="user Icon">
         </div>
         <div id="navigation">
-            <img src="./pictures/home.svg" alt="home Icon">
+            <img src="../../pictures/home.svg" alt="home Icon">
+            <span>/Timesheets</span>
         </div>
         <div id="panel">
             
