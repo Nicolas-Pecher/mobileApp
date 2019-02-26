@@ -37,10 +37,10 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <View style={{ flex: 1 }} />
-        <View style={{ flex: 10 }}>
+        <View style={{ flex: 10,marginLeft:10 }}>
           {this.getDisplay()}
         </View>
-        <View style={{ flex: 1 , backgroundColor: '#404040',}}>
+        <View style={{ flex: 1 , backgroundColor: '#404040'}}>
           <Menu changeDisplay={this.changeDisplay}/>
         </View>
       </View>
