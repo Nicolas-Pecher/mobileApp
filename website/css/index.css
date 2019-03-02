@@ -66,6 +66,13 @@ i {
     width: 25px;
 }
 
+#pageButton {
+    position: fixed;
+    bottom: 4%;
+    right: 2%;
+    background-color: #e5e5e5;
+}
+
 @media (min-width: 768px) {
     #sidebar-wrapper {
         margin-left: 0;
