@@ -1,9 +1,82 @@
-.sidebar-wrapper {
-    background-color: #E9E9E9;
-    width: 500px;
+body {
+    overflow-x: hidden;
 }
 
-.form-login {
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+    border-right: 2px solid #F13C1F ;
+}
 
+.sidebar-wrapper, .list-group-item {
+    background-color: #333333;
+    color: white;
+}
 
+.sidebar-wrapper .list-group-item:focus {
+    background-color: #666666;
+    color: white;
+}
+
+.sidebar-wrapper .list-group-item:hover {
+    background-color: #666666;
+    color: white;
+}
+
+.sidebar-wrapper .active {
+    background-color: #f13c1f;
+    color: white;
+    border: #f13c1f;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#page-content-wrapper .badge {
+    position: relative;
+    margin-left: -25%;
+    background-color: #F13C1F;
+    color: white;
+    font-weight: bold;
+}
+
+#page-content-wrapper .dropdown-item:hover {
+    color: #F13C1F;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+i {
+    width: 25px;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
 }

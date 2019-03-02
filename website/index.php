@@ -1,49 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Time Tracker</title>
-<<<<<<< HEAD
-    <link type="text/css" href="./css/index.css" rel="stylesheet">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Timetracker</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- fontawsome icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom stylesheets -->
+    <link rel="stylesheet" href="css/index.css">
+
 </head>
 <body>
 
+<div class="d-flex" id="wrapper">
 
-=======
-    <link type="text/css" href="./css/global.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
-    <div id="wrapper">
-        <div id="leftWrapper">
-            <h4><b>Timesheet Web App</b></h4>  
-            <a class="selected" href="./index.php"><img src='./pictures/tachometer.svg' alt='tachometerIcon'/> Dashboard</a>
-            <a href="./php/pages/timesheet.php"><img src='./pictures/calendar.svg' alt='calendarIcon'/>Timesheets</a>
-        <div>  
-    </div>
-        </div>
-    <div id="rightWrapper">
-        <div id="topmenu">
-            <img src="./pictures/notification.svg" alt="notification Icon">
-            <img src="./pictures/userIcon.svg" alt="user Icon">
-        </div>
-        <div id="navigation">
-            <img src="./pictures/home.svg" alt="home Icon">
-        </div>
-        <div id="panel">
-            
-        </div>
-    </div>
-    </div>
->>>>>>> master
+    <!-- Sidebar -->
+    <div class="sidebar-wrapper" id="sidebar-wrapper">
+        <div class="sidebar-heading text-center" style="color: #f13c1f; font-weight: bold;">Timetracker</div>
+        <div class="list-group list-group-flush">
+            <a href="index.php" class="list-group-item list-group-item-action active"><i class="fas fa-tachometer-alt mr-3"></i>Dashboard</a>
+            <a href="pages/timesheets.php" class="list-group-item list-group-item-action"><i class="fas fa-clock mr-3"></i>Timesheets</a>
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s1" data-parent="#sidebar-wrapper"><i class="fas fa-users mr-3"></i>Consultants<i class="fas fa-sort-down float-right"></i></a>
+            <div id="s1" class="sublinks collapse">
+                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
+                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
+            </div>
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s2" data-parent="#sidebar-wrapper"><i class="fas fa-folder mr-3"></i>Projecten<i class="fas fa-sort-down float-right"></i></a>
+            <div id="s2" class="sublinks collapse">
+                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
+                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
+            </div>
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s3" data-parent="#sidebar-wrapper"><i class="fas fa-tasks mr-3"></i>Activiteiten<i class="fas fa-sort-down float-right"></i></a>
+            <div id="s3" class="sublinks collapse">
+                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
+                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
+            </div>
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s4" data-parent="#sidebar-wrapper"><i class="fas fa-chart-pie mr-3"></i>Rapporten<i class="fas fa-sort-down float-right"></i></a>
+            <div id="s4" class="sublinks collapse">
+                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
+                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
+            </div>
+            <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-file-invoice-dollar mr-3"></i>Facturen</a>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-light bg-light border-bottom">
+            <a href="#" class="text-dark" id="menu-toggle"><i class="fas fa-bars"></i></a>
+            <ul class="nav ml-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" role="button"><i class="fas fa-bell text-dark"></i><sup><span class="badge">3</span></sup></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="dropdown"><i class="fas fa-user text-dark"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right mr-2">
+                        <a class="dropdown-item"><i class="fas fa-user mr-3"></i>Profiel</a>
+                        <a class="dropdown-item"><i class="fas fa-cog mr-3"></i>Instellingen</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="pages/login.php" class="dropdown-item"><i class="fas fa-power-off mr-3"></i>Uitloggen</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container m-3 ml-3">
+            <p class="small pt-2"> <i class="fas fa-home"></i>/  Dashboard</p>
+        </div>
+
+        <div class="container m-3">
+            <h1>Dashboard</h1>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!-- Menu toggle script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+
 </body>
 </html>
