@@ -110,7 +110,7 @@
                     </div>
                     <a href="" class="btn btn-sm mb-2" id="extraBtn"><i class="fas fa-plus"></i></a>
                     <div class="form-group">
-                        <label for="opmerking">Opmerking</label>
+                        <label for="opmerking">Opmerking (optioneel)</label>
                         <textarea class="form-control form-control-sm" rows="2" id="opmerking"></textarea>
                     </div>
                     <a href="timesheets.php" class="btn" id="toevoegenTimeEntryBtn">Toevoegen</a>
