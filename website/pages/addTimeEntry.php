@@ -15,7 +15,7 @@
 
     <!-- Custom stylesheets -->
     <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/timesheets.css">
+    <link rel="stylesheet" href="../css/addTimeEntry.css">
 
 </head>
 <body>
@@ -76,84 +76,47 @@
         </nav>
 
         <div class="container m-3 ml-3">
-            <p class="small pt-2"><i class="fas fa-home"></i>/  Timesheets</p>
+            <p class="small pt-2"><i class="fas fa-home"></i>/  Timesheets / Toevoegen uren</p>
         </div>
 
         <div class="container m-3">
-            <h1>Timesheets</h1>
+            <h1>Toevoegen uren</h1>
 
-            <div class="mt-3 d-flex">
-                <div class="">
-                    <a href="addTimeEntry.php" class="btn timesheetsBtn mr-2" id="toevoegenUren"><i class="fas fa-plus"></i> Toevoegen</a>
-                    <a href="" class="btn timesheetsBtn mr-2" id="ziekMelden">Ziek melden</a>
-                    <a href="" class="btn timesheetsBtn" id="vakantie">Vakantiedag(en) aanvragen</a>
-                </div>
+            <div class="mt-4 mr-4" id="addTimeEntry-wrapper">
+                <form action="">
+                    <div class="form-group">
+                        <label for="datum">Datum</label>
+                        <input type="date" class="form-control form-control-sm" id="datum">
+                    </div>
+                    <div class="form-group d-flex">
+                        <select class="form-control mr-4 form-control-sm" id="project">
+                            <option>Project mobile apps</option>
+                            <option>Integration project</option>
+                            <option>Software project II</option>
+                        </select>
+                        <input type="time" class="form-control mr-2 form-control-sm" id="beginTijd">
+                        <i class="fas fa-long-arrow-alt-right mt-2"></i>
+                        <input type="time" class="form-control ml-2 form-control-sm" id="eindTijd">
+                    </div>
+                    <div class="form-group d-flex">
+                        <select class="form-control mr-4 form-control-sm" id="project">
+                            <option>Project mobile apps</option>
+                            <option>Integration project</option>
+                            <option>Software project II</option>
+                        </select>
+                        <input type="time" class="form-control mr-2 form-control-sm" id="beginTijd">
+                        <i class="fas fa-long-arrow-alt-right mt-2"></i>
+                        <input type="time" class="form-control ml-2 form-control-sm" id="eindTijd">
+                    </div>
+                    <a href="" class="btn btn-sm mb-2" id="extraBtn"><i class="fas fa-plus"></i></a>
+                    <div class="form-group">
+                        <label for="opmerking">Opmerking</label>
+                        <textarea class="form-control form-control-sm" rows="2" id="opmerking"></textarea>
+                    </div>
+                    <a href="timesheets.php" class="btn" id="toevoegenTimeEntryBtn">Toevoegen</a>
+                </form>
 
-                <p class="ml-auto p-2 mr-4"><strong>Totaal:</strong> 60:15:00</p>
             </div>
-
-            <div class="mt-4">
-                <h6 class="timesheetDate">Maandag, 4 maart 2019</h6>
-                <div class="d-flex timesheetBody">
-                    <p>Project mobile apps</p>
-                    <p>08:30 - 11:00</p>
-                    <p>02:30:00</p>
-                </div>
-                <div class="d-flex timesheetBody">
-                    <p>Project mobile apps</p>
-                    <p>12:30 - 18:00</p>
-                    <p>05:30:00</p>
-                </div>
-                <hr>
-                <h6 class="timesheetDate">Maandag, 4 maart 2019</h6>
-                <div class="d-flex timesheetBody">
-                    <p>Project mobile apps</p>
-                    <p>08:30 - 11:00</p>
-                    <p>02:30:00</p>
-                </div>
-                <div class="d-flex timesheetBody align-items">
-                    <p>Project mobile apps</p>
-                    <p>12:30 - 18:00</p>
-                    <p>05:30:00</p>
-                </div>
-                <hr>
-                <h6 class="timesheetDate">Maandag, 4 maart 2019</h6>
-                <div class="d-flex timesheetBody">
-                    <p>Project mobile apps</p>
-                    <p>08:30 - 11:00</p>
-                    <p>02:30:00</p>
-                </div>
-                <div class="d-flex timesheetBody align-items">
-                    <p>Project mobile apps</p>
-                    <p>12:30 - 18:00</p>
-                    <p>05:30:00</p>
-                </div>
-                <hr>
-                <h6 class="timesheetDate">Maandag, 4 maart 2019</h6>
-                <div class="d-flex timesheetBody">
-                    <p>Project mobile apps</p>
-                    <p>08:30 - 11:00</p>
-                    <p>02:30:00</p>
-                </div>
-                <div class="d-flex timesheetBody align-items">
-                    <p>Project mobile apps</p>
-                    <p>12:30 - 18:00</p>
-                    <p>05:30:00</p>
-                </div>
-                <hr>
-                <h6 class="timesheetDate">Maandag, 4 maart 2019</h6>
-                <div class="d-flex timesheetBody">
-                    <p>Project mobile apps</p>
-                    <p>08:30 - 11:00</p>
-                    <p>02:30:00</p>
-                </div>
-                <div class="d-flex timesheetBody align-items">
-                    <p>Project mobile apps</p>
-                    <p>12:30 - 18:00</p>
-                    <p>05:30:00</p>
-                </div>
-            </div>
-
 
         </div>
 
