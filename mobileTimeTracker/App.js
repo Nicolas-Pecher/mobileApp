@@ -9,19 +9,21 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      menu: 'home'
+      menu: 'home',
+      colorTheme:{theme:'red',lightColor:'#FF4646',darkColor:'#980000'}
     }
   }
 
   getDisplay() {
+
     if (this.state.menu == 'home') {
-      return <Home />
+      return <Home colorTheme={this.state.colorTheme}/>
     }
     if (this.state.menu == 'overview') {
-      return <Overview />
+      return <Overview colorTheme={this.state.colorTheme}/>
     }
     if (this.state.menu == 'settings') {
-      return <Settings />
+      return <Settings colorTheme={this.state.colorTheme}/>
     }
   }
 
@@ -37,7 +39,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <View style={{ flex: 1 }} />
-        <View style={{ flex: 10,marginLeft:10 }}>
+        <View style={{ flex: 10,marginLeft:10,marginRight:10 }}>
           {this.getDisplay()}
         </View>
         <View style={{ flex: 1 , backgroundColor: '#404040'}}>

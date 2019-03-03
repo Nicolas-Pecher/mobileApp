@@ -21,7 +21,6 @@ export default class Home extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>This is the Home page</Text>
-                <Dropdown options = {options}/>
             </View>
         );
     }

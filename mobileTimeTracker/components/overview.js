@@ -9,28 +9,33 @@ export default class Overview extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
     }
   }
   render() {
+    
 
     return (
       <View style={styles.container}>
-        <Text style={{ fontSize: 30, flex: 1,textAlign:"center" }}>My Timesheets</Text>
-        <View style={{ flex: 1 }}>
-          <View style={{flex:1 ,flexDirection:"row"}}>
-            <Text style={{flex:1}}>Enterprise</Text>
-            <Dropdown options={options} style={{flex:1}}></Dropdown>
+        <Text style={{ fontSize: 35, flex: 2,textAlign:"center",color:"#484848" }}>My Timesheets</Text>
+        <View style={{ flex: 2 ,marginLeft:'auto',marginRight:'auto',width:'70%'}}>
+          <View style={styles.inputs}>
+            <Text style={{flex:2,color:"#484848",fontSize:18}}>enterprise</Text>
+            <View style={{flex:3}}>
+              <Dropdown />
+            </View>
           </View>
-          <View style={{flex:1 ,flexDirection:"row",justifyContent: 'center',}}>
-            <Text style={{flex:1}}>Project</Text>
-            <Dropdown options={options} style={{flex:1}}></Dropdown>
+          <View style={styles.inputs}>
+            <Text style={{flex:2,color:"#484848",fontSize:18}}>project</Text>
+            <View style={{flex:3}}>
+              <Dropdown />
+            </View>
           </View>
         </View>
         <View style={{ flex: 1 }}>
-          <Text style={{ fontSize: 30, textAlign: "center" }}>80h</Text>
+          <Text style={{textAlign:'center',fontSize:32, color:this.props.colorTheme.lightColor}}>80h</Text>
         </View>
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 7 }}>
+          <Text>Test</Text>
         </View>
       </View>
     );
@@ -42,4 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column'
   },
+  inputs:{
+    flex:1 ,flexDirection: 'row', color:"#484848"
+  }
 });
