@@ -9,19 +9,34 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      menu: 'home'
+      menu: 'home',
+      colorTheme:{theme:'red',lightColor:'#FF4646',darkColor:'#980000'}
     }
   }
 
   getDisplay() {
+
     if (this.state.menu == 'home') {
-      return <Home />
+      return <Home colorTheme={this.state.colorTheme}/>
     }
     if (this.state.menu == 'overview') {
-      return <Overview />
+      return <Overview colorTheme={this.state.colorTheme}/>
     }
     if (this.state.menu == 'settings') {
-      return <Settings />
+      return <Settings colorTheme={this.state.colorTheme} changeColor={this.changeColor}/>
+    }
+  }
+
+  changeColor = () => {
+    console.log("color changed");
+    if (this.state.colorTheme.theme == 'red') {
+      this.setState({
+        colorTheme: {theme:'blue',lightColor:'#53ACBE',darkColor:'#0E0055'}
+      })
+    } else{
+      this.setState({
+        colorTheme: {theme:'red',lightColor:'#FF4646',darkColor:'#980000'}
+      })
     }
   }
 
@@ -37,10 +52,10 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <View style={{ flex: 1 }} />
-        <View style={{ flex: 10 }}>
+        <View style={{ flex: 19,marginLeft:10,marginRight:10 }}>
           {this.getDisplay()}
         </View>
-        <View style={{ flex: 1 , backgroundColor: '#404040',}}>
+        <View style={{ flex: 2 , backgroundColor: '#404040'}}>
           <Menu changeDisplay={this.changeDisplay}/>
         </View>
       </View>
