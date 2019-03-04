@@ -1,7 +1,7 @@
 
     <?php 
         include './components/header.php';
-        
+        $userRol = 'consultant';
     ?>
     <body>
 
@@ -102,9 +102,8 @@
         <!-- /#page-content-wrapper -->
     </div>
     <!-- /#wrapper -->
-    <?php 
-        include './components/footer.php';
-    ?>
+    <?php include './components/footer.php'; ?>
+
     <script src="../javascript/showActivePage.js"></script>
     <script src="../javascript/timesheets.js"></script>
     </body>

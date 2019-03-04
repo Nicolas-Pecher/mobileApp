@@ -1,7 +1,4 @@
-<?php 
-$userRol = 'hr';
-?>
-
+<?php include './components/activeUser.php'; ?>
 
 <!-- Sidebar -->
 <div class="sidebar-wrapper" id="sidebar-wrapper">
