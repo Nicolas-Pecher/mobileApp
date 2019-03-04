@@ -28,21 +28,21 @@
         <div class="list-group list-group-flush">
             <a href="../index.php" class="list-group-item list-group-item-action"><i class="fas fa-tachometer-alt mr-3"></i>Dashboard</a>
             <a href="timesheets.php" class="list-group-item list-group-item-action active"><i class="fas fa-clock mr-3"></i>Timesheets</a>
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s1" data-parent="#sidebar-wrapper"><i class="fas fa-users mr-3"></i>Consultants<i class="fas fa-sort-down float-right"></i></a>
-            <div id="s1" class="sublinks collapse">
-                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
-                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
-            </div>
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s2" data-parent="#sidebar-wrapper"><i class="fas fa-folder mr-3"></i>Projecten<i class="fas fa-sort-down float-right"></i></a>
-            <div id="s2" class="sublinks collapse">
-                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
-                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
-            </div>
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s3" data-parent="#sidebar-wrapper"><i class="fas fa-tasks mr-3"></i>Activiteiten<i class="fas fa-sort-down float-right"></i></a>
-            <div id="s3" class="sublinks collapse">
-                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
-                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
-            </div>
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s1" data-parent="#sidebar-wrapper"><i class="fas fa-users mr-3"></i>Consultants</a>
+            <!--            <div id="s1" class="sublinks collapse">-->
+            <!--                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>-->
+            <!--                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>-->
+            <!--            </div>-->
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s2" data-parent="#sidebar-wrapper"><i class="fas fa-folder mr-3"></i>Projecten</a>
+            <!--            <div id="s2" class="sublinks collapse">-->
+            <!--                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>-->
+            <!--                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>-->
+            <!--            </div>-->
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s3" data-parent="#sidebar-wrapper"><i class="fas fa-tasks mr-3"></i>Activiteiten</a>
+            <!--            <div id="s3" class="sublinks collapse">-->
+            <!--                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>-->
+            <!--                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>-->
+            <!--            </div>-->
             <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s4" data-parent="#sidebar-wrapper"><i class="fas fa-chart-pie mr-3"></i>Rapporten<i class="fas fa-sort-down float-right"></i></a>
             <div id="s4" class="sublinks collapse">
                 <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
