@@ -1,3 +1,7 @@
+<?php 
+$userRol = 'consultant';
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,31 +29,33 @@
     <div class="sidebar-wrapper" id="sidebar-wrapper">
         <div class="sidebar-heading text-center" style="color: #f13c1f; font-weight: bold;">Timetracker</div>
         <div class="list-group list-group-flush">
-            <a href="index.php" class="list-group-item list-group-item-action active"><i class="fas fa-tachometer-alt mr-3"></i>Dashboard</a>
-            <a href="pages/timesheets.php" class="list-group-item list-group-item-action"><i class="fas fa-clock mr-3"></i>Timesheets</a>
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s1" data-parent="#sidebar-wrapper"><i class="fas fa-users mr-3"></i>Consultants</a>
-<!--            <div id="s1" class="sublinks collapse">-->
-<!--                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>-->
-<!--                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>-->
-<!--            </div>-->
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s2" data-parent="#sidebar-wrapper"><i class="fas fa-folder mr-3"></i>Projecten</a>
-<!--            <div id="s2" class="sublinks collapse">-->
-<!--                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>-->
-<!--                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>-->
-<!--            </div>-->
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s3" data-parent="#sidebar-wrapper"><i class="fas fa-tasks mr-3"></i>Activiteiten</a>
-<!--            <div id="s3" class="sublinks collapse">-->
-<!--                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>-->
-<!--                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>-->
-<!--            </div>-->
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s4" data-parent="#sidebar-wrapper"><i class="fas fa-chart-pie mr-3"></i>Rapporten<i class="fas fa-sort-down float-right"></i></a>
-            <div id="s4" class="sublinks collapse">
-                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
-                <a href="#" class="list-group-item list-group-item-action">subitem 1</a>
-            </div>
-            <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-file-invoice-dollar mr-3"></i>Facturen</a>
 
+        <a href="index.php" class="list-group-item list-group-item-action active"><i class="fas fa-tachometer-alt mr-3"></i>Dashboard</a>
+        
+        <?php if($userRol == 'consultant') { ?>
+            <a href="pages/timesheets.php" class="list-group-item list-group-item-action"><i class="fas fa-clock mr-3"></i>Timesheets</a>
+        <?php } ?> 
+            
+        <?php if($userRol != 'consultant' ) { ?>
+
+        <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s1" data-parent="#sidebar-wrapper"><i class="fas fa-users mr-3"></i>Consultants</a>
+        <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s2" data-parent="#sidebar-wrapper"><i class="fas fa-folder mr-3"></i>Projecten</a>
+        <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s3" data-parent="#sidebar-wrapper"><i class="fas fa-tasks mr-3"></i>Activiteiten</a>
+        <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s4" data-parent="#sidebar-wrapper"><i class="fas fa-chart-pie mr-3"></i>Rapporten<i class="fas fa-sort-down float-right"></i></a>
+        <div id="s4" class="sublinks collapse">
+            <a href="#" class="list-group-item list-group-item-action">Overzicht consultants</a>
+            <a href="#" class="list-group-item list-group-item-action">Overzicht overuren</a>
+            <a href="#" class="list-group-item list-group-item-action">Overzicht onderuren</a>
+
+            <?php if($userRol == 'manager') { ?>
+                <a href="#" class="list-group-item list-group-item-action">Overzicht per klant</a>
+            <?php }?>
+        <?php }?>
         </div>
+
+        <?php if($userRol == 'manager') { ?>
+            <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-file-invoice-dollar mr-3"></i>Facturen</a>
+        <?php }?>
     </div>
     <!-- /#sidebar-wrapper -->
 
@@ -95,7 +101,7 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+<script src="./javascript/index.js"></script>
 <!-- Menu toggle script -->
 <script>
     $("#menu-toggle").click(function (e) {
