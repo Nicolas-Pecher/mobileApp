@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text,StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default class Dropdown extends Component {
     constructor(props) {
@@ -9,11 +9,13 @@ export default class Dropdown extends Component {
     };
 
     render() {
-        
+
 
         return (
-            <View style={{width:'90%'}}>
-                <Text style={{backgroundColor:'white',textAlign:'center',borderRadius: 5,padding: '5% 15%',boxshadow}}>All</Text>
+            <View style={{ width: '90%' , shadowColor: '#000', shadowOffset: { width: 1, height: 2 }, shadowOpacity: 0.2, shadowRadius: 3}}>
+                <View style={styles.dropdown}>
+                    <Text style={{textAlign: 'center'}}>All</Text>
+                </View>
             </View>
         )
     }
@@ -21,5 +23,7 @@ export default class Dropdown extends Component {
 
 
 const styles = StyleSheet.create({
-   
+    dropdown: {
+        backgroundColor: 'white', borderRadius: 5, padding: '5% 15%', overflow: 'hidden',
+    }
 });
