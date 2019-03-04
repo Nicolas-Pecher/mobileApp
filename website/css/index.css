@@ -9,7 +9,6 @@ body {
     -moz-transition: margin .25s ease-out;
     -o-transition: margin .25s ease-out;
     transition: margin .25s ease-out;
-    border-right: 2px solid #F13C1F ;
 }
 
 .sidebar-wrapper, .list-group-item {
@@ -28,9 +27,9 @@ body {
 }
 
 .sidebar-wrapper .active {
-    background-color: #f13c1f;
+    background-color: #da1d00;
     color: white;
-    border: #f13c1f;
+    border: #da1d00;
 }
 
 #sidebar-wrapper .sidebar-heading {
