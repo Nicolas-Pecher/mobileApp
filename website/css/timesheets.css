@@ -1,0 +1,17 @@
+.timesheetsBtn {
+    background-color: #e5e5e5;
+    border: #e5e5e5;
+}
+
+.timesheetsBtn:hover {
+    background-color: #333333;
+    color: white;
+}
+
+.timesheetDate {
+    color: #f13c1f;
+}
+
+.timesheetBody p {
+    margin-right: 2rem;
+}

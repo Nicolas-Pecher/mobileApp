@@ -1,0 +1,46 @@
+body {
+    background-color: #e5e5e5;
+}
+
+#login-wrapper {
+    background-color: white;
+    width: 30%;
+    margin-top: 7%;
+    border-radius: 10px;
+}
+
+.card-header {
+
+}
+
+#login-button {
+    background-color: #F13C1F;
+    color: white;
+}
+
+.input-group-text{
+    background-color: #333333;
+    color: azure;
+    border-color: #333333;
+}
+
+@media (max-width: 992px) {
+    #login-wrapper {
+        width: 60%;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    body {
+        background-color: #e5e5e5;
+    }
+
+    #login-wrapper {
+        width: 90%;
+        border-radius: 5px;
+        margin: 20% auto;
+    }
+
+}
