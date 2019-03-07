@@ -17,5 +17,7 @@
     <link rel="stylesheet" href="../css/timesheets.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/addTimeEntry.css">
+    <link rel="stylesheet" href="../css/projects.css">
+    <link rel="stylesheet" href="../css/addConsultants.css">
 
 </head>
