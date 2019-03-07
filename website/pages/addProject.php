@@ -13,50 +13,49 @@
         <?php include './components/topNavigation.php';?>
 
         <div class="container m-3 ml-3">
-            <p class="small pt-2"><i class="fas fa-home"></i>/  Consultanten / Toevoegen consultant</p>
+            <p class="small pt-2"><i class="fas fa-home"></i>/  Projecten / Toevoegen projecten</p>
         </div>
 
         <div class="container m-3">
-            <h1>Toevoegen consultant</h1>
-
-            <div class="container mt-4 mr-4">
-                <form action="#">
-                    <p class="">Account</p>
-                    <input type="text" placeholder="voorbeeld@hotmail.com" class="form-control col-4">
+            <h1>Toevoegen project</h1>
+            <div class="col-xs-6">
+                <div class="container mt-4 mr-4">
+                    <p class="">Project</p>
+                    <input type="text" placeholder="Projectnaam" class="form-control col-4">
                     <br>
-                    <input type="text" placeholder="wachtwoord" class="form-control col-4">
-                </form>
-            </div>
+                    <div class="dropdown mb-4">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Kies een klant
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">klant</a>
+                            <a class="dropdown-item" href="#">Klant</a>
+                            <a class="dropdown-item" href="#">Klant</a>
+                        </div>
+                    </div>
+                    <p class="pr-3">Overuren toestaant <input type="checkbox"><p>
+             </div>
 
+            </div>
+            <div class="col-xs-6">
             <div class="container mt-4 mr-4">
-                    <p>Projecten</p>
+                    <p class="">Project</p>
+                    <input type="text" placeholder="Projectnaam" class="form-control col-4">
+                    <br>
                     <div class="dropdown mb-4">
                         <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Kies project
+                            Kies een klant
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Project1</a>
-                            <a class="dropdown-item" href="#">Project2</a>
-                            <a class="dropdown-item" href="#">Project3</a>
+                            <a class="dropdown-item" href="#">klant</a>
+                            <a class="dropdown-item" href="#">Klant</a>
+                            <a class="dropdown-item" href="#">Klant</a>
                         </div>
                     </div>
-                    <div class="dropdown mb-4">
-                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Kies project
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Project1</a>
-                            <a class="dropdown-item" href="#">Project2</a>
-                            <a class="dropdown-item" href="#">Project3</a>
-                        </div>
-                        <br>
-                        <button class="btn btn-secondary btn-sm mt-3"><i class="fas fa-plus"></i></button>
-                        <br>
-                        <a href="#" class="btn btn-danger projectBtn mt-4"> Toevoegen</a>
-                    </div>
+                    <p class="pr-3">Overuren toestaant <input type="checkbox"><p>
+             </div>
             </div>
             
-
         </div>
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
 
