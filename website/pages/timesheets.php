@@ -105,6 +105,6 @@
     <?php include './components/footer.php'; ?>
 
     <script src="../javascript/showActivePage.js"></script>
-    <script src="../javascript/timesheets.js"></script>
+    <script src="../javascript/consultants.js"></script>
     </body>
 </html>

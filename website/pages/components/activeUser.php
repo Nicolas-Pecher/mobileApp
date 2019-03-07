@@ -1,1 +1,1 @@
-<?php $userRol = 'consultant'; ?>
+<?php $userRol = 'manager'; ?>
