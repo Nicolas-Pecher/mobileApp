@@ -13,11 +13,11 @@
         <?php include './components/topNavigation.php';?>
 
         <div class="container m-3 ml-3">
-            <p class="small pt-2"><i class="fas fa-home"></i>/  Projecten / Toevoegen projecten</p>
+            <p class="small pt-2"><i class="fas fa-home"></i>/  Projecten / Wijzig projecten</p>
         </div>
 
         <div class="container m-3">
-            <h1>Toevoegen project</h1>
+            <h1>Wijzig project / Activiteiten toevoegen</h1>
             <div class="row">
             <div class="col-xs-6">
                 <div class="container mt-4 ml-4 mr-6">

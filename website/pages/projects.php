@@ -40,19 +40,19 @@ $userRol = 'manager';
       <td>Voornaam Achternaam</td>
       <td>voornaam@hotmail.com</td>
       <td id="check"><input type="checkbox"></td>
-      <td><a href="#"><button type="button" class="btn btn-outline-secondary btn-sm">Activiteiten toevoegen/ wijzigen project</button></a></td>
+      <td><a href="modifyProjects.php"><button type="button" class="btn btn-outline-secondary btn-sm">Activiteiten toevoegen/ wijzigen project</button></a></td>
     </tr>
     <tr>
       <td>Voornaam Achternaam</td>
       <td>voornaam@hotmail.com</td>
       <td id="check"><input type="checkbox"></td>
-      <td><a href="#"><button type="button" class="btn btn-outline-secondary btn-sm">Activiteiten toevoegen/ wijzigen project</button></a></td>
+      <td><a href="modifyProjects.php"><button type="button" class="btn btn-outline-secondary btn-sm">Activiteiten toevoegen/ wijzigen project</button></a></td>
     </tr>
     <tr>
       <td>Voornaam Achternaam</td>
       <td>voornaam@hotmail.com</td>
       <td id="check"><input type="checkbox"></td>
-      <td><a href="#"><button type="button" class="btn btn-outline-secondary btn-sm">Activiteiten toevoegen/ wijzigen project</button></a></td>
+      <td><a href="modifyProjects.php"><button type="button" class="btn btn-outline-secondary btn-sm">Activiteiten toevoegen/ wijzigen project</button></a></td>
     </tr>
   </tbody>
 </table>
