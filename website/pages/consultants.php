@@ -43,21 +43,21 @@
                       <td>voornaam@hotmail.com</td>
                       <td>34:10:23</td>
                       <td>9:00:12</td>
-                      <td><a href="#"><button type="button" class="btn btn-outline-secondary btn-sm">Details</button></a></td>
+                      <td><a href="detailConsultants.php"><button type="button" class="btn btn-outline-secondary btn-sm">Details</button></a></td>
                     </tr>
                     <tr>
                       <td>Voornaam Achternaam</td>
                       <td>voornaam@hotmail.com</td>
                       <td>34:10:23</td>
                       <td>9:00:12</td>
-                      <td><a href="#"><button type="button" class="btn btn-outline-secondary btn-sm">Details</button></a></td>
+                      <td><a href="detailConsultants.php"><button type="button" class="btn btn-outline-secondary btn-sm">Details</button></a></td>
                     </tr>
                     <tr>
                       <td>Voornaam Achternaam</td>
                       <td>voornaam@hotmail.com</td>
                       <td>34:10:23</td>
                       <td>9:00:12</td>
-                      <td><a href="#"><button type="button" class="btn btn-outline-secondary btn-sm">Details</button></a></td>
+                      <td><a href="detailConsultants.php"><button type="button" class="btn btn-outline-secondary btn-sm">Details</button></a></td>
                     </tr>
                   </tbody>
                 </table>

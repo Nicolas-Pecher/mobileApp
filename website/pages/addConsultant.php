@@ -30,30 +30,26 @@
 
             <div class="container mt-4 mr-4">
                     <p>Projecten</p>
-                    <div class="dropdown mb-4">
-                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Kies project
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Project1</a>
-                            <a class="dropdown-item" href="#">Project2</a>
-                            <a class="dropdown-item" href="#">Project3</a>
+                    <form>
+                        <div class="form-group d-flex">
+                        <select class="form-control mr-4 form-control-sm smallerBox" id="projectConsultant">
+                            <option>Project1</option>
+                            <option>Project2</option>
+                            <option>Project3</option>
+                        </select>
                         </div>
-                    </div>
-                    <div class="dropdown mb-4">
-                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Kies project
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Project1</a>
-                            <a class="dropdown-item" href="#">Project2</a>
-                            <a class="dropdown-item" href="#">Project3</a>
+                        <div class="form-group d-flex">
+                        <select class="form-control mr-4 form-control-sm" id="projectConsultant">
+                            <option>Project1</option>
+                            <option>Project2</option>
+                            <option>Project3</option>
+                        </select>
                         </div>
                         <br>
-                        <button class="btn btn-sm mt-3" id="addNewProjectBtn"><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-sm mt-1" id="addNewProjectBtn"><i class="fas fa-plus"></i></button>
                         <br>
-                        <a href="consultants.php" class="btn btn-danger projectBtn mt-4"> Toevoegen</a>
-                    </div>
+                        <a href="consultants.php" class="btn btn-danger projectBtn mt-4">Toevoegen</a>
+                        </form>
             </div>
             
 
