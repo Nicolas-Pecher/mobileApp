@@ -1,9 +1,10 @@
 .projectBtn {
-    background-color: #b41f1f;
-    border: #e5e5e5;
+    background-color: #f13c1f;
+    color: white;
 }
 
 .projectBtn:hover {
-    background-color: #333333;
+    background-color: #666666;
+    border-color: #666666;
     color: white;
 }

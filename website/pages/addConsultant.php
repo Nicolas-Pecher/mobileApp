@@ -1,6 +1,6 @@
 <?php 
         include './components/header.php';
-        $userRol = 'manager';
+        include 'components/activeUser.php';
 ?>
 <body>
 <div class="d-flex" id="wrapper">
@@ -13,7 +13,7 @@
         <?php include './components/topNavigation.php';?>
 
         <div class="container m-3 ml-3">
-            <p class="small pt-2"><i class="fas fa-home"></i>/  Consultanten / Toevoegen consultant</p>
+            <p class="small pt-2"><i class="fas fa-home"></i>/  Consultants / Toevoegen consultant</p>
         </div>
 
         <div class="container m-3">
@@ -50,9 +50,9 @@
                             <a class="dropdown-item" href="#">Project3</a>
                         </div>
                         <br>
-                        <button class="btn btn-secondary btn-sm mt-3"><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-sm mt-3" id="addNewProjectBtn"><i class="fas fa-plus"></i></button>
                         <br>
-                        <a href="#" class="btn btn-danger projectBtn mt-4"> Toevoegen</a>
+                        <a href="consultants.php" class="btn btn-danger projectBtn mt-4"> Toevoegen</a>
                     </div>
             </div>
             
@@ -67,5 +67,5 @@
     <?php include './components/footer.php'; ?>
 
     <script src="../javascript/showActivePage.js"></script>
-    <script src="../javascript/addConsultant.js"></script>
+    <script src="../javascript/consultants.js"></script>
 </body>

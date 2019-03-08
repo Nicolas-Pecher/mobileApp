@@ -22,7 +22,7 @@
 <div class="d-flex flex-column justify-content-center align-items-center" id="wrapper">
 
     <div class="card" id="login-wrapper">
-        <div class="card-header text-center pb-2"><i class="fas fa-user-circle fa-4x"></i><h1 class="pt-2">Account</h1></div>
+        <div class="card-header text-center pt-4 pb-4"><i class="fas fa-user-circle fa-4x"></i></div>
         <div class="card-body">
             <div class="form-group">
                 <div class="input-group">

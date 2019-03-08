@@ -10,7 +10,6 @@
 
     <?php include './components/topNavigation.php';?>
 
-
         <div class="container m-3 ml-3">
             <p class="small pt-2"><i class="fas fa-home"></i>/  Timesheets / Toevoegen uren</p>
         </div>
@@ -18,7 +17,7 @@
         <div class="container m-3">
             <h1>Toevoegen uren</h1>
 
-            <div class="mt-4 mr-4" id="addTimeEntry-wrapper">
+            <div class="mt-4 pr-4" id="addTimeEntry-wrapper">
                 <form action="">
                     <div class="form-group">
                         <label for="datum">Datum</label>
@@ -66,6 +65,9 @@
 
 
 <?php include './components/footer.php'; ?>
+
+<script src="../javascript/showActivePage.js"></script>
+<script src="../javascript/timesheets.js"></script>
 
 </body>
 </html>
