@@ -25,7 +25,7 @@
                 <div class="">
                     <a href="addTimeEntry.php" class="btn timesheetsBtn mr-2" id="toevoegenUren"><i class="fas fa-plus"></i> Toevoegen</a>
                     <a href="callInSick.php" class="btn timesheetsBtn mr-2" id="ziekMelden">Ziek melden</a>
-                    <a href="" class="btn timesheetsBtn" id="vakantie">Vakantiedag(en) aanvragen</a>
+                    <a href="takeVacation.php" class="btn timesheetsBtn" id="vakantie">Vakantiedag(en) aanvragen</a>
                 </div>
 
                 <p class="ml-auto p-2 mr-4"><strong>Totaal:</strong> 60:15:00</p>

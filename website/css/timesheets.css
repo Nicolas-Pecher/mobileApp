@@ -20,7 +20,7 @@
     background-color: #e5e5e5;
 }
 
-#toevoegenTimeEntryBtn, #toevoegenCallInSickBtn {
+#toevoegenTimeEntryBtn, #toevoegenCallInSickBtn, #toevoegenTakeVakationBtn {
     background-color: #f13c1f;
     color: white;
 }
