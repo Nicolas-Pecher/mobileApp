@@ -1,4 +1,4 @@
-<?php include './components/activeUser.php'; ?>
+<?php include 'activeUser.php'; ?>
 
 <!-- Sidebar -->
 <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -15,12 +15,11 @@
 
         <?php if( $userRol != 'consultant' ) { ?>
 
-            <a href="consultants.php" class="list-group-item list-group-item-action" id="consultants"><i class="fas fa-users mr-3"></i>Consultants</a>
-            <a href="projects.php" class="list-group-item list-group-item-action" id="projects"><i class="fas fa-folder mr-3"></i>Projecten</a>
-            <a href="../pages/timesheets.php" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s3" data-parent="#sidebar-wrapper"><i class="fas fa-tasks mr-3"></i>Activiteiten</a>
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s4" data-parent="#sidebar-wrapper"><i class="fas fa-chart-pie mr-3"></i>Rapporten<i class="fas fa-sort-down float-right"></i></a>
-            <div id="s4" class="sublinks collapse">
-                <a href="../pages/test.php" class="list-group-item list-group-item-action">Overzicht consultants</a>
+            <a href="./consultants.php" class="list-group-item list-group-item-action" id="consultants"><i class="fas fa-users mr-3"></i>Consultants</a>
+            <a href="./projects.php" class="list-group-item list-group-item-action" id="projects"><i class="fas fa-folder mr-3"></i>Projecten</a>
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s1" data-parent="#sidebar-wrapper"><i class="fas fa-chart-pie mr-3"></i>Rapporten<i class="fas fa-sort-down float-right"></i></a>
+            <div id="s1" class="sublinks collapse">
+                <a href="" class="list-group-item list-group-item-action">Overzicht consultants</a>
                 <a href="#" class="list-group-item list-group-item-action">Overzicht overuren</a>
                 <a href="#" class="list-group-item list-group-item-action">Overzicht onderuren</a>
                 

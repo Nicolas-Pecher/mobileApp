@@ -2,3 +2,8 @@
     text-align: center; 
     vertical-align: middle
 }
+
+#addNewProjectBtn {
+    background-color: #e5e5e5;
+    border-color: #e5e5e5;
+}
