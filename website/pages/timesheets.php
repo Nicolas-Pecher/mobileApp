@@ -1,7 +1,7 @@
 
     <?php 
         include './components/header.php';
-        $userRol = 'consultant';
+        include './components/activeUser.php';
     ?>
     <body>
 
@@ -24,7 +24,7 @@
             <div class="mt-3 d-flex">
                 <div class="">
                     <a href="addTimeEntry.php" class="btn timesheetsBtn mr-2" id="toevoegenUren"><i class="fas fa-plus"></i> Toevoegen</a>
-                    <a href="" class="btn timesheetsBtn mr-2" id="ziekMelden">Ziek melden</a>
+                    <a href="callInSick.php" class="btn timesheetsBtn mr-2" id="ziekMelden">Ziek melden</a>
                     <a href="" class="btn timesheetsBtn" id="vakantie">Vakantiedag(en) aanvragen</a>
                 </div>
 
@@ -105,6 +105,6 @@
     <?php include './components/footer.php'; ?>
 
     <script src="../javascript/showActivePage.js"></script>
-    <script src="../javascript/consultants.js"></script>
+    <script src="../javascript/timesheets.js"></script>
     </body>
 </html>

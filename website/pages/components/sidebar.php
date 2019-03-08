@@ -15,18 +15,12 @@
 
         <?php if( $userRol != 'consultant' ) { ?>
 
-            <a href="./consultants.php" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s1" data-parent="#sidebar-wrapper"><i class="fas fa-users mr-3"></i>Consultanten<i class="fas fa-sort-down float-right"></i></a>
-            <div id="s1" class="sublinks collapse">
-                <a href="./addConsultant.php" class="list-group-item list-group-item-action">Consultant toevoegen</a>
-            </div>
-            <a href="./projects.php" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s2" data-parent="#sidebar-wrapper"><i class="fas fa-folder mr-3"></i>Projecten<i class="fas fa-sort-down float-right"></i></a>
-            <div id="s2" class="sublinks collapse">
-                <a href="./addConsultant.php" class="list-group-item list-group-item-action">Project toevoegen</a>
-            </div>
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s3" data-parent="#sidebar-wrapper"><i class="fas fa-tasks mr-3"></i>Activiteiten</a>
+            <a href="consultants.php" class="list-group-item list-group-item-action" id="consultants"><i class="fas fa-users mr-3"></i>Consultants</a>
+            <a href="projects.php" class="list-group-item list-group-item-action" id="projects"><i class="fas fa-folder mr-3"></i>Projecten</a>
+            <a href="../pages/timesheets.php" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s3" data-parent="#sidebar-wrapper"><i class="fas fa-tasks mr-3"></i>Activiteiten</a>
             <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s4" data-parent="#sidebar-wrapper"><i class="fas fa-chart-pie mr-3"></i>Rapporten<i class="fas fa-sort-down float-right"></i></a>
             <div id="s4" class="sublinks collapse">
-                <a href="#" class="list-group-item list-group-item-action">Overzicht consultants</a>
+                <a href="../pages/test.php" class="list-group-item list-group-item-action">Overzicht consultants</a>
                 <a href="#" class="list-group-item list-group-item-action">Overzicht overuren</a>
                 <a href="#" class="list-group-item list-group-item-action">Overzicht onderuren</a>
                 
