@@ -22,7 +22,7 @@
             <div class="col-xs-6">
                 <div class="container mt-4 ml-4 mr-6">
                     <p class="">Project</p>
-                    <form>
+                    <form action="#">
                     <input type="text" placeholder="Projectnaam" class="form-control col-11">
                     <br>
                     <div class="form-group d-flex">

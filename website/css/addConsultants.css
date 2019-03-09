@@ -12,3 +12,12 @@
 .smallerBox{
     margin-right: 60%;
 }
+/*
+ class red en black zijn voor op de pagina detailsConsultant
+*/
+.red{
+    color:#f13c1f;
+}
+.black{
+    color:black;
+}
