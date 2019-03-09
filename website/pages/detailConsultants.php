@@ -21,38 +21,39 @@
             <h1>VOORNAAM ACHTERNAAM</h1>
 
             <div class="row">
-                <div class="col-xs-6 ml-5 mr-5">
+                <div class="col-xs-6 ml-5 mr-5 mt-3">
                     <form>
                         <div class="form-group">
-                        <p>Account</p>
-                        <br>
-                        <input type="text" placeholder="consultant email" class="form-control mr-2 form-control-sm">
-                        <br>
+                        <h5>Account</h5>
+                        <input type="text" placeholder="consultant email" class="form-control mr-2 mb-2 form-control-sm">
                         <input type="password" placeholder="consultant wachtwoord" class="form-control mr-2 form-control-sm">
-                        <br>
                         </div>
-                        <button class="btn btn-secondary">Wijzig wachtwoord</button>
+                        <button class="btn btn-secondary">Wachtwoord wijzigen</button>
                     </form>
                 </div>
-                <div class="col-xs-6 form-group mr-5">
+                <div class="col-xs-6 form-group mt-3 ml-5">
                     <div class="border">
-                <p>Projecten</p>
-                    <p>Project1</p>
-                    <p>Project2</p>
-                    <p>Project3</p>
-                    <select class="form-control mr-4 form-control-sm" id="projectConsultant">
-                            <option>Kies Project</option>
-                            <option>Integration project</option>
-                            <option>Software project II</option>
-                    </select>
+                      <h5 class="ml-4">Projecten</h5>
+                      <p class="border-bottom ml-4 mr-4">Project1</p>
+                      <p class="border-bottom ml-4 mr-4">Project2</p>
+                      <p class="border-bottom ml-4 mr-4">Project3</p>
+                      <form>
+                      <select class="form-control form-control-sm mr-4" id="projectConsultant">
+                              <option>Kies Project</option>
+                              <option>Integration project</option>
+                              <option>Software project II</option>
+                      </select>
+                      </form>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-            <div class="mt-5 mr-3 col-12">
+            <div class="mt-5 mr-3 col-11">
                 <div class="border">
-                <p>Timesheets</p>
+                <div class="d-flex">
+                <p class=" red mr-5 ml-4 mt-2">Timesheets</p><div class="d-flex justify-content-end"><p class="red ml-5 mt-2">Totaal uren: <span class="black" id="totaalUren">31:30:00</span></p></div>
+                </div>
                 <table class="table table-striped">
                   <thead>
                     <tr>
