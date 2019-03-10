@@ -39,7 +39,7 @@ export default class Overview extends React.Component {
 
 
         <View style={{ flex: 1 }}>
-          <Text style={{ textAlign: 'center', fontSize: 32, color: this.props.colorTheme.darkColor, paddingTop: 7, }}>80h</Text>
+          <Text style={{ textAlign: 'center', fontSize: 32, color: this.props.colorTheme.lightColor, paddingTop: 7, }}>80h</Text>
         </View>
 
         <View style={{ flex: 9 }}>
@@ -70,7 +70,9 @@ export default class Overview extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    marginLeft:10,
+    marginRight:10
   },
   inputs: {
     flex: 1, flexDirection: 'row', color: "#484848"
