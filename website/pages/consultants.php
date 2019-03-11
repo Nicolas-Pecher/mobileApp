@@ -27,52 +27,10 @@
                 </div>
             </div>
 
-            <div class="mt-4 mr-4">
-                <table class="table table-striped border">
-                    <thead>
-                    <tr>
-                        <th scope="col">Naam</th>
-                        <th scope="col">Emailadres</th>
-                        <th scope="col">Gewerkte uren</th>
-                        <th scope="col">Overuren</th>
-                        <th scope="col"></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Yasmine De Wolf</td>
-                        <td>yasminedewolf@hotmail.com</td>
-                        <td>34:10:00</td>
-                        <td>9:00:00</td>
-                        <td><a href="detailsConsultant.php" class="btn btn-sm btn-outline-secondary" role="button"
-                               id="detailsConsultantBtn">Details</a></td>
-                    </tr>
-                    <tr>
-                        <td>Maxime De Grauwe</td>
-                        <td>maximedegrauwe@hotmail.com</td>
-                        <td>34:10:00</td>
-                        <td>9:00:00</td>
-                        <td><a href="detailsConsultant.php" class="btn btn-sm btn-outline-secondary" role="button"
-                               id="detailsConsultantBtn">Details</a></td>
-                    </tr>
-                    <tr>
-                        <td>Nicolas Pecher</td>
-                        <td>nicolaspecher@hotmail.com</td>
-                        <td>34:10:00</td>
-                        <td>9:00:00</td>
-                        <td><a href="detailsConsultant.php" class="btn btn-sm btn-outline-secondary" role="button"
-                               id="detailsConsultantBtn">Details</a></td>
-                    </tr>
-                    <tr>
-                        <td>Cedric Willems</td>
-                        <td>cedricwillems@hotmail.com</td>
-                        <td>34:10:00</td>
-                        <td>9:00:00</td>
-                        <td><a href="detailsConsultant.php" class="btn btn-sm btn-outline-secondary" role="button"
-                               id="detailsConsultantBtn">Details</a></td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="mt-4 mr-4 tabledisplay">
+
+               <!--The consultants table is displayed here-->
+               
             </div>
         </div>
 
@@ -88,5 +46,6 @@
 
 <script src="../javascript/showActivePage.js"></script>
 <script src="../javascript/consultants.js"></script>
+<script src="../javascript/components/displayList.js"></script>
 
 </body>
