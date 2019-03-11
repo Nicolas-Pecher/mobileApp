@@ -29,14 +29,15 @@ function displayList(titles, data, listType) {
         $(headers).append(`<th scope="col">${title}</th>`);
     });
 
-
-
+    //checking type of table
     if (listType === 'consultants') {
         //adding last column without header
         $(headers).append(`<th scope="col"></th>`);
+        //add rows to table
         consultantTableRows(data, tbody);
+    } else {
+        console.log('invalid or not implemented listType');
     }
-
 
     //bind elements together
     $(thead).append(headers);
@@ -58,8 +59,6 @@ function consultantTableRows(data, body) {
         id="detailsConsultantBtn">Details</a></td>`)
         $(body).append(row)
     })
-
-    //$('table').append(tbody);
 
 }
 

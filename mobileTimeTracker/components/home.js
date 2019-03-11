@@ -17,29 +17,33 @@ export default class Home extends React.Component {
     }
 
     onPress() {
-        console.log('hello');
-        this.setState({
-            newEntry: true
-        })
+        if (!this.state.newEntry) {
+            this.setState({
+                newEntry: true
+            })
+        } else {
+            //console.log('cancel')
+            this.setState({ newEntry: false })
+        }
     }
 
     showNewEntry = () => {
         if (this.state.newEntry) {
-            console.log("show new entry")
-            return <LogTime />
+            return <LogTime colorTheme={this.props.colorTheme}/>
         }
     }
 
 
     render() {
         const fontsize = 16;
-
+        let buttontext = ((!this.state.newEntry) ? 'add time':'cancel')
+        
         return (
             <View style={{ flex: 1 }}>
                 <View style={styles.container}>
                     <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end', }} >
                         <TouchableOpacity activeOpacity={0.5} onPress={() => this.onPress()} style={{ shadowColor: '#000', shadowOffset: { width: 1, height: 2 }, shadowOpacity: 0.2, shadowRadius: 3 }}>
-                            <Text style={{ backgroundColor: 'white', borderRadius: 3, padding: '3% 30%', overflow: 'hidden', marginRight: '2%', color: this.props.colorTheme.lightColor }}>Add time</Text>
+                            <Text style={{ backgroundColor: '#FBFBFB', borderRadius: 3, padding: '3% 30%', overflow: 'hidden', marginRight: '2%', color: this.props.colorTheme.lightColor }}>{buttontext}</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 10, zIndex: 0 }}>
