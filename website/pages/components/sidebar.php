@@ -30,7 +30,7 @@
             </div>
 
             <?php if($userRol == 'manager') { ?>
-                <a href="facturations.php" class="list-group-item list-group-item-action" id="facturations"><i class="fas fa-file-invoice-dollar mr-3"></i>Facturen</a>
+                <a href="./invoices.php" class="list-group-item list-group-item-action" id="invoices"><i class="fas fa-file-invoice-dollar mr-3"></i>Facturen</a>
             <?php }?>
 
         <?php }?>

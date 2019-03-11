@@ -138,7 +138,7 @@
 <?php include './components/footer.php'; ?>
 
 <script src="../javascript/showActivePage.js"></script>
-<script src="../javascript/facturations.js"></script>
+<script src="../javascript/invoices.js"></script>
 <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
 <script src="../javascript/jsPDF.JS"></script>
 

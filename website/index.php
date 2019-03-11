@@ -52,7 +52,7 @@
                 </div>
 
                 <?php if($userRol == 'manager') { ?>
-                <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-file-invoice-dollar mr-3"></i>Facturen</a>
+                <a href="./pages/invoices.php" class="list-group-item list-group-item-action" id="invoices"><i class="fas fa-file-invoice-dollar mr-3"></i>Facturen</a>
                 <?php }?>
 
             <?php }?>
@@ -72,10 +72,10 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link" data-toggle="dropdown"><i class="fas fa-user text-dark"></i></a>
                     <div class="dropdown-menu dropdown-menu-right mr-2">
-                        <a class="dropdown-item"><i class="fas fa-user-edit mr-3"></i>Profiel</a>
+                        <a href="./pages/profile.php" class="dropdown-item"><i class="fas fa-user-edit mr-3"></i>Profiel</a>
                         <a class="dropdown-item"><i class="fas fa-cog mr-3"></i>Instellingen</a>
                         <div class="dropdown-divider"></div>
-                        <a href="pages/login.php" class="dropdown-item"><i class="fas fa-power-off mr-3"></i>Uitloggen</a>
+                        <a href="./pages/login.php" class="dropdown-item"><i class="fas fa-power-off mr-3"></i>Uitloggen</a>
                     </div>
                 </li>
             </ul>
