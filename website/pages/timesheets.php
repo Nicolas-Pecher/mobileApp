@@ -1,21 +1,21 @@
+<?php
+    include './components/header.php';
+    include './components/activeUser.php';
+?>
 
-    <?php 
-        include './components/header.php';
-        include './components/activeUser.php';
-    ?>
-    <body>
+<body>
 
-    <div class="d-flex" id="wrapper">
-    
-        <?php include './components/sidebar.php'; ?>
+<div class="d-flex" id="wrapper">
 
-        <!-- Page content -->
-        <div id="page-content-wrapper">
+    <?php include './components/sidebar.php'; ?>
 
-        <?php include './components/topNavigation.php';?>
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+
+        <?php include './components/topNavigation.php'; ?>
 
         <div class="container m-3 ml-3">
-            <p class="small pt-2"><i class="fas fa-home"></i>/  Timesheets</p>
+            <p class="small pt-2"><i class="fas fa-home"></i>/ Timesheets</p>
         </div>
 
         <div class="container m-3">
@@ -23,7 +23,8 @@
 
             <div class="mt-3 d-flex">
                 <div class="">
-                    <a href="addTimeEntry.php" class="btn timesheetsBtn mr-2" id="toevoegenUren"><i class="fas fa-plus"></i> Toevoegen</a>
+                    <a href="addTimeEntry.php" class="btn timesheetsBtn mr-2" id="toevoegenUren"><i
+                                class="fas fa-plus"></i> Toevoegen</a>
                     <a href="callInSick.php" class="btn timesheetsBtn mr-2" id="ziekMelden">Ziek melden</a>
                     <a href="takeVacation.php" class="btn timesheetsBtn" id="vakantie">Vakantiedag(en) aanvragen</a>
                 </div>
@@ -98,13 +99,13 @@
 
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
 
-        </div>
-        <!-- /#page-content-wrapper -->
     </div>
-    <!-- /#wrapper -->
-    <?php include './components/footer.php'; ?>
+    <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
+<?php include './components/footer.php'; ?>
 
-    <script src="../javascript/showActivePage.js"></script>
-    <script src="../javascript/timesheets.js"></script>
-    </body>
+<script src="../javascript/showActivePage.js"></script>
+<script src="../javascript/timesheets.js"></script>
+</body>
 </html>

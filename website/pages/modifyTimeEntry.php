@@ -1,9 +1,6 @@
-<?php
-    include './components/header.php';
-?>
+<?php include './components/header.php'; ?>
 
 <body>
-
 <div class="d-flex" id="wrapper">
 
     <?php include './components/sidebar.php'; ?>
@@ -11,14 +8,14 @@
     <!-- Page content -->
     <div id="page-content-wrapper">
 
-    <?php include './components/topNavigation.php';?>
+        <?php include './components/topNavigation.php';?>
 
         <div class="container m-3 ml-3">
-            <p class="small pt-2"><i class="fas fa-home"></i>/  Timesheets / Toevoegen uren</p>
+            <p class="small pt-2"><i class="fas fa-home"></i>/  Timesheets / Wijzigen uren</p>
         </div>
 
         <div class="container m-3">
-            <h1>Toevoegen uren</h1>
+            <h1>Wijzigen uren</h1>
 
             <div class="mt-4 pr-4" id="addTimeEntry-wrapper">
                 <form action="">
@@ -36,22 +33,22 @@
                         <i class="fas fa-long-arrow-alt-right mt-2"></i>
                         <input type="time" class="form-control ml-2 form-control-sm" id="eindTijd">
                     </div>
-<!--                    <div class="form-group d-flex">-->
-<!--                        <select class="form-control mr-4 form-control-sm" id="project">-->
-<!--                            <option>Project mobile apps</option>-->
-<!--                            <option>Integration project</option>-->
-<!--                            <option>Software project II</option>-->
-<!--                        </select>-->
-<!--                        <input type="time" class="form-control mr-2 form-control-sm" id="beginTijd">-->
-<!--                        <i class="fas fa-long-arrow-alt-right mt-2"></i>-->
-<!--                        <input type="time" class="form-control ml-2 form-control-sm" id="eindTijd">-->
-<!--                    </div>-->
+                    <!--                    <div class="form-group d-flex">-->
+                    <!--                        <select class="form-control mr-4 form-control-sm" id="project">-->
+                    <!--                            <option>Project mobile apps</option>-->
+                    <!--                            <option>Integration project</option>-->
+                    <!--                            <option>Software project II</option>-->
+                    <!--                        </select>-->
+                    <!--                        <input type="time" class="form-control mr-2 form-control-sm" id="beginTijd">-->
+                    <!--                        <i class="fas fa-long-arrow-alt-right mt-2"></i>-->
+                    <!--                        <input type="time" class="form-control ml-2 form-control-sm" id="eindTijd">-->
+                    <!--                    </div>-->
                     <a href="" class="btn btn-sm mb-2" id="extraEntryBtn"><i class="fas fa-plus"></i></a>
                     <div class="form-group">
                         <label for="opmerking">Opmerking (optioneel)</label>
                         <textarea class="form-control form-control-sm" rows="2" id="opmerking"></textarea>
                     </div>
-                    <a href="timesheets.php" class="btn" id="toevoegenTimeEntryBtn">Toevoegen</a>
+                    <a href="detailsConsultant.php" class="btn" id="toevoegenTimeEntryBtn">Wijzigen</a>
                 </form>
 
             </div>
@@ -72,4 +69,3 @@
 <script src="../javascript/timesheets.js"></script>
 
 </body>
-</html>
