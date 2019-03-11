@@ -19,16 +19,10 @@ export default class Overview extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text style={{ fontSize: 35, flex: 2, textAlign: "center", color: "#484848" }}>My Timesheets</Text>
+        
 
-
-        <View style={{ flex: 2, marginLeft: 'auto', marginRight: 'auto', width: '80%' }}>
-          <View style={styles.inputs}>
-            <Text style={{ flex: 2, color: "#484848", fontSize: 18, textAlignVertical: 'center' }}>enterprise</Text>
-            <View style={{ flex: 3 }}>
-              <Dropdown />
-            </View>
-          </View>
+        <View style={{ flex: 1, marginLeft: 'auto', marginRight: 'auto', width: '80%' }}>
+          
           <View style={styles.inputs}>
             <Text style={{ flex: 2, color: "#484848", fontSize: 18, textAlignVertical: 'center' }}>project</Text>
             <View style={{ flex: 3 }}>
@@ -42,7 +36,7 @@ export default class Overview extends React.Component {
           <Text style={{ textAlign: 'center', fontSize: 32, color: this.props.colorTheme.lightColor, paddingTop: 7, }}>80h</Text>
         </View>
 
-        <View style={{ flex: 9 }}>
+        <View style={{ flex: 12 }}>
           <ScrollView >
 
             <View style={{ paddingTop: 15 }}>
@@ -72,7 +66,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     marginLeft:10,
-    marginRight:10
+    marginRight:10,
+    marginTop: 10,
   },
   inputs: {
     flex: 1, flexDirection: 'row', color: "#484848"
