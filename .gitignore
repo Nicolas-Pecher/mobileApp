@@ -3,6 +3,3 @@ website/.idea/deployment.xml
 website/.idea/misc.xml
 *.xml
 website/.idea/website.iml
-WebAPI/planning/.git/*
-WebAPI/planning/.gitignore
-WebAPI/planning/planning/.vs/*
