@@ -1,6 +1,7 @@
 <?php
     include './components/header.php';
     include './components/activeUser.php';
+    include '../controllers/getTimesheets.php';
 ?>
 
 <body>
@@ -33,12 +34,16 @@
             </div>
 
             <div class="mt-4">
-                <h6 class="timesheetDate">Maandag, 4 maart 2019</h6>
-                <div class="d-flex timesheetBody">
-                    <p>Project mobile apps</p>
-                    <p>08:30 - 11:00</p>
-                    <p>02:30:00</p>
-                </div>
+
+                <?php foreach($timesheets as $timesheet) {
+                    ?>
+                    <h6 class="timesheetDate"><?php echo $timesheet->Datum; ?></h6>
+                    <div class="d-flex timesheetBody">
+                        <p>Project mobile apps</p>
+                        <p><?php echo $timesheet->Beginuur; ?> - <?php echo $timesheet->Einduur; ?></p>
+                        <p></p>
+                    </div>
+                <?php } ?>
                 <div class="d-flex timesheetBody">
                     <p>Project mobile apps</p>
                     <p>12:30 - 18:00</p>
@@ -107,5 +112,19 @@
 
 <script src="../javascript/showActivePage.js"></script>
 <script src="../javascript/timesheets.js"></script>
+
+<script>
+    // $(document).ready(function () {
+    //     $.ajax({
+    //         type: "get",
+    //         url: "http://localhost:59964/api/Timesheet",
+    //         success: function (response) {
+    //             console.log(response)
+    //         }
+    //     });
+    // });
+
+
+</script>
 </body>
 </html>
