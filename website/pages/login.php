@@ -1,3 +1,7 @@
+<?php
+    include '../controllers/doLogin.php';
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,13 +27,14 @@
 
     <div class="card" id="login-wrapper">
         <div class="card-header text-center pt-4 pb-4"><i class="fas fa-user-circle fa-4x"></i></div>
-        <div class="card-body">
+        <form action="" class="card-body">
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                     </div>
                     <input type="email" class="form-control" id="email" placeholder="Emailadres">
+                    <span class="text-danger small"><?php echo $emailErr; ?></span>
                 </div>
             </div>
             <div class="form-group">
@@ -38,19 +43,19 @@
                         <span class="input-group-text"><i class="fas fa-lock"></i></span>
                     </div>
                     <input type="password" class="form-control" id="password" placeholder="Wachtwoord">
+                    <span class="text-danger small"><?php echo $passwordErr; ?></span>
                 </div>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label small">
-                    <input class="form-check-input" type="checkbox" name="loggedIn"> Ingelogd blijven
+                    <input class="form-check-input" type="checkbox" name="loggedIn" id="loginCheck"> Ingelogd blijven
                 </label>
             </div>
             <a href="../index.php" class="btn btn-block" id="login-button">Inloggen</a>
             <div class="text-center mt-2">
                 <a href="#" class="d-block small text-dark">Wachtwoord vergeten?</a>
             </div>
-
-        </div>
+        </form>
     </div>
 
 
