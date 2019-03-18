@@ -11,7 +11,7 @@ body {
     transition: margin .25s ease-out;
 }
 
-.sidebar-wrapper, .list-group-item {
+.sidebar-wrapper, .sidebar-wrapper .list-group-item {
     background-color: #333333;
     color: white;
 }

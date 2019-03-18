@@ -15,3 +15,17 @@
 .timesheetBody p {
     margin-right: 2rem;
 }
+
+#extraEntryBtn {
+    background-color: #e5e5e5;
+}
+
+#toevoegenTimeEntryBtn, #toevoegenCallInSickBtn, #toevoegenTakeVakationBtn {
+    background-color: #f13c1f;
+    color: white;
+}
+
+#callInSickBtn {
+    background-color: #f13c1f;
+    color: white;
+}
