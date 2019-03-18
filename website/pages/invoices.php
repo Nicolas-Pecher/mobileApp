@@ -23,7 +23,7 @@
             <div id="testDiv">
             <div class="container">
             <div class="text-center">
-         <h1>Factuur</h1>
+         <h1 class="text-left">Factuur</h1>
     </div>
 
      <div class="row">
@@ -75,7 +75,7 @@
 				<div class="panel-body">
 				  <h3 class="panel-title">Details</h3>
 				  
-				  <table class="table table-condensed">
+				  <table id="table1" class="table table-condensed">
 					<thead>
 					  <tr>
                         <th>Product</th>
@@ -118,7 +118,7 @@
 					</tbody>
 				  </table>
 				</div> <!-- panel body -->
-				<div class="footer-copyright text-center border-top">Footer</div>
+				<div class="footer-copyright text-center border-top">Einde</div>
              </div> <!-- panel -->
         </div> <!-- col -->
     </div> <!-- row -->
