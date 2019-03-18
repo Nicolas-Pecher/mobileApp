@@ -4,20 +4,23 @@ import Home from './components/home.js';
 import Overview from './components/overview.js';
 import Settings from './components/settings.js';
 import Menu from './components/menu.js';
+import Login from './components/login';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       menu: 'home',
-      colorTheme:{theme:'red',lightColor:'#FF4646',darkColor:'#980000'}
+      colorTheme:{theme:'red',lightColor:'#FF4646',darkColor:'#980000'},
+      loggedIn:true, // if true user is logged in
+      user: {}
     }
   }
 
   getDisplay() {
 
     if (this.state.menu == 'home') {
-      return <Home colorTheme={this.state.colorTheme}/>
+      return <Home colorTheme={this.state.colorTheme} />
     }
     if (this.state.menu == 'overview') {
       return <Overview colorTheme={this.state.colorTheme}/>
@@ -47,19 +50,31 @@ export default class App extends React.Component {
     })
   }
 
-  render() {
+  setUser = (user) => {
+    this.setState({
+      user:user
+    })
+  }
 
-    return (
-      <View style={styles.container}>
-        <View style={{ flex: 1 }} />
-        <View style={{ flex: 19 }}>
-          {this.getDisplay()}
+  render() {
+    if (this.state.loggedIn) {
+      return (
+        <View style={styles.container}>
+          <View style={{ flex: 1 }} />
+          <View style={{ flex: 19 }}>
+            {this.getDisplay()}
+          </View>
+          <View style={{ flex: 2 , backgroundColor: '#404040'}}>
+            <Menu changeDisplay={this.changeDisplay}/>
+          </View>
         </View>
-        <View style={{ flex: 2 , backgroundColor: '#404040'}}>
-          <Menu changeDisplay={this.changeDisplay}/>
-        </View>
-      </View>
-    );
+      );
+    } else { // if the isLogged state is false this is displayed
+      return (
+        <Login user= {this.setUser} />
+      )
+    }
+    
   }
 }
 
