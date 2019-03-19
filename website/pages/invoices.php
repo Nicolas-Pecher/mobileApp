@@ -1,146 +1,155 @@
 <!--factuur template gevonden op https://www.bootply.com/xb50zMUQTe-->
 <?php
-    include './components/header.php';
-    include './components/activeUser.php';
+include './components/header.php';
+include './components/activeUser.php';
 ?>
 
 <body>
 
-<div class="d-flex" id="wrapper">
+    <div class="d-flex" id="wrapper">
 
-    <?php include './components/sidebar.php'; ?>
+        <?php include './components/sidebar.php'; ?>
 
-    <!-- Page content -->
-    <div id="page-content-wrapper">
+        <!-- Page content -->
+        <div id="page-content-wrapper">
 
-        <?php include './components/topNavigation.php'; ?>
+            <?php include './components/topNavigation.php'; ?>
 
-        <div class="container m-3 ml-3">
-            <p class="small pt-2"><i class="fas fa-home"></i>/  Facturen</p>
-        </div>
-
-        <div class="container m-3">
-            <div id="testDiv">
-            <div class="container">
-            <div class="text-center">
-         <h1 class="text-left">Factuur</h1>
-    </div>
-
-     <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <!-- <h3 class="panel-title"></h3> -->
-					<hr>
-                    <div class="row">
-                        
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label for="klant" class="col-sm-2 control-label">Klant</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" id="klant" placeholder="klant" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                              
-                                <label for="datum" class="col-sm-5 control-label">Datum</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="datum" placeholder="datum factuur" type="date">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 target">
-                            <div class="form-group">
-                                <label for="id" class="col-sm-3 control-label">Id</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" id="id" type="text">
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- row -->
-                    <br>
-                    <div class="row">
-                        <div class="col-md-6"> 
-                          <address>
-                           <strong class="">VOORNAAM ACHTERNAAM</strong><br>
-                            STRAATNAAM STRAATNUMMER<br>
-                            GEMEENTE<br>
-                            LAND<br>                          
-                           </address>
-                        </div>
-                   </div> <!-- row -->
-				</div> <!-- panel heading -->
-				<div class="panel-body">
-				  <h3 class="panel-title">Details</h3>
-				  
-				  <table id="table1" class="table table-condensed">
-					<thead>
-					  <tr>
-                        <th>Product</th>
-                        <th>Klant</th>
-						<th>Omschrijving</th>
-                        <th>Prijs per uur</th>
-                        <th>Totaal uren</th>
-						<th>BTW percent</th>
-						<th>Totaal</th>
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr>
-						<td class="">Controle</td>
-						<td class="">Axxes</td>
-						<td class="">Testen of het software secure is</td>
-						<td class="">34.99</td>
-                        <td class="">12:00:00</td>
-                        <td>21%</td>
-                        <td>419.88</td>
-                      </tr>
-                      <tr>
-						<td class="">Controle</td>
-						<td class="">Axxes</td>
-						<td class="">Testen of het software secure is</td>
-						<td class="">34.99</td>
-                        <td class="">12:00:00</td>
-                        <td>21%</td>
-                        <td>419.88</td>
-                      </tr>
-                      <tr>
-						<td class="">Controle</td>
-						<td class="">Axxes</td>
-						<td class="">Testen of het software secure is</td>
-						<td class="">34.99</td>
-                        <td class="">12:00:00</td>
-                        <td>21%</td>
-                        <td>419.88</td>
-					  </tr>
-					</tbody>
-				  </table>
-				</div> <!-- panel body -->
-				<div class="footer-copyright text-center border-top">Einde</div>
-             </div> <!-- panel -->
-        </div> <!-- col -->
-    </div> <!-- row -->
-</div>
+            <div class="container m-3 ml-3">
+                <p class="small pt-2"><i class="fas fa-home"></i>/ Facturen</p>
             </div>
-            <button id="genPDF" class="btn btn-secondary">Download PDF</button>
-        </div>
 
-        <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
+            <div class="container m-3">
+                <div class="container">
+                    <div class="text-left">
+                        <h1 id="titel" class="text-left">Factuur maken</h1>
+                    </div>
+                    <div class="form-group">
+                        <p>Kies klant:</p>
+                        <select class="form-control mr-4 form-control-sm" id="klantFactuur">
+                            <option>Klant1</option>
+                            <option>Klant2</option>
+                            <option>Klant3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <p>Kies consultant:</p>
+                        <select class="form-control mr-4 form-control-sm" id="consultantFactuur">
+                            <option>Consultant1</option>
+                            <option>Consultant2</option>
+                            <option>Consultant3</option>
+                        </select>
+                    </div>
+                    <div id="factuur">
+
+                        <h3 class="ml-5">Ons bedrijf</h3>
+
+                        <address class="ml-5">
+                            Nijverheidskaai 170, 1070 Anderlecht<br>
+                            België, tel.: 02 523 37 37
+                        </address>
+
+                        <h2 class="ml-5">Factuurnummer: #</h2>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <address class="ml-5">
+                                        Datum van verstuur:<span id="datumVerstuur"></span><br>
+                                        Uiterste datum:<span id="uitersteDatum"></span><br>
+                                        Overblijvende dagen:<span id="overblijvendeDagen"></span><br>
+                                        Munt: EUR<br>
+                                        Rekeningnummer:<span id="rekeningNummer"></span><br>
+                                    </address>
+                                </div>
+                                <div class="col-sm-6">
+                                    <address class="ml-5">
+                                        Factuur voor:
+                                        <span id="naamBedrijf">Naam bedrijf</span><br>
+                                        <span id="straatnummer">straatnummer</span><span id="straatnaam">straatnaam</span><br>
+                                        <span id="postcode">postcode</span><span id="gemeente">gemeente</span><br>
+                                        <span id="land">land</span>
+                                        Munt: EUR<br>
+                                        Rekeningnummer:<span id="rekeningNummer"></span><br>
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped mt-5">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Omschrijving activiteit</th>
+                                                <th scope="col">Gewerkte uren</th>
+                                                <th scope="col">Overuren</th>
+                                                <th scope="col">Prijs per uur</th>
+                                                <th scope="col">Subtotaal</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td>Testing software</td>
+                                                <td>12&euro;</td>
+                                                <td>2&euro;</td>
+                                                <td>10&euro;</td>
+                                                <td>140&euro;</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>Testing software</td>
+                                                <td>12&euro;</td>
+                                                <td>2&euro;</td>
+                                                <td>10&euro;</td>
+                                                <td>140&euro;</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>Testing software</td>
+                                                <td>12&euro;</td>
+                                                <td>2&euro;</td>
+                                                <td>10&euro;</td>
+                                                <td>140&euro;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="normal table table-borderless">
+                                        <tr>
+                                            <td>Totaal excl. BTW</td>
+                                            <td>140&euro;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BTW percentage 21%</td>
+                                            <td>47&euro;</td>
+                                        </tr>
+                                        <tr class="border-top">
+                                            <td class="red">Totaal</td>
+                                            <td>187&euro;</td>
+                                        </tr>
+                                    </table>
+                    </div>
+                </div>
+                <button id="genPDF" class="btn btn-secondary ml-3">Download PDF</button>
+            </div>
+            <!--einde container-->
+
+            <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
+
+        </div>
+        <!-- /#page-content-wrapper -->
 
     </div>
-    <!-- /#page-content-wrapper -->
+    <!-- /#wrapper -->
 
-</div>
-<!-- /#wrapper -->
+    <?php include './components/footer.php'; ?>
 
-<?php include './components/footer.php'; ?>
-
-<script src="../javascript/showActivePage.js"></script>
-<script src="../javascript/invoices.js"></script>
-<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
-<script src="../javascript/jsPDF.JS"></script>
+    <script src="../javascript/showActivePage.js"></script>
+    <script src="../javascript/invoices.js"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+    <script src="https://unpkg.com/jspdf-autotable"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="../javascript/jsPDF.JS"></script>
 
 </body>
-</html>
+
+</html> 
