@@ -27,37 +27,8 @@
                 </div>
             </div>
 
-            <div class="mt-4 mr-4">
-                <table class="table table-striped border">
-                    <thead>
-                        <tr>
-                            <th scope="col">Naam</th>
-                            <th scope="col">Klant</th>
-                            <th scope="col">Overuren toegestaan</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Project Mobile Apps</td>
-                            <td>Delaware</td>
-                            <td id="check"><input type="checkbox"></td>
-                            <td><a href="modifyProjects.php" class="btn btn-outline-secondary btn-sm">Wijzig project / Activiteiten toevoegen</a></td>
-                        </tr>
-                        <tr>
-                            <td>Software Project II</td>
-                            <td>IBM</td>
-                            <td id="check"><input type="checkbox"></td>
-                            <td><a href="modifyProjects.php" class="btn btn-outline-secondary btn-sm">Wijzig project / Activiteiten toevoegen</a></td>
-                        </tr>
-                        <tr>
-                            <td>Integration Project</td>
-                            <td>Oracle</td>
-                            <td id="check"><input type="checkbox"></td>
-                            <td><a href="modifyProjects.php" class="btn btn-outline-secondary btn-sm">Wijzig project / Activiteiten toevoegen</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="mt-4 mr-4 tabledisplay">
+               <!--table wordt gegenereerd met de functie displayList in de file displayList.js-->
             </div>
         </div>
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
@@ -71,6 +42,8 @@
 <?php include './components/footer.php'; ?>
 
 <script src="../javascript/showActivePage.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../javascript/projects.js"></script>
+<script src="../javascript/components/displayList.js"></script>
 
 </body>
