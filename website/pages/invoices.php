@@ -27,17 +27,13 @@ include './components/activeUser.php';
                     <div class="form-group">
                         <p>Kies klant:</p>
                         <select class="form-control mr-4 form-control-sm" id="klantFactuur">
-                            <option>Klant1</option>
-                            <option>Klant2</option>
-                            <option>Klant3</option>
+                            <!--opties komen van ajax call in file invoices.js-->
                         </select>
                     </div>
                     <div class="form-group">
                         <p>Kies consultant:</p>
                         <select class="form-control mr-4 form-control-sm" id="consultantFactuur">
-                            <option>Consultant1</option>
-                            <option>Consultant2</option>
-                            <option>Consultant3</option>
+                             <!--opties komen van ajax call in file invoices.js-->
                         </select>
                     </div>
                     <div id="factuur">
@@ -88,7 +84,7 @@ include './components/activeUser.php';
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td></td>
+                                                <td>1</td>
                                                 <td>Testing software</td>
                                                 <td>12&euro;</td>
                                                 <td>2&euro;</td>
@@ -96,7 +92,7 @@ include './components/activeUser.php';
                                                 <td>140&euro;</td>
                                             </tr>
                                             <tr>
-                                                <td></td>
+                                                <td>2</td>
                                                 <td>Testing software</td>
                                                 <td>12&euro;</td>
                                                 <td>2&euro;</td>
@@ -104,7 +100,7 @@ include './components/activeUser.php';
                                                 <td>140&euro;</td>
                                             </tr>
                                             <tr>
-                                                <td></td>
+                                                <td>3</td>
                                                 <td>Testing software</td>
                                                 <td>12&euro;</td>
                                                 <td>2&euro;</td>
