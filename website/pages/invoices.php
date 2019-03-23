@@ -52,19 +52,19 @@ include './components/activeUser.php';
                                 <div class="col-sm-6">
                                     <address class="ml-5">
                                         Datum van verstuur:<span id="datumVerstuur"></span><br>
-                                        Uiterste datum:<span id="uitersteDatum"></span><br>
-                                        Overblijvende dagen:<span id="overblijvendeDagen"></span><br>
+                                        Uiterste datum: <span id="uitersteDatum"></span><br>
+                                        <!--Overblijvende dagen:<span id="overblijvendeDagen"></span><br>-->
                                         Munt: EUR<br>
-                                        Rekeningnummer:<span id="rekeningNummer"></span><br>
+                                        Rekeningnummer:<span id="rekeningNummerOns"></span><br>
                                     </address>
                                 </div>
                                 <div class="col-sm-6">
                                     <address class="ml-5">
                                         Factuur voor:
-                                        <span id="naamBedrijf">Naam bedrijf</span><br>
-                                        <span id="straatnummer">straatnummer</span><span id="straatnaam">straatnaam</span><br>
-                                        <span id="postcode">postcode</span><span id="gemeente">gemeente</span><br>
-                                        <span id="land">land</span>
+                                        <span id="naamBedrijf"></span><br>
+                                        <span id="straatnummer"></span><span id="straatnaam"></span><br>
+                                        <span id="postcode"></span><span id="gemeente"></span><br>
+                                        <span id="land"></span>
                                         Munt: EUR<br>
                                         Rekeningnummer:<span id="rekeningNummer"></span><br>
                                     </address>
@@ -85,22 +85,6 @@ include './components/activeUser.php';
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>Testing software</td>
-                                                <td>12&euro;</td>
-                                                <td>2&euro;</td>
-                                                <td>10&euro;</td>
-                                                <td>140&euro;</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Testing software</td>
-                                                <td>12&euro;</td>
-                                                <td>2&euro;</td>
-                                                <td>10&euro;</td>
-                                                <td>140&euro;</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
                                                 <td>Testing software</td>
                                                 <td>12&euro;</td>
                                                 <td>2&euro;</td>
