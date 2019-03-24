@@ -26,15 +26,15 @@ include './components/activeUser.php';
                     </div>
                     <div class="form-group">
                         <p>Kies klant:</p>
-                        <select class="form-control mr-4 form-control-sm" id="klantFactuur">
-                            <!--opties komen van ajax call in file invoices.js-->
-                        </select>
+                        <ul class="list-group" id="listKlanten">
+                            <!--li elementen komen van ajax call in file invoices.js-->
+                        </ul>
                     </div>
                     <div class="form-group">
                         <p>Kies consultant:</p>
-                        <select class="form-control mr-4 form-control-sm" id="consultantFactuur">
-                             <!--opties komen van ajax call in file invoices.js-->
-                        </select>
+                        <ul class="list-group" id="listConsultanten">
+                            <!--li elementen komen van ajax call in file invoices.js-->
+                        </ul>
                     </div>
                     <div id="factuur">
 
@@ -64,7 +64,8 @@ include './components/activeUser.php';
                                         <span id="naamBedrijf"></span><br>
                                         <span id="straatnummer"></span><span id="straatnaam"></span><br>
                                         <span id="postcode"></span><span id="gemeente"></span><br>
-                                        <span id="land"></span>
+                                        <span id="land"></span><br>
+                                        BTW nummer:<span id="btwNummer"></span><br>
                                         Munt: EUR<br>
                                         Rekeningnummer:<span id="rekeningNummer"></span><br>
                                     </address>
@@ -72,41 +73,41 @@ include './components/activeUser.php';
                             </div>
                         </div>
                         <table class="table table-striped mt-5">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col"></th>
-                                                <th scope="col">Omschrijving activiteit</th>
-                                                <th scope="col">Gewerkte uren</th>
-                                                <th scope="col">Overuren</th>
-                                                <th scope="col">Prijs per uur</th>
-                                                <th scope="col">Subtotaal</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Testing software</td>
-                                                <td>12&euro;</td>
-                                                <td>2&euro;</td>
-                                                <td>10&euro;</td>
-                                                <td>140&euro;</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table class="normal table table-borderless">
-                                        <tr>
-                                            <td>Totaal excl. BTW</td>
-                                            <td>140&euro;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>BTW percentage 21%</td>
-                                            <td>47&euro;</td>
-                                        </tr>
-                                        <tr class="border-top">
-                                            <td class="red">Totaal</td>
-                                            <td>187&euro;</td>
-                                        </tr>
-                                    </table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Consultant</th>
+                                    <th scope="col">Omschrijving activiteit</th>
+                                    <th scope="col">Gewerkte uren</th>
+                                    <th scope="col">Overuren</th>
+                                    <th scope="col">Prijs per uur</th>
+                                    <th scope="col">Subtotaal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="naamConsultant"></td>
+                                    <td id="activiteitConsultant">Testing software</td>
+                                    <td id="gewerkteUren">12&euro;</td>
+                                    <td id="overUren">2&euro;</td>
+                                    <td id="prijsPerUur">10&euro;</td>
+                                    <td id="subtotaal">140&euro;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="normal table table-borderless">
+                            <tr>
+                                <td>Totaal excl. BTW</td>
+                                <td id="totaalExclBTW">140&euro;</td>
+                            </tr>
+                            <tr>
+                                <td>BTW percentage 21%</td>
+                                <td id="bedragBTW">47&euro;</td>
+                            </tr>
+                            <tr class="border-top">
+                                <td class="red">Totaal</td>
+                                <td id="totaal">187&euro;</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
                 <button id="genPDF" class="btn btn-secondary ml-3">Download PDF</button>
