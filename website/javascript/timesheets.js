@@ -1,4 +1,6 @@
 
+console.log("test, zit in timesheets.js");
+
 activePage('timesheets');
 
 $(document).ready(function () {
