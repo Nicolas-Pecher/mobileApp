@@ -26,7 +26,7 @@ export default class Overview extends React.Component {
           <View style={styles.inputs}>
             <Text style={{ flex: 2, color: "#484848", fontSize: 18, textAlignVertical: 'center' }}>project</Text>
             <View style={{ flex: 3 }}>
-              <Dropdown />
+             
             </View>
           </View>
         </View>

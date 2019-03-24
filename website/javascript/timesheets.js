@@ -41,14 +41,14 @@ $(document).ready(function () {
 
             let obj = data;
             let divTimesheets = $('#timeEntryDiv');
+            let vorigeDatum = '';
 
             obj.forEach(timeLog => {
 
-                console.log(obj)
 
                 //datum formaat aanpassen naar dd-mm-YYYY
                 let date = new Date(timeLog.Datum);
-                let datum = weekday[date.getDay()] + ', ' + date.getDate().toString().padStart(2, '0') + ' ' + month[date.getMonth()] + ' ' + date.getFullYear();
+                datum = weekday[date.getDay()] + ', ' + date.getDate().toString().padStart(2, '0') + ' ' + month[date.getMonth()] + ' ' + date.getFullYear();
 
                 //beginuur formaat aanpassen naar hh:mm:ss
                 let beginuur = new Date(timeLog.Beginuur);
@@ -61,12 +61,20 @@ $(document).ready(function () {
                 //gewerkte tijd
                 let werktijd = ((einduur.getHours() - beginuur.getHours()).toString().padStart(2, '0')) + ':' + ((einduur.getMinutes() - beginuur.getMinutes()).toString().padStart(2, '0')) + ':' + ((einduur.getSeconds() - beginuur.getSeconds()).toString().padStart(2, '0'));
 
-                
+
+
                 var div = ($('<div "></div>'));
-                div.append($('<h5 class="timesheetDate"></h5>').attr('value', timeLog.Datum).text(datum));
+                console.log(timeLog)
+
+                if (!(timeLog.Datum.substring(0, 10) == vorigeDatum)) {
+                    console.log("same date")
+                    div.append($('<h5 class="timesheetDate"></h5>').attr('value', timeLog.Datum).text(datum));
+                }
+
+
 
                 var contentDiv = $('<div class="d-flex timesheetBody"></div>')
-                contentDiv.append($('<p class="align-text-top"></p>').attr('value', timeLog.ProjectId).text(timeLog.ProjectId));
+                contentDiv.append($('<p class="align-text-top"></p>').attr('value', timeLog.NaamProject).text(timeLog.NaamProject));
                 contentDiv.append($('<p class="align-text-top"></p>').attr('value', timeLog.Beginuur).text(begin));
                 contentDiv.append($('<p></p>').attr('value', timeLog.Einduur).text(eind));
                 contentDiv.append($('<p></p>').attr('value', werktijd).text(werktijd));
@@ -75,6 +83,9 @@ $(document).ready(function () {
                 div.append($('<hr>'));
 
                 divTimesheets.append(div);
+
+                //datum klaar maken voor volgende loop
+                vorigeDatum = timeLog.Datum.substring(0, 10)
             });
 
         }
