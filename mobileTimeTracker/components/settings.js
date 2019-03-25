@@ -16,9 +16,8 @@ export default class Settings extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>This is the settings page</Text>
         <TouchableOpacity onPress={() => this.onClick()}>
-          <Text style={{textAlign:'center',fontSize:20}}>change color theme</Text>
+          <Text style={{textAlign:'center',fontSize:20,marginTop: 25,}}>change color theme</Text>
         </TouchableOpacity>
       </View>
     );
