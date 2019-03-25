@@ -13,7 +13,7 @@ $.ajax({
         data.forEach(klant => {
             number = number + 1;
             bedrijven.push(klant);
-            $('#listKlanten').append(`<li class="list-group-item list-group-item-action" id="${klant.Naam}">${klant.Naam}</li>`);
+            $('#listKlanten').append(`<li class="list-group-item list-group-item-action" id="${klant.BedrijfNaam}">${klant.BedrijfNaam}</li>`);
             //$('#klantFactuur').append(`<option id="selectKlant${number}">${klant.Naam}</option>`);
         });
     }
@@ -49,12 +49,14 @@ $.ajax({
         data.forEach(gebruiker => {
             if (gebruiker.Rol === "consultant") {
                 consultanten.push(gebruiker);
-                $('#listConsultanten').append(`<li class="list-group-item list-group-item-action" id="${gebruiker.Naam}">${gebruiker.Naam}</li>`);
+                $('#listConsultanten').append(`<li class="list-group-item list-group-item-action" id="${gebruiker.GebruikerNaam}">${gebruiker.GebruikerNaam}</li>`);
             }
         });
     }
 });
 
+console.log(bedrijven);
+console.log(consultanten);
 //eventlistener toevoegen aan consultant optie
 document.getElementById("listConsultanten").addEventListener("click", function (e) {
     if (e.target && e.target.nodeName == "LI") {
