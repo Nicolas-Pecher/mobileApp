@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import Dropdown from './Inputs/dropdown';
+//import Dropdown from './Inputs/dropdown';
 import TimelogRow from './timelogrow';
 
 //temporary options for the dropdown menu

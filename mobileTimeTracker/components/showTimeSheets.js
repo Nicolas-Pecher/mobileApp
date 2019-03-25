@@ -16,6 +16,8 @@ export default class ShowTimeSheets extends Component {
         return roundHour + ":" + minutes;
     }
 
+    //checking if the date of the present row is the same as the previous
+    //if not a header will be added with his date otherwise the new row will be grouped with the previous one
     checkDate(date, previousDay) {
         console.log(date.getDay() + " " + previousDay.getDay())
         console.log(date.getDay() == previousDay.getDay())
@@ -27,8 +29,8 @@ export default class ShowTimeSheets extends Component {
     }
 
     render() {
-        //console.log(this.props.timesheets)
-        previousDay = new Date();
+        //previous date will be saved in this variable
+        previousDay = new Date(0);
         return (
             <ScrollView>
                 {
@@ -42,7 +44,7 @@ export default class ShowTimeSheets extends Component {
                         return (
                             <View style={{ paddingTop: 5 }} key={timesheet.Id}>
                                 {title}
-                                <TimelogRow project={timesheet.NaamProject} begin={begin} end={end} colorTheme={this.props.colorTheme} />
+                                <TimelogRow project={timesheet.ProjectNaam} begin={begin} end={end} colorTheme={this.props.colorTheme} />
                             </View>
                         )
                     })
