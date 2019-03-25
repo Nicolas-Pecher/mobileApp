@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View,AsyncStorage } from 'react-native';
 import Home from './components/home.js';
 import Overview from './components/overview.js';
 import Settings from './components/settings.js';
@@ -19,8 +19,8 @@ export default class App extends React.Component {
     }
   }
 
+  //show the page that has to be displayed
   getDisplay() {
-
     if (this.state.menu == 'home') {
       return <Home colorTheme={this.state.colorTheme} />
     }
@@ -32,6 +32,7 @@ export default class App extends React.Component {
     }
   }
 
+  //change the color theme of the app
   changeColor = () => {
     console.log("color changed");
     if (this.state.colorTheme.theme == 'red') {
@@ -43,15 +44,50 @@ export default class App extends React.Component {
         colorTheme: {theme:'red',lightColor:'#FF4646',darkColor:'#980000'}
       })
     }
+    this.saveColorLocally();
   }
 
+  //save the color theme to local storage
+  saveColorLocally = async () => {
+    try {
+      await AsyncStorage.setItem('colorTheme',this.state.colorTheme);
+    } catch (error) {
+      console.log('data could not be saved')
+    }
+  }
+
+  componentDidMount() {
+    this.getColorLocally()
+    console.log(this.state.colorTheme.theme)
+  }
+
+  getColorLocally = async () => {
+    console.log('getting the color')
+    try {
+        const value = await AsyncStorage.getItem('colorTheme');
+        if (value !== null) {
+          this.setState({
+            colorTheme: value
+          })
+            console.log("colortheme was saved");
+        } else {
+          this.setState({
+            colorTheme: {theme:'red',lightColor:'#FF4646',darkColor:'#980000'}
+          })
+        }
+    } catch (error) {
+        console.log('color can not be fetched')
+    }
+}
+
+  //change the page that is displayed
   changeDisplay = (display) => {
-    //console.log('display page: ' + display)
     this.setState({
       menu:display
     })
   }
 
+  //set the user that is logged in
   setUser = (user) => {
     this.setState({
       user:user
@@ -59,6 +95,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.colorTheme.theme)
     if (this.state.loggedIn) {
       return (
         <View style={styles.container}>

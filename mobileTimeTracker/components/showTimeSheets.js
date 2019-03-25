@@ -19,13 +19,9 @@ export default class ShowTimeSheets extends Component {
     //checking if the date of the present row is the same as the previous
     //if not a header will be added with his date otherwise the new row will be grouped with the previous one
     checkDate(date, previousDay) {
-        console.log(date.getDay() + " " + previousDay.getDay())
-        console.log(date.getDay() == previousDay.getDay())
         if (date.getDay() != previousDay.getDay() || date.getMonth() != previousDay.getMonth()) {
             return <Text style={{ color: this.props.colorTheme.lightColor, marginBottom: 10, fontSize: 16,marginTop:25 }}>{date.getDate() + " " + date.toLocaleString('en-us', { month: 'short' })}</Text>;
-        } else {
-            console.log("test")
-        }
+        } 
     }
 
     render() {
@@ -42,7 +38,7 @@ export default class ShowTimeSheets extends Component {
                         var title = this.checkDate(date, previousDay)
                         previousDay = date;
                         return (
-                            <View style={{ paddingTop: 5 }} key={timesheet.Id}>
+                            <View style={{ paddingTop: 5 }} key={timesheet.TimesheetId}>
                                 {title}
                                 <TimelogRow project={timesheet.ProjectNaam} begin={begin} end={end} colorTheme={this.props.colorTheme} />
                             </View>
