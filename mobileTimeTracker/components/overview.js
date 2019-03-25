@@ -1,39 +1,66 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-//import Dropdown from './Inputs/dropdown';
+import { StyleSheet, Text, View, ScrollView,TouchableOpacity } from 'react-native';
+import Dropdown from './Inputs/dropdown';
 import TimelogRow from './timelogrow';
 
 //temporary options for the dropdown menu
-let options = ["test 1", "test 2", "tralala 3"]
-
+let testItems = [
+  { key: 'Project 1', id: 1 },
+  { key: 'Project 2', id: 2 },
+  { key: 'Project 3', id: 3 },
+];
 
 
 export default class Overview extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      project: testItems[0],
+      showProjects: false,
+      projects: testItems
     }
   }
+
+  //show or hide dropdown component
+  toggleShowProjects = () => {
+    if (!this.state.showProjects) {
+      this.setState({
+        showProjects: true
+      })
+    } else {
+      this.setState({
+        showProjects: false
+      })
+    }
+  }
+
+  //show dropdown component
+  showProjects() {
+    if (this.state.showProjects) {
+      return <Dropdown options={testItems} removeDropDown={this.toggleShowProjects} colorTheme={this.props.colorTheme} selected={this.selectedProject} />
+    }
+  }
+
+  //change the selected project
+  selectedProject = (project) => {
+    this.setState({
+      project: project
+    })
+  }
+
+
   render() {
     const fontsize = 16;
 
     return (
       <View style={styles.container}>
-        
+
 
         <View style={{ flex: 1, marginLeft: 'auto', marginRight: 'auto', width: '80%' }}>
-          
-          <View style={styles.inputs}>
-            <Text style={{ flex: 2, color: "#484848", fontSize: 18, textAlignVertical: 'center' }}>project</Text>
-            <View style={{ flex: 3 }}>
-             
-            </View>
-          </View>
-        </View>
 
-
-        <View style={{ flex: 1 }}>
-          <Text style={{ textAlign: 'center', fontSize: 32, color: this.props.colorTheme.lightColor, paddingTop: 7, }}>80h</Text>
+          <TouchableOpacity activeOpacity={0.5} onPress={() => this.toggleShowProjects()}>
+            <Text style={{ color: this.props.colorTheme.lightColor, fontSize: 22, paddingLeft: 20, paddingTop: 15, paddingBottom: 15 }}>{this.state.project.key}</Text>
+          </TouchableOpacity>
         </View>
 
         <View style={{ flex: 12 }}>
@@ -56,6 +83,7 @@ export default class Overview extends React.Component {
 
           </ScrollView>
         </View>
+        {this.showProjects()}
       </View>
     );
   }
@@ -65,12 +93,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    marginLeft:10,
-    marginRight:10,
     marginTop: 10,
-  },
-  inputs: {
-    flex: 1, flexDirection: 'row', color: "#484848"
   },
   timeLog: {
     borderTopColor: "#484848"

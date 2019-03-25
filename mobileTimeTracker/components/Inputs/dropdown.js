@@ -16,7 +16,7 @@ export default class Dropdown extends Component {
 
     cancel() {
         console.log("cancel")
-        this.props.toggleShowProjects();
+        this.props.removeDropDown();
     }
 
     confirm() {
@@ -28,7 +28,7 @@ export default class Dropdown extends Component {
                 this.props.selected(option);
             }
         });
-        this.props.toggleShowProjects();
+        this.props.removeDropDown();
     }
 
     changeSelected = (id) => {
@@ -63,7 +63,6 @@ export default class Dropdown extends Component {
                                 return (<TouchableOpacity activeOpacity={0.5} onPress={() => this.changeSelected(option.id)} key={option.id}>{text}</TouchableOpacity>);
                             })
                         }
-
                     </ScrollView>
                 </View>
             </View>

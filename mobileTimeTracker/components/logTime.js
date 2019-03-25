@@ -30,7 +30,6 @@ export default class LogTime extends Component {
     super(props)
 
     this.state = {
-      text: 'this is a input field',
       fadeAnim: new Animated.Value(0),
       project: testItems[0],
       showProjects: false,
@@ -47,8 +46,6 @@ export default class LogTime extends Component {
         duration: 100,
       }
     ).start();                        // Starts the animation
-
-    
   }
 
   showBeginPicker = () => {
@@ -74,7 +71,7 @@ export default class LogTime extends Component {
   showProjects() {
     console.log('test')
     if (this.state.showProjects) {
-      return <Dropdown options={testItems} toggleShowProjects={this.toggleShowProjects} colorTheme={this.props.colorTheme} selected={this.selectedProject}/>
+      return <Dropdown options={testItems} removeDropDown={this.toggleShowProjects} colorTheme={this.props.colorTheme} selected={this.selectedProject}/>
     }
   }
 
