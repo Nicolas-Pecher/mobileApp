@@ -69,7 +69,7 @@ export default class Home extends React.Component {
                 <View style={styles.container}>
                     <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end', }} >
                         <TouchableOpacity activeOpacity={0.5} onPress={() => this.onPress()} style={{ shadowColor: '#000', shadowOffset: { width: 1, height: 2 }, shadowOpacity: 0.2, shadowRadius: 3 }}>
-                            <Text style={{ backgroundColor: '#FBFBFB', borderRadius: 3, padding: '3% 30%', overflow: 'hidden', marginRight: '2%', color: this.props.colorTheme.lightColor }}>{buttontext}</Text>
+                            <Text style={{ backgroundColor: '#FBFBFB', borderRadius: 3, padding: '3%', padding:'30%', overflow: 'hidden', marginRight: '2%', color: this.props.colorTheme.lightColor }}>{buttontext}</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 10, zIndex: 0 }}>
