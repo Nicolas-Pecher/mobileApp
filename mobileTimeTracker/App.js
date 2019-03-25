@@ -12,7 +12,7 @@ export default class App extends React.Component {
     this.state = {
       menu: 'home',
       colorTheme:{theme:'red',lightColor:'#FF4646',darkColor:'#980000'},
-      loggedIn:true, // if true user is logged in
+      loggedIn:false, // if true user is logged in
       user: {}
     }
   }
@@ -52,8 +52,10 @@ export default class App extends React.Component {
 
   setUser = (user) => {
     this.setState({
-      user:user
+      user:user,
+      loggedIn:true
     })
+
   }
 
   render() {
@@ -70,8 +72,9 @@ export default class App extends React.Component {
         </View>
       );
     } else { // if the isLogged state is false this is displayed
+      console.log("login")
       return (
-        <Login user= {this.setUser} />
+        <Login setUser={this.setUser} />
       )
     }
     
