@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group d-flex test" id="test">
                         <select class="form-control mr-4 form-control-sm" id="selectProject">
-                            <option selected="true" disabled name="projectId" class="projectId">Kies een project</option>
+
                         </select>
                         <input name="beginuur" type="time" class="form-control mr-2 form-control-sm" id="beginuur">
                         <i class="fas fa-long-arrow-alt-right mt-2"></i>
@@ -40,7 +40,7 @@
                         <label for="opmerking">Opmerking (optioneel)</label>
                         <textarea name="opmerking" class="form-control form-control-sm" rows="2" id="opmerking"></textarea>
                     </div>
-                    <button href="" class="btn" type="submit" id="toevoegenTimeEntryBtn">Toevoegen</button>
+                    <a href="timesheets.php" class="btn" type="submit" id="toevoegenTimeEntryBtn">Toevoegen</a>
                 </form>
 
             </div>
@@ -58,6 +58,7 @@
 <?php include './components/footer.php'; ?>
 
 <script src="../javascript/showActivePage.js"></script>
+<script src="../javascript/addTimeEntry.js"></script>
 <script src="../javascript/addTimeEntry.js"></script>
 
 </body>

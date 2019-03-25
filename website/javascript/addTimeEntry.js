@@ -1,11 +1,18 @@
+console.log("test test test");
+
+console.log("test, in timeentry");
+
+//voor actief list-item in sidebar
+activePage('timesheets');
+
+console.log("test, zit in addTimeEntry.js");
+
 $(document).ready(function () {
 
-    //console.log("timeentry javascript");
+    console.log("timeentry javascript");
 
-    //voor actief list-item in sidebar
-    activePage('timesheets');
 
-    // ophalen projecten en weergeven in dropdown van form
+
     $.ajax({
         type: 'GET',
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/Project',
@@ -15,13 +22,13 @@ $(document).ready(function () {
             //console.log(obj[0]);
             let dropdown = $('#selectProject');
             dropdown.empty();
-            dropdown.append('<option selected="true" disabled>Kies een project</option>');
+            dropdown.append('<option selected="true" disabled>Kies een Project</option>');
             //dropdown.prop('selectedIndex', 0);
 
             for ( let i = 0; i < obj.length; i++ ) {
-                console.log(obj[i].Naam);
-                dropdown.append($('<option class="projectId"></option>').attr('value', obj[i].Id).text(obj[i].Naam));
-                console.log(obj[i].Id);
+                console.log(obj[i].ProjectNaam);
+                dropdown.append($('<option class="projectId"></option>').attr('value', obj[i].ProjectId).text(obj[i].ProjectNaam));
+                console.log(obj[i].ProjectId);
             }
         }
     });

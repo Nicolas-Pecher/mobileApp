@@ -1,22 +1,3 @@
-/*let titles = ['Naam', 'Emailadres', 'Gewerkte uren', 'Overuren'];
-
-let data = [{
-    naam: 'Yasmine De Wolf',
-    email: 'yasminedewolf@hotmail.com',
-    totUren: '34:10:00',
-    overUren: '9:00:00'
-}, {
-    naam: 'Nicolas Pecher',
-    email: 'nicolas@hotmail.com',
-    totUren: '34:10:00',
-    overUren: '9:00:00'
-}, {
-    naam: 'Maxime De Bogoos',
-    email: 'Maxime@hotmail.com',
-    totUren: '34:10:00',
-    overUren: '9:00:00'
-}]*/
-
 function displayList(titles, data, listType) {
     //making structure
     let table = $('<table class="table table-striped border"></table>');
@@ -54,10 +35,10 @@ function consultantTableRows(data, body) {
 
     data.forEach(data => {
         let row = $('<tr></tr>');
-        $(row).append(`<td>${data.Naam}</td>`)
+        $(row).append(`<td>${data.GebruikerNaam}</td>`)
         $(row).append(`<td>${data.Email}</td>`)
-        $(row).append(`<td>${data.Wachtwoord}</td>`)
-        $(row).append(`<td>${data.Rol}</td>`)
+        $(row).append(`<td>${data}</td>`)
+        $(row).append(`<td>${data}</td>`)
         $(row).append(`<td><a href="detailsConsultant.php" class="btn btn-sm btn-outline-secondary" role="button"
         id="detailsConsultantBtn">Details</a></td>`)
         $(body).append(row)
