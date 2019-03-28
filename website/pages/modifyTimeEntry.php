@@ -1,4 +1,10 @@
-<?php include './components/header.php'; ?>
+<?php
+    include './components/header.php';
+
+    if(!isset($_SESSION['gebruikerId'])) {
+        header("Location: login.php");
+    }
+?>
 
 <body>
 <div class="d-flex" id="wrapper">

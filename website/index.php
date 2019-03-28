@@ -1,6 +1,11 @@
 <?php
-    include './pages/components/activeUser.php';
     session_start();
+
+    if (!isset($_SESSION['gebruikerId'])) {
+        header("Location: ./pages/login.php");
+    }
+
+
 ?>
 
 <!doctype html>

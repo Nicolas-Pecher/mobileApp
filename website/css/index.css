@@ -72,6 +72,11 @@ i {
     background-color: #e5e5e5;
 }
 
+#changePasswordBtn {
+    background-color: #F13C1F;
+    color: white;
+}
+
 @media (min-width: 768px) {
     #sidebar-wrapper {
         margin-left: 0;

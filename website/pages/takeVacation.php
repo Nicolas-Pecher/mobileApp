@@ -1,6 +1,9 @@
 <?php
-include './components/header.php';
-include './components/activeUser.php';
+    include './components/header.php';
+
+    if(!isset($_SESSION['gebruikerId'])) {
+        header("Location: login.php");
+    }
 ?>
 
 <body>
