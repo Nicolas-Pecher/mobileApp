@@ -1,4 +1,4 @@
-<?php include 'activeUser.php'; ?>
+
 
 <!-- Sidebar -->
 <div class="sidebar-wrapper" id="sidebar-wrapper">
