@@ -29,49 +29,23 @@
                             <tbody>
                                 <tr>
                                     <th>Naam</th>
-                                    <td>Yasmine De Wolf</td>
+                                    <td><?php echo $_SESSION['naam']; ?></td>
                                 </tr>
                                 <tr>
                                     <th>Emailadres</th>
-                                    <td>yasminedewolf@hotmail.com</td>
+                                    <td><?php echo $_SESSION['email']; ?></td>
                                 </tr>
                                 <tr>
                                     <th>Werkgever</th>
-                                    <td>Delaware</td>
+                                    <td><?php echo $_SESSION['bedrijfId']; ?></td>
                                 </tr>
                                 <tr>
                                     <th>Rol</th>
-                                    <td>Consultant</td>
+                                    <td><?php echo $_SESSION['gebruikerRol']; ?></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-sm-6">
-                        <table class="table table-bordered thead-light">
-                            <thead>
-                            <tr>
-                                <th>Huidige projecten</th>
-                                <th>Klant</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Project Mobile apps</td>
-                                <td>Delaware</td>
-                            </tr>
-                            <tr>
-                                <td>Software Project II</td>
-                                <td>Delaware</td>
-                            </tr>
-                            <tr>
-                                <td>Integration Project</td>
-                                <td>IBM</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="row">
                     <form action="" class="col-sm-4">
                         <div class="form-group">
                             <label for="">Wijzig wachtwoord</label>
@@ -80,6 +54,9 @@
                         </div>
                         <button type="submit" class="btn btn-sm" id="changePasswordBtn">Wachtwoord wijzigen</button>
                     </form>
+                </div>
+                <div class="row">
+
                 </div>
             </div>
 

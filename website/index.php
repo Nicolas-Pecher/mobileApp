@@ -1,4 +1,7 @@
-<?php include './pages/components/activeUser.php'; ?>
+<?php
+    include './pages/components/activeUser.php';
+    session_start();
+?>
 
 <!doctype html>
 <html lang="en">
@@ -31,12 +34,12 @@
 
             <a href="index.php" class="list-group-item list-group-item-action active" id='dashboard'><i class="fas fa-tachometer-alt mr-3"></i>Dashboard</a>
             
-            <?php if($userRol == 'consultant') { ?>
+            <?php if($_SESSION['gebruikerRol'] == 'consultant') { ?>
                 <a href="./pages/timesheets.php" class="list-group-item list-group-item-action" id='timesheets'><i class="fas fa-clock mr-3"></i>Timesheets</a>
             <?php } ?>
 
             
-            <?php if($userRol != 'consultant' ) { ?>
+            <?php if($_SESSION['gebruikerRol'] != 'consultant' ) { ?>
 
                 <a href="./pages/consultants.php" class="list-group-item list-group-item-action" id="consultants"><i class="fas fa-users mr-3"></i>Consultants</a>
                 <a href="./pages/projects.php" class="list-group-item list-group-item-action" id="projects"><i class="fas fa-folder mr-3"></i>Projecten</a>
@@ -46,13 +49,13 @@
                     <a href="#" class="list-group-item list-group-item-action">Overzicht overuren</a>
                     <a href="#" class="list-group-item list-group-item-action">Overzicht onderuren</a>
                     
-                    <?php if($userRol == 'manager') { ?>
+                    <?php if($_SESSION['gebruikerRol'] == 'manager') { ?>
                         <a href="#" class="list-group-item list-group-item-action">Overzicht per klant</a>
                     <?php }?>
 
                 </div>
 
-                <?php if($userRol == 'manager') { ?>
+                <?php if($_SESSION['gebruikerRol'] == 'manager') { ?>
                 <a href="./pages/invoices.php" class="list-group-item list-group-item-action" id="invoices"><i class="fas fa-file-invoice-dollar mr-3"></i>Facturen</a>
                 <?php }?>
 
@@ -76,7 +79,7 @@
                         <a href="./pages/profile.php" class="dropdown-item"><i class="fas fa-user-edit mr-3"></i>Profiel</a>
                         <a class="dropdown-item"><i class="fas fa-cog mr-3"></i>Instellingen</a>
                         <div class="dropdown-divider"></div>
-                        <a href="./pages/login.php" class="dropdown-item"><i class="fas fa-power-off mr-3"></i>Uitloggen</a>
+                        <a href="./controllers/doLogout.php" class="dropdown-item"><i class="fas fa-power-off mr-3"></i>Uitloggen</a>
                     </div>
                 </li>
             </ul>
@@ -88,6 +91,16 @@
 
         <div class="container m-3">
 
+                <?php if(!isset($_SESSION['naam'])) {
+                    ?>
+
+                <?php
+                } else {
+                    ?>
+                    <h1><?php echo $_SESSION['naam']; ?></h1>
+                <?php
+                }
+                ?>
 
                 <!-- gewerkte uren, overuren, ziektedagen en vakantiedagen -->
                 <div class="row mt-4 pt-4">

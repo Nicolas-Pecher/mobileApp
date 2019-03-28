@@ -7,9 +7,7 @@
  */
 
 $email = $password = "";
-$emailErr = $passwordErr = "";
 
-include_once 'validationLibrary.php';
 
 if($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
@@ -17,38 +15,54 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 } else {
 
-    $emailErr = errRequiredField("email");
-    $passwordErr = errRequiredField("password");
 
-    if(isFormValidLogin()) {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-        $email = getFieldValue("email");
-        $password = getFieldValue("password");
+    //data voor api
+    $postData = array(
+        'Email' => $email,
+        'Wachtwoord' => $password
+    );
 
-        $json = file_get_contents('https://mobileapp-planning-services.azurewebsites.net/api/Gebruiker/');
-        $gebruikers = json_decode($json);
+    //aanmaken context voor request
+    $context = stream_context_create(array(
+        'http' => array(
+            'method' => 'POST',
+            'header' => "Content-Type: application/json\r\n",
+            'content' => json_encode($postData)
+        )
+    ));
 
-        var_dump(json_decode($json));
+    //request versturen
+    $response = file_get_contents('https://mobileapp-planning-services.azurewebsites.net/api/Login', FALSE, $context);
 
-        $login = ""; //data ophalen uit api
-
-        if($login !== "") {
-            session_start();
-            $_SESSION['gebruikerId'] = $login->gebruikerId;
-            $_SESSION['naam'] = $login->naam;
-            $_SESSION['email'] = $login->email;
-            $_SESSION['loggedIn'] = true;
-            header("location: ../pages/dashboard.php");
-        }
-
-    } else {
-
-        $email = getFieldValue("email");
-        $password = getFieldValue("password");
-
+    //check for errors
+    if ($response === FALSE) {
+        die('Error');
     }
 
+    //decode the response
+    $responseData = json_decode($response, TRUE);
+
+    echo "test";
+    //Print the data from the response
+    var_dump($responseData);
+    var_dump($responseData["Rol"]);
+
+
+    if ($responseData !== "") {
+        session_start();
+        $_SESSION['gebruikerId'] = $responseData["GebruikerId"];
+        $_SESSION['naam'] = $responseData["GebruikerNaam"];
+        $_SESSION['email'] = $responseData["Email"];
+        $_SESSION['gebruikerRol'] = $responseData["Rol"];
+        $_SESSION['bedrijfId'] = $responseData["BedrijfId"];
+        $_SESSION['loggedIn'] = true;
+        header("location: ../index.php");
+    }
 }
+
 
 function isFormValidLogin() {
     global $emailErr, $passwordErr;
