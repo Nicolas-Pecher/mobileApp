@@ -39,18 +39,19 @@ export default class App extends React.Component {
       this.setState({
         colorTheme: {theme:'blue',lightColor:'#53ACBE',darkColor:'#0E0055'}
       })
+      this.saveColorLocally('blue');
     } else{
       this.setState({
         colorTheme: {theme:'red',lightColor:'#FF4646',darkColor:'#980000'}
       })
+      this.saveColorLocally('red');
     }
-    this.saveColorLocally();
   }
 
   //save the color theme to local storage
-  saveColorLocally = async () => {
+  saveColorLocally = async (color) => {
     try {
-      await AsyncStorage.setItem('colorTheme',this.state.colorTheme);
+      await AsyncStorage.setItem('color',JSON.stringify(color));
     } catch (error) {
       console.log('data could not be saved')
     }
@@ -58,18 +59,18 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.getColorLocally()
-    console.log(this.state.colorTheme.theme)
+    //console.log(this.state.colorTheme.theme)
   }
 
   getColorLocally = async () => {
-    console.log('getting the color')
+    //console.log('getting the color')
     try {
-        const value = await AsyncStorage.getItem('colorTheme');
-        if (value !== null) {
+        const value = await AsyncStorage.getItem('color');
+        console.log(JSON.parse(value));
+        if (JSON.parse(value) == 'blue') {
           this.setState({
-            colorTheme: value
+            colorTheme: {theme:'blue',lightColor:'#53ACBE',darkColor:'#0E0055'}
           })
-            console.log("colortheme was saved");
         } else {
           this.setState({
             colorTheme: {theme:'red',lightColor:'#FF4646',darkColor:'#980000'}
@@ -97,7 +98,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.colorTheme.theme)
+    //console.log(this.state.colorTheme.theme)
     if (this.state.loggedIn) {
       return (
         <View style={styles.container}>
