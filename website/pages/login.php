@@ -27,14 +27,14 @@
 
     <div class="card" id="login-wrapper">
         <div class="card-header text-center pt-4 pb-4"><i class="fas fa-user-circle fa-4x"></i></div>
-        <form action="" class="card-body">
+        <form action="../controllers/doLogin.php" method="post" class="card-body">
             <div class="form-group">
-                <div class="input-group">
+                <div class="input-group input-group-merge">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                     </div>
-                    <input type="email" class="form-control" id="email" placeholder="Emailadres">
-                    <span class="text-danger small"><?php echo $emailErr; ?></span>
+                    <input type="email" class="form-control form-control-prepended" id="email" placeholder="Emailadres" value="<?php echo $email; ?>" name="email">
+<!--                    <span class="text-danger small">--><?php //echo $emailErr; ?><!--</span>-->
                 </div>
             </div>
             <div class="form-group">
@@ -42,8 +42,8 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-lock"></i></span>
                     </div>
-                    <input type="password" class="form-control" id="password" placeholder="Wachtwoord">
-                    <span class="text-danger small"><?php echo $passwordErr; ?></span>
+                    <input type="password" class="form-control" id="password" placeholder="Wachtwoord" value="<?php echo $password; ?>" name="password">
+<!--                    <span class="text-danger small">--><?php //echo $passwordErr; ?><!--</span>-->
                 </div>
             </div>
             <div class="form-group form-check">
@@ -51,7 +51,7 @@
                     <input class="form-check-input" type="checkbox" name="loggedIn" id="loginCheck"> Ingelogd blijven
                 </label>
             </div>
-            <a href="../index.php" class="btn btn-block" id="login-button">Inloggen</a>
+            <button type="submit" href="" class="btn btn-block" id="login-button">Inloggen</button>
             <div class="text-center mt-2">
                 <a href="#" class="d-block small text-dark">Wachtwoord vergeten?</a>
             </div>

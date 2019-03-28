@@ -1,5 +1,5 @@
 body {
-    background-color: #e5e5e5;
+    background-color: white;
 }
 
 #login-wrapper {
@@ -19,9 +19,10 @@ body {
 }
 
 .input-group-text{
-    background-color: #333333;
+    background-color: white;
     color: azure;
-    border-color: #333333;
+    border-color: lightgray;
+
 }
 
 @media (max-width: 992px) {
