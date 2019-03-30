@@ -25,7 +25,7 @@ export default class App extends React.Component {
       return <Home colorTheme={this.state.colorTheme} />
     }
     if (this.state.menu == 'overview') {
-      return <Overview colorTheme={this.state.colorTheme}/>
+      return <Overview user={this.state.user} colorTheme={this.state.colorTheme}/>
     }
     if (this.state.menu == 'settings') {
       return <Settings colorTheme={this.state.colorTheme} changeColor={this.changeColor}/>

@@ -4,16 +4,31 @@ import Dropdown from './Inputs/dropdown';
 import TimelogRow from './timelogrow';
 
 //temporary options for the dropdown menu
-let testItems = [
-  { key: 'Project 1', id: 1 },
-  { key: 'Project 2', id: 2 },
-  { key: 'Project 3', id: 3 },
-];
+let testItems = [];
 
 
 export default class Overview extends React.Component {
   constructor(props) {
     super(props)
+    fetch('https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker',{
+      method:'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify({
+        id: this.props.user
+      })
+    })
+    .then((response) => response.json())
+    .then((response) => {
+      if (response != null){
+        //console.log(response);
+        this.testItems = response;
+      } else {
+        console.log(response);
+      }
+    })
     this.state = {
       project: testItems[0],
       showProjects: false,
