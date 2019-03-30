@@ -13,16 +13,15 @@ body {
 
 }
 
-#login-button {
+#login-button, #changePasswordBtn {
     background-color: #F13C1F;
     color: white;
 }
 
 .input-group-text{
     background-color: white;
-    color: azure;
+    color: #333333;
     border-color: lightgray;
-
 }
 
 @media (max-width: 992px) {

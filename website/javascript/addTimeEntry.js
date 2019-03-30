@@ -1,18 +1,11 @@
-console.log("test test test");
-
-console.log("test, in timeentry");
-
-//voor actief list-item in sidebar
-activePage('timesheets');
-
-console.log("test, zit in addTimeEntry.js");
-
 $(document).ready(function () {
 
     console.log("timeentry javascript");
 
+    //voor actief list-item in sidebar
+    activePage('timesheets');
 
-
+    // ophalen projecten en weergeven in dropdown van form
     $.ajax({
         type: 'GET',
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/Project',
@@ -22,10 +15,10 @@ $(document).ready(function () {
             //console.log(obj[0]);
             let dropdown = $('#selectProject');
             dropdown.empty();
-            dropdown.append('<option selected="true" disabled>Kies een Project</option>');
+            dropdown.append('<option selected="true" disabled>Kies een project</option>');
             //dropdown.prop('selectedIndex', 0);
 
-            for ( let i = 0; i < obj.length; i++ ) {
+            for (let i = 0; i < obj.length; i++) {
                 console.log(obj[i].ProjectNaam);
                 dropdown.append($('<option class="projectId"></option>').attr('value', obj[i].ProjectId).text(obj[i].ProjectNaam));
                 console.log(obj[i].ProjectId);
@@ -41,27 +34,33 @@ $(document).ready(function () {
         console.log("You have selected project - " + selectedProject);
     });
 
+    let id = $("#gebruikerIdTimeEntry").val();
+    console.log(id);
+
     //toevoegen van een timeEntry
     $("#formTimeEntry").submit(function (e) {
         e.preventDefault();
 
         console.log("test");
 
+        let gebruikerId = id;
         let projectId = selectedProject; //$("[name='projectId']").val();
         let datum = $("[name='datum']").val();
         let beginuur = $("[name='beginuur']").val();
         let einduur = $("[name='einduur']").val();
         let opmerking = $("[name='opmerking']").val();
 
+        console.log(projectId);
+
         let dataJSON = {
-            GebruikerId: 1,
+            GebruikerId: gebruikerId,
             ProjectId: projectId,
-            Datum: datum ,
+            Datum: datum,
             Beginuur: beginuur,
             Einduur: einduur,
             Opmerking: opmerking,
             Overuur: false
-        }
+        };
 
         console.log(dataJSON);
         console.log(projectId);

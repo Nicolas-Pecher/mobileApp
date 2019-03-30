@@ -26,10 +26,10 @@
 <div class="d-flex flex-column justify-content-center align-items-center" id="wrapper">
 
     <div class="card" id="login-wrapper">
-        <div class="card-header text-center pt-4 pb-4"><i class="fas fa-user-circle fa-4x"></i></div>
+        <div class="card-header-title text-center pt-4 pb-4"><i class="fas fa-user-circle fa-4x"></i></div>
         <form action="../controllers/doLogin.php" method="post" class="card-body">
             <div class="form-group">
-                <div class="input-group input-group-merge">
+                <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                     </div>
