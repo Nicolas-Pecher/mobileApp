@@ -9,12 +9,14 @@ $.ajax({
     url: "http://mobileapp-planning-services.azurewebsites.net/api/Project",
     success: function (response) {
 
-        response.forEach(project => {
+        console.log(response);
+        
+        response.forEach(element => {
 
             let obj = Object.create(null);
-            obj.Naam = project.Naam;
-            obj.KlantId = project.KlantId;
-            obj.Overuren = project.Overuren;
+            obj.Naam = element.ProjectNaam;
+            obj.KlantId = element.KlantNaam;
+            obj.Overuren = element.Overuren;
             data.push(obj);
 
         });
