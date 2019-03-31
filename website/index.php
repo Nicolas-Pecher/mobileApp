@@ -274,6 +274,7 @@
 </div>
 <!-- /#wrapper -->
 
+<input type="text" id="bedrijfIdTimeEntry" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
