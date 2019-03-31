@@ -43,7 +43,7 @@
                         <label for="opmerking">Opmerking (optioneel)</label>
                         <textarea name="opmerking" class="form-control form-control-sm" rows="2" id="opmerking"></textarea>
                     </div>
-                    <button href="" class="btn" type="submit" id="toevoegenTimeEntryBtn">Toevoegen</button>
+                    <button onclick="window.open('timesheets.php')" class="btn" type="submit" id="toevoegenTimeEntryBtn">Toevoegen</button>
                 </form>
 
             </div>
