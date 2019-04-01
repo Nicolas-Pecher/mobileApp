@@ -10,7 +10,7 @@
 <body>
 
     <div class="d-flex" id="wrapper">
-
+    <input type="text" id="bedrijfIdInvoices" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
         <?php include './components/sidebar.php'; ?>
 
         <!-- Page content -->
@@ -59,9 +59,9 @@
                                 <div class="col-sm-6">
                                     <address class="ml-5">
                                         Factuur voor:
-                                        <span id="naamBedrijf"></span><br>
-                                        <span id="straatnummer"></span><span id="straatnaam"></span><br>
-                                        <span id="postcode"></span><span id="gemeente"></span><br>
+                                        <span id="bedrijfNaam"></span><br>
+                                        <span id="Huisnummer"></span> <span id="straatNaam"></span><br>
+                                        <span id="postcode"></span> <span id="gemeente"></span><br>
                                         <span id="land"></span><br>
                                         BTW nummer:<span id="btwNummer"></span><br>
                                         Munt: EUR<br>
@@ -84,7 +84,7 @@
                             <tbody>
                                 <tr>
                                     <td id="naamConsultant"></td>
-                                    <td id="activiteitConsultant">Testing software</td>
+                                    <td id="projectNaam">Testing software</td>
                                     <td id="gewerkteUren">12&euro;</td>
                                     <td id="overUren">2&euro;</td>
                                     <td id="prijsPerUur">10&euro;</td>
