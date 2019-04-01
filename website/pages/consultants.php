@@ -31,7 +31,7 @@
             </div>
 
             <div class="mt-4 mr-4 tabledisplay">
-
+                <option id="bedrijfIdVoorConsultant" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;">
                <!--The consultants table is displayed here-->
                
             </div>

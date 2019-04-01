@@ -33,17 +33,12 @@
                             <!--li elementen komen van ajax call in file invoices.js-->
                         </ul>
                     </div>
-                    <div class="form-group">
-                        <p>Kies consultant:</p>
-                        <ul class="list-group" id="listConsultanten">
-                            <!--li elementen komen van ajax call in file invoices.js-->
-                        </ul>
-                    </div>
+                    
                     <div id="factuur">
 
-                        <h3 class="ml-5">Ons bedrijf</h3>
+                        <h3 class="text-center ml-5">Ons bedrijf</h3>
 
-                        <address class="ml-5">
+                        <address class="text-center ml-5">
                             Nijverheidskaai 170, 1070 Anderlecht<br>
                             België, tel.: 02 523 37 37
                         </address>

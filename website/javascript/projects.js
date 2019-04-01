@@ -12,12 +12,13 @@ $(document).ready(function () {
         type: "get",
         url: "http://mobileapp-planning-services.azurewebsites.net/api/ProjectenVanBedrijf/" + bedrijfId,
         success: function (response) {
-
-            console.log(response);
+          
+        console.log(response);
 
             response.forEach(project => {
                 data.push(project);
             });
+
 
             displayList(titles, data, 'projects');
         }

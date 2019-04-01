@@ -1,7 +1,6 @@
 activePage('invoices');
 
 let bedrijven = [];
-let consultanten = [];
 let number = 0;
 
 //ajax get request om klanten(bedrijven) weer te geven in eerste drop down
@@ -14,12 +13,13 @@ $.ajax({
             number = number + 1;
             bedrijven.push(klant);
             $('#listKlanten').append(`<li class="list-group-item list-group-item-action" id="${klant.BedrijfNaam}">${klant.BedrijfNaam}</li>`);
-            //$('#klantFactuur').append(`<option id="selectKlant${number}">${klant.Naam}</option>`);
         });
     }
 });
 
-//functie die een eventlistener toevoegt aan de option elements TODO ervoor zorgen dat wanneer user zich vergist de lijst niet groter wordt
+console.log(bedrijven);
+
+//functie die een eventlistener toevoegt aan de li elements TODO ervoor zorgen dat wanneer user zich vergist de lijst niet groter wordt
 document.getElementById("listKlanten").addEventListener("click", function (e) {
     if (e.target && e.target.nodeName == "LI") {
         var geselecteerdeBedrijf = new Object();
@@ -40,31 +40,7 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
     }
 });
 
-//ajax get request om consultants weer te geven in tweede drop down
-$.ajax({
-    type: "get",
-    url: "http://mobileapp-planning-services.azurewebsites.net/api/Gebruiker",
-    success: function (data) {
-
-        data.forEach(gebruiker => {
-            if (gebruiker.Rol === "consultant") {
-                consultanten.push(gebruiker);
-                $('#listConsultanten').append(`<li class="list-group-item list-group-item-action" id="${gebruiker.GebruikerNaam}">${gebruiker.GebruikerNaam}</li>`);
-            }
-        });
-    }
-});
-
-console.log(bedrijven);
-console.log(consultanten);
-//eventlistener toevoegen aan consultant optie
-document.getElementById("listConsultanten").addEventListener("click", function (e) {
-    if (e.target && e.target.nodeName == "LI") {
-        document.getElementById("naamConsultant").append(e.target.id);
-    }
-});
-
-//datum van verstuur maken (nu)
+//datum van verstuur maken (vandaag)
 var vandaag = new Date();
 var dd = String(vandaag.getDate()).padStart(2, '0');
 var mm = String(vandaag.getMonth() + 1).padStart(2, '0');
@@ -74,7 +50,7 @@ vandaag = ' ' + dd + '/' + mm + '/' + yyyy;
 
 document.getElementById("datumVerstuur").append(vandaag);
 
-//uiterste datum maken TODO if schrijven als volgend maand januari is
+//uiterste datum maken TODO if schrijven als volgend maand januari is (dan verandert jaar)
 var uitersteDatum = new Date();
 var dag = String(uitersteDatum.getDate()).padStart(2, '0');
 var maand = String(uitersteDatum.getMonth() + 2).padStart(2, '0');

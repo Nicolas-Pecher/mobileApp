@@ -21,7 +21,7 @@ function displayList(titles, data, listType) {
         $(headers).append(`<th scope="col"></th>`);
         projectTableRows(data, tbody);
     } else {
-        console.log('invalid or not implemented listType');
+        //console.log('invalid or not implemented listType');
     }
 
     //bind elements together
@@ -32,14 +32,16 @@ function displayList(titles, data, listType) {
 }
 
 function consultantTableRows(data, body) {
-
+    
     data.forEach(data => {
         let row = $('<tr></tr>');
-        $(row).append(`<td>${data.GebruikerId}</td>`);
-        $(row).append(`<td>${data.GebruikerNaam}</td>`);
-        $(row).append(`<td>${data.Email}</td>`);
-        // $(row).append(`<td>${data}</td>`);
-        // $(row).append(`<td>${data}</td>`);
+
+        $(row).append(`<td>${data.GebruikerNaam}</td>`)
+        $(row).append(`<td>${data.Email}</td>`)
+        let totaalUren = new Date(data.TotaalUren);
+        let totaal = totaalUren.getHours().toString().padStart(2, '0') + ':' + totaalUren.getMinutes().toString().padStart(2, '0') + ':' + totaalUren.getSeconds().toString().padStart(2, '0');
+        $(row).append(`<td>${totaal}</td>`)
+        //$(row).append(`<td>${overuren}</td>`) niet nodig
         $(row).append(`<td><a href="detailsConsultant.php" class="btn btn-sm btn-outline-secondary" role="button"
         id="detailsConsultantBtn">Details</a></td>`);
         $(body).append(row);
@@ -63,7 +65,5 @@ function projectTableRows(data, body) {
         $(body).append(row);
     })
 }
-
-//displayList(titles, data, 'consultants');
 
 
