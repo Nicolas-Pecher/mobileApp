@@ -18,12 +18,8 @@ hr{
     margin-top: 0px;
 }
 
-.timesheetBody{
-    line-height: 10px;
-}
-
-.timesheetBody p {
-    margin-right: 2rem;
+.timesheetBody {
+    padding: 10px 20px
 }
 
 #extraEntryBtn {

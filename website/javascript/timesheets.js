@@ -21,7 +21,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: 'GET',
-        url: 'https://mobileapp-planning-services.azurewebsites.net/api/ConsultantTimesheets/' + gebruikerId,
+        url: 'https://mobileapp-planning-services.azurewebsites.net/api/ConsultantTimesheets/' + 1,
         success: function (data) {
             //console.log(data);
 
@@ -31,7 +31,7 @@ $(document).ready(function () {
 
             obj.forEach(timeLog => {
 
-                console.log(timeLog.ProjectNaam);
+               // console.log(timeLog.ProjectNaam);
 
                 //datum formaat aanpassen naar dd-mm-YYYY
                 let date = new Date(timeLog.Datum);
@@ -49,18 +49,18 @@ $(document).ready(function () {
                 let werktijd = ((einduur.getHours() - beginuur.getHours()).toString().padStart(2, '0')) + ':' + ((einduur.getMinutes() - beginuur.getMinutes()).toString().padStart(2, '0')) + ':' + ((einduur.getSeconds() - beginuur.getSeconds()).toString().padStart(2, '0'));
 
                 let div = ($('<div "></div>'));
-                console.log(timeLog);
+               // console.log(timeLog);
 
                 if (!(timeLog.Datum.substring(0, 10) == vorigeDatum)) {
-                    console.log("same date");
+                  //  console.log("same date");
                     div.append($('<h5 class="timesheetDate"></h5>').attr('value', timeLog.Datum).text(datum));
                 }
 
                 let contentDiv = $('<div class="d-flex timesheetBody row border-bottom border-top"></div>');
-                contentDiv.append($('<p class="align-text-top col-3"></p>').attr('value', timeLog.ProjectNaam).text(timeLog.ProjectNaam));
-                contentDiv.append($('<p class="align-text-top col-2"></p>').attr('value', timeLog.Beginuur).text(begin));
-                contentDiv.append($('<p class="col-2"></p>').attr('value', timeLog.Einduur).text(eind));
-                contentDiv.append($('<p class="col-2"></p>').attr('value', werktijd).text(werktijd));
+                contentDiv.append($('<p class="my-auto col-3"></p>').attr('value', timeLog.ProjectNaam).text(timeLog.ProjectNaam));
+                contentDiv.append($('<p class="my-auto col-2"></p>').attr('value', timeLog.Beginuur).text(begin));
+                contentDiv.append($('<p class="my-auto col-2"></p>').attr('value', timeLog.Einduur).text(eind));
+                contentDiv.append($('<p class="my-auto col-2"></p>').attr('value', werktijd).text(werktijd));
 
                 div.append($(contentDiv));
 
