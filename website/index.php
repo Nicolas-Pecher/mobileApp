@@ -96,25 +96,18 @@
 
         <div class="container m-3">
 
-                <?php if(!isset($_SESSION['naam'])) {
-                    ?>
+                <h2 class="mt-4 pt-2">Welkom <?php echo $_SESSION['naam']; ?>,</h2>
 
-                <?php
-                } else {
-                    ?>
-                    <h1><?php echo $_SESSION['naam']; ?></h1>
-                <?php
-                }
-                ?>
+            <?php if($_SESSION['gebruikerRol'] == "consultant") { ?>
 
                 <!-- gewerkte uren, overuren, ziektedagen en vakantiedagen -->
-                <div class="row mt-4 pt-4">
+                <div class="row mt-2 pt-4">
                     <div class="col card mr-3">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col">
                                     <h6 class="card-title text-uppercase text-muted mb-2">Gewerkte uren</h6>
-                                    <span class="h4">60:00:00</span>
+                                    <span class="h4" id="gewerkteUrenDashboard">60:00:00</span>
                                 </div>
                                 <div class="col-auto">
                                     <span class="h3 text-muted"><i class="fas fa-clock"></i></span>
@@ -264,6 +257,8 @@
 
                 </div>
 
+            <?php } ?>
+
         </div>
 
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
@@ -274,7 +269,7 @@
 </div>
 <!-- /#wrapper -->
 
-<input type="text" id="bedrijfIdTimeEntry" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
+<input type="text" id="gebruikerIdDashboard" value="<?php echo $_SESSION['gebruikerId']; ?>" style="display:none;" >
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
