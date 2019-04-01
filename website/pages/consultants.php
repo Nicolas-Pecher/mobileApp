@@ -39,6 +39,8 @@
 
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
 
+        <input type="text" id="bedrijfIdConsultants" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
+
     </div>
     <!-- /#page-content-wrapper -->
 

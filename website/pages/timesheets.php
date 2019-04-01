@@ -32,12 +32,12 @@
                     <a href="takeVacation.php" class="btn timesheetsBtn" id="vakantie">Vakantiedag(en) aanvragen</a>
                 </div>
 
-                <p class="ml-auto p-2 mr-4" id="totaalUren"></p>
+                <p class="ml-auto p-2 mr-4" id=""><strong class="mr-3">Totaal: </strong><span id="totaalUren"></span></p>
             </div>
 
             <div class="mt-4" id="timesheetsOverzicht">
 
-                <div class="" id="timeEntryDiv">
+                <div class="mb-2" id="timeEntryDiv">
 
                 </div>
 
@@ -65,6 +65,8 @@
         <input type="text" id="gebruikerIdTimeEntry" value="<?php echo $_SESSION['gebruikerId']; ?>" style="display:none;" >
         <input type="text" id="bedrijfIdTimeEntry" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
 
+        <?php //var_dump($_SESSION['gebruikerId']); ?>
+
     </div>
     <!-- /#page-content-wrapper -->
 </div>
@@ -73,7 +75,7 @@
 
 <script src="../javascript/showActivePage.js"></script>
 <script src="../javascript/timesheets.js"></script>
-<!--<script src="../javascript/totaalUrenPerConsultant.js"></script>-->
+<script src="../javascript/totaalUrenPerConsultant.js"></script>
 
 </body>
 </html>
