@@ -1,15 +1,29 @@
-activePage('consultants');
+$(document).ready(function () {
 
-let titles = ['Naam', 'Emailadres', 'Gewerkte uren', 'Overuren'];
-let data = [];
+    activePage('consultants');
 
-//ajax get request om consultants weer te geven
-$.ajax({
-    type: "get",
-    url: "http://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenConsultant/1",
-    success: function (response) {
-        console.log(response);
-        //data.push(response);
-        //displayList(titles, data, 'consultants');
-    }
+    let bedrijfId = $('#bedrijfIdConsultants').val();
+    console.log("BedrijfId = " + bedrijfId);
+
+    let titles = ['Id', 'Naam', 'Emailadres'];
+    let data = [];
+
+    console.log("heeeey");
+
+    //ajax get request om consultants weer te geven
+    $.ajax({
+        type: 'GET',
+        url: 'http://mobileapp-planning-services.azurewebsites.net/api/OverzichtConsultants/' + bedrijfId,
+        success: function (response) {
+            console.log("heeeey");
+            console.log(response);
+
+            response.forEach(consultant => {
+                data.push(consultant);
+            });
+
+            displayList(titles, data, 'consultants');
+        }
+    });
+
 });
