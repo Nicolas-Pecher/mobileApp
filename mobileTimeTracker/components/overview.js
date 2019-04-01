@@ -7,28 +7,11 @@ import TimelogRow from './timelogrow';
 let testItems = [];
 
 
+
 export default class Overview extends React.Component {
   constructor(props) {
     super(props)
-    fetch('https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker',{
-      method:'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body:JSON.stringify({
-        id: this.props.user
-      })
-    })
-    .then((response) => response.json())
-    .then((response) => {
-      if (response != null){
-        //console.log(response);
-        this.testItems = response;
-      } else {
-        console.log(response);
-      }
-    })
+
     this.state = {
       project: testItems[0],
       showProjects: false,
@@ -36,6 +19,28 @@ export default class Overview extends React.Component {
     }
   }
 
+ componentDidMount() {
+  fetch('https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker',{
+    method:'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body:JSON.stringify({
+      id: 7//this.props.user
+    })
+  })
+  .then((response) => response.json())
+  .then((response) => {
+    if (response != null){
+      //console.log(response);
+      this.testItems = response;
+    } else {
+      console.log(response);
+    }
+  })
+ }
+ 
   //show or hide dropdown component
   toggleShowProjects = () => {
     if (!this.state.showProjects) {

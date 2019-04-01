@@ -14,7 +14,7 @@ export default class App extends React.Component {
     this.state = {
       menu: 'home',
       colorTheme:{theme:'red',lightColor:'#FF4646',darkColor:'#980000'},
-      loggedIn:false, // if true user is logged in
+      loggedIn:true, // if true user is logged in
       user: {}
     }
   }
