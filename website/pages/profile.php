@@ -1,6 +1,10 @@
 <?php
     include './components/header.php';
-    include './components/activeUser.php';
+
+    if(!isset($_SESSION['gebruikerId'])) {
+        header("Location: login.php");
+    }
+
 ?>
 
 <body>
@@ -37,7 +41,8 @@
                                 </tr>
                                 <tr>
                                     <th>Werkgever</th>
-                                    <td><?php echo $_SESSION['bedrijfId']; ?></td>
+                                    <td id="bedrijfNaamProfile"></td>
+                                    <input type="text" id="bedrijfIdProfile" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
                                 </tr>
                                 <tr>
                                     <th>Rol</th>
@@ -73,6 +78,7 @@
 <?php include './components/footer.php'; ?>
 
 <script src="../javascript/showActivePage.js"></script>
+<script src="../javascript/profile.js"></script>
 
 </body>
 

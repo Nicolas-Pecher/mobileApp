@@ -1,26 +1,27 @@
-activePage('projects');
+$(document).ready(function () {
 
-let titles = ['Naam', 'Klant', 'Overuren Toegestaan'];
-let data = [];
+    activePage('projects');
+
+    let bedrijfId = $('#bedrijfIdProjecten').val();
+
+    let titles = ['Id', 'Naam', 'Klant', 'Overuren Toegestaan'];
+    let data = [];
 
 //ajax get request om projecten weer te geven
-$.ajax({
-    type: "get",
-    url: "http://mobileapp-planning-services.azurewebsites.net/api/Project",
-    success: function (response) {
-
+    $.ajax({
+        type: "get",
+        url: "http://mobileapp-planning-services.azurewebsites.net/api/ProjectenVanBedrijf/" + bedrijfId,
+        success: function (response) {
+          
         console.log(response);
-        
-        response.forEach(element => {
 
-            let obj = Object.create(null);
-            obj.Naam = element.ProjectNaam;
-            obj.KlantId = element.KlantNaam;
-            obj.Overuren = element.Overuren;
-            data.push(obj);
+            response.forEach(project => {
+                data.push(project);
+            });
 
-        });
 
-        displayList(titles, data, 'projects');
-    }
+            displayList(titles, data, 'projects');
+        }
+    });
+
 });

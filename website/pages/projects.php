@@ -1,6 +1,9 @@
 <?php
     include './components/header.php';
-    include './components/activeUser.php';
+
+    if(!isset($_SESSION['gebruikerId'])) {
+        header("Location: login.php");
+    }
 ?>
 
 <body>
@@ -31,7 +34,10 @@
                <!--table wordt gegenereerd met de functie displayList in de file displayList.js-->
             </div>
         </div>
+
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
+
+        <input type="text" id="bedrijfIdProjecten" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
 
     </div>
     <!-- /#page-content-wrapper -->

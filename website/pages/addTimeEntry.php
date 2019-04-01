@@ -1,6 +1,9 @@
 <?php
     include './components/header.php';
-    include '../controllers/getProjects.php';
+
+    if(!isset($_SESSION['gebruikerId'])) {
+        header("Location: login.php");
+    }
 ?>
 
 <body>
@@ -22,7 +25,7 @@
             <h1>Toevoegen uren</h1>
 
             <div class="mt-4 pr-4" id="addTimeEntry-wrapper">
-                <form name="formTimeEntry" id="formTimeEntry" method="post" enctype="multipart/form-data">
+                <form action="timesheets.php" name="formTimeEntry" id="formTimeEntry" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="datum">Datum</label>
                         <input name="datum" type="date" class="form-control form-control-sm" id="datum">
@@ -40,7 +43,7 @@
                         <label for="opmerking">Opmerking (optioneel)</label>
                         <textarea name="opmerking" class="form-control form-control-sm" rows="2" id="opmerking"></textarea>
                     </div>
-                    <a href="timesheets.php" class="btn" type="submit" id="toevoegenTimeEntryBtn">Toevoegen</a>
+                    <button onclick="window.open('timesheets.php')" class="btn" type="submit" id="toevoegenTimeEntryBtn">Toevoegen</button>
                 </form>
 
             </div>
@@ -48,6 +51,8 @@
         </div>
 
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
+
+        <input type="text" id="gebruikerIdTimeEntry" value="<?php echo $_SESSION['gebruikerId']; ?>" style="display:none;" >
 
     </div>
     <!-- /#page-content-wrapper -->
@@ -59,7 +64,7 @@
 
 <script src="../javascript/showActivePage.js"></script>
 <script src="../javascript/addTimeEntry.js"></script>
-<script src="../javascript/addTimeEntry.js"></script>
+
 
 </body>
 </html>
