@@ -1,33 +1,28 @@
+console.log("joehoeeeee");
+
 $(document).ready(function () {
 
-    let gebruikerId = $("#gebruikerIdTimeEntry").val();
-    let bedrijfId = $("#bedrijfIdTimeEntry").val();
+    let gebruikerId = $('#gebruikerIdTimeEntry').val();
 
     console.log("GebruikerId = " + gebruikerId);
-    console.log("BedrijfId = " + bedrijfId);
 
+    //get request voor totaal gewerkte uren van de ingelogde consultant
     $.ajax({
         type: 'GET',
-        url: 'https://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenConsultant/' + bedrijfId,
+        url: 'https://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenConsultant/' + gebruikerId,
         success: function (data) {
 
             console.log(data);
+
             let obj = data;
-            let pTotaal = $("#totaalUren");
+            let pTotaal = $('#totaalUren');
 
-            obj.forEach(consultant => {
+            let totaal = new Date(obj.TotaalUren);
+            let totaalUren = totaal.getHours().toString().padStart(2, '0') + ':' + totaal.getMinutes().toString().padStart(2, '0') + ':' + totaal.getSeconds().toString().padStart(2, '0');
 
-                console.log(consultant.GebruikerId);
+            pTotaal.attr('value', obj.TotaalUren).text(totaalUren);
 
-                while(consultant.GebruikerId == gebruikerId) {
-                    let totaalTemp = new Date(consultant.TotaalUren);
-                    let totaal = totaalTemp.getHours().toString().padStart(2, '0') + ':' + totaalTemp.getMinutes().toString().padStart(2, '0') + ':' + totaalTemp.getSeconds().toString().padStart(2, '0');
-                    console.log(totaal);
-
-                    pTotaal.append($('<strong>Totaal:</strong>'));
-                    pTotaal.attr('value', consultant.TotaalUren).text(totaal);
-                }
-            });
         }
     });
+
 });

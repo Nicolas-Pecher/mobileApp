@@ -31,13 +31,15 @@
             </div>
 
             <div class="mt-4 mr-4 tabledisplay">
-
+                <option id="bedrijfIdVoorConsultant" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;">
                <!--The consultants table is displayed here-->
                
             </div>
         </div>
 
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
+
+        <input type="text" id="bedrijfIdConsultants" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
 
     </div>
     <!-- /#page-content-wrapper -->

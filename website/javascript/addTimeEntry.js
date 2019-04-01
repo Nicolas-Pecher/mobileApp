@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
-    console.log("timeentry javascript");
+    let id = $("#gebruikerIdTimeEntry").val();
+    console.log("GebruikerId = " + id);
 
     //voor actief list-item in sidebar
     activePage('timesheets');
@@ -8,7 +9,7 @@ $(document).ready(function () {
     // ophalen projecten en weergeven in dropdown van form
     $.ajax({
         type: 'GET',
-        url: 'https://mobileapp-planning-services.azurewebsites.net/api/Project',
+        url: 'https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker/' + id,
         success: function (data) {
             console.log(data);
             let obj = data;
@@ -33,9 +34,6 @@ $(document).ready(function () {
         selectedProject = $(this).children("option:selected").val();
         console.log("You have selected project - " + selectedProject);
     });
-
-    let id = $("#gebruikerIdTimeEntry").val();
-    console.log(id);
 
     //toevoegen van een timeEntry
     $("#formTimeEntry").submit(function (e) {
