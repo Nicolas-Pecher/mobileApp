@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: 'GET',
-        url: 'https://mobileapp-planning-services.azurewebsites.net/api/ConsultantTimesheets/' + gebruikerId,
+        url: 'https://mobileapp-planning-services.azurewebsites.net/api/ConsultantTimesheets/' + 1,
         success: function (data) {
 
             console.log(data);
@@ -34,7 +34,7 @@ $(document).ready(function () {
 
             obj.forEach(timeLog => {
 
-                console.log(timeLog.ProjectNaam);
+               // console.log(timeLog.ProjectNaam);
 
                 //datum formaat aanpassen naar dd-mm-YYYY
                 let date = new Date(timeLog.Datum);
@@ -53,10 +53,9 @@ $(document).ready(function () {
                 let werktijd = verschilTijd.getHours().toString().padStart(2, '0') + ':' + verschilTijd.getMinutes().toString().padStart(2, '0') + ':' + verschilTijd.getSeconds().toString().padStart(2, '0');
 
                 let div = ($('<div "></div>'));
-                //console.log(timeLog);
 
                 if (!(timeLog.Datum.substring(0, 10) == vorigeDatum)) {
-                    console.log("same date");
+                  //  console.log("same date");
                     div.append($('<h5 class="timesheetDate"></h5>').attr('value', timeLog.Datum).text(datum));
                 }
 
