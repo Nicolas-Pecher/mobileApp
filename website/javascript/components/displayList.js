@@ -1,8 +1,8 @@
 function displayList(titles, data, listType) {
     //making structure
     let table = $('<table class="table table-striped border"></table>');
-    let thead = $('<thead></thead');
-    let tbody = $('<tbody></tbody>')
+    let thead = $('<thead></thead>');
+    let tbody = $('<tbody></tbody>');
     let headers = $('<tr></tr>');
 
     //adding headers to table
@@ -21,7 +21,7 @@ function displayList(titles, data, listType) {
         $(headers).append(`<th scope="col"></th>`);
         projectTableRows(data, tbody);
     } else {
-        console.log('invalid or not implemented listType');
+        //console.log('invalid or not implemented listType');
     }
 
     //bind elements together
@@ -32,16 +32,19 @@ function displayList(titles, data, listType) {
 }
 
 function consultantTableRows(data, body) {
-
+    
     data.forEach(data => {
         let row = $('<tr></tr>');
+
         $(row).append(`<td>${data.GebruikerNaam}</td>`)
         $(row).append(`<td>${data.Email}</td>`)
-        $(row).append(`<td>${data}</td>`)
-        $(row).append(`<td>${data}</td>`)
+        let totaalUren = new Date(data.TotaalUren);
+        let totaal = totaalUren.getHours().toString().padStart(2, '0') + ':' + totaalUren.getMinutes().toString().padStart(2, '0') + ':' + totaalUren.getSeconds().toString().padStart(2, '0');
+        $(row).append(`<td>${totaal}</td>`)
+        //$(row).append(`<td>${overuren}</td>`) niet nodig
         $(row).append(`<td><a href="detailsConsultant.php" class="btn btn-sm btn-outline-secondary" role="button"
-        id="detailsConsultantBtn">Details</a></td>`)
-        $(body).append(row)
+        id="detailsConsultantBtn">Details</a></td>`);
+        $(body).append(row);
     })
 }
 
@@ -49,19 +52,18 @@ function projectTableRows(data, body) {
 
     data.forEach(data => {
         let row = $('<tr></tr>');
-        $(row).append(`<td>${data.Naam}</td>`)
-        $(row).append(`<td>${data.KlantId}</td>`)
+        $(row).append(`<td>${data.ProjectId}</td>`);
+        $(row).append(`<td>${data.ProjectNaam}</td>`);
+        $(row).append(`<td>${data.KlantNaam}</td>`);
         if (data.Overuren == true) {
-            $(row).append(`<td><input type="checkbox" checked></td>`)
+            $(row).append(`<td><input type="checkbox" checked></td>`);
         }else{
-            $(row).append(`<td><input type="checkbox"></td>`)
+            $(row).append(`<td><input type="checkbox"></td>`);
         }
         $(row).append(`<td><a href="#" class="btn btn-sm btn-outline-secondary" role="button"
-        id="wijzigProject">Details</a></td>`)
-        $(body).append(row)
+        id="wijzigProject">Details</a></td>`);
+        $(body).append(row);
     })
 }
-
-//displayList(titles, data, 'consultants');
 
 

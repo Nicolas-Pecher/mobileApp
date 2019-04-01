@@ -1,6 +1,9 @@
 <?php
     include './components/header.php';
-    include 'components/activeUser.php';
+
+    if(!isset($_SESSION['gebruikerId'])) {
+        header("Location: login.php");
+    }
 ?>
 
 <body>
@@ -22,33 +25,29 @@
             <h1>Toevoegen consultant</h1>
 
             <div class="mt-4 pr-4">
-                <form action="#">
+                <form action="" id="formConsultant">
                     <div class="form-group">
-                        <label for="email">Account</label>
-                        <input type="email" placeholder="Emailadres" class="form-control form-control-sm col-4">
+                        <label for="naamConsultant">Voornaam en achternaam</label>
+                        <input type="text" name="naamConsultant" placeholder="" class="form-control form-control-sm col-4">
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Wachtwoord" class="form-control form-control-sm col-4 mb-3">
+                        <label for="email">Emailadres</label>
+                        <input type="email" name="email" placeholder="" class="form-control form-control-sm col-4">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Wachtwoord</label>
+                        <input type="password" name="password" placeholder="" class="form-control form-control-sm col-4 mb-3">
 
                     </div>
-                    <div class="form-group mt-4">
-                        <label for="">Projecten</label>
-                        <select class="form-control mr-4 form-control-sm" id="projectConsultant">
-                            <option>Project1</option>
-                            <option>Project2</option>
-                            <option>Project3</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control mr-4 form-control-sm" id="projectConsultant">
-                            <option>Project1</option>
-                            <option>Project2</option>
-                            <option>Project3</option>
-                        </select>
-                    </div>
-                    <a href="" class="btn btn-sm mt-1" id="addNewProjectBtn"><i class="fas fa-plus"></i></a>
+<!--                    <div class="form-group mt-4">-->
+<!--                        <label for="">Projecten</label>-->
+<!--                        <select class="form-control mr-4 form-control-sm" id="selectProject">-->
+<!---->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                    <a href="" class="btn btn-sm mt-1" id="addNewProjectBtn"><i class="fas fa-plus"></i></a>-->
                     <br>
-                    <a href="consultants.php" class="btn mt-4" id="addConsultantBtn">Toevoegen</a>
+                    <button href="" class="btn mt-4" id="addConsultantBtn">Toevoegen</button>
                 </form>
             </div>
 
@@ -56,12 +55,14 @@
 
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
 
+        <input type="text" id="bedrijfIdAddConsultant" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
+
     </div>
     <!-- /#page-content-wrapper -->
 </div>
 <!-- /#wrapper -->
 <?php include './components/footer.php'; ?>
-
 <script src="../javascript/showActivePage.js"></script>
 <script src="../javascript/consultants.js"></script>
+<script src="../javascript/addConsultant.js"></script>
 </body>
