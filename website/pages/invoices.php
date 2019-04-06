@@ -79,7 +79,6 @@
                         <table class="table table-striped mt-5">
                             <thead>
                                 <tr>
-                                    <th scope="col">Consultant</th>
                                     <th scope="col">Project</th>
                                     <th scope="col">Gewerkte uren</th>
                                     <th scope="col">Overuren</th>
@@ -89,7 +88,6 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td id="naamConsultant"></td>
                                     <td id="projectNaam"></td>
                                     <td id="gewerkteUren">&euro;</td>
                                     <td id="overUren">&euro;</td>
