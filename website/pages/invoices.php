@@ -28,6 +28,12 @@
                         <h1 id="titel" class="text-left">Factuur maken</h1>
                     </div>
                     <div class="form-group">
+                        <p>Kies bedrijf:</p>
+                        <ul class="list-group" id="listBedrijven">
+                            <!--li elementen komen van ajax call in file invoices.js-->
+                        </ul>
+                    </div>
+                    <div class="form-group">
                         <p>Kies klant:</p>
                         <ul class="list-group" id="listKlanten">
                             <!--li elementen komen van ajax call in file invoices.js-->
@@ -36,9 +42,9 @@
                     
                     <div id="factuur">
 
-                        <h3 class="text-center ml-5">Ons bedrijf</h3>
+                        <h3 class="text-left ml-5">Ons bedrijf</h3>
 
-                        <address class="text-center ml-5">
+                        <address class="text-left ml-5">
                             Nijverheidskaai 170, 1070 Anderlecht<br>
                             België, tel.: 02 523 37 37
                         </address>
@@ -74,7 +80,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Consultant</th>
-                                    <th scope="col">Omschrijving activiteit</th>
+                                    <th scope="col">Project</th>
                                     <th scope="col">Gewerkte uren</th>
                                     <th scope="col">Overuren</th>
                                     <th scope="col">Prijs per uur</th>
@@ -84,11 +90,11 @@
                             <tbody>
                                 <tr>
                                     <td id="naamConsultant"></td>
-                                    <td id="projectNaam">Testing software</td>
-                                    <td id="gewerkteUren">12&euro;</td>
-                                    <td id="overUren">2&euro;</td>
-                                    <td id="prijsPerUur">10&euro;</td>
-                                    <td id="subtotaal">140&euro;</td>
+                                    <td id="projectNaam"></td>
+                                    <td id="gewerkteUren">&euro;</td>
+                                    <td id="overUren">&euro;</td>
+                                    <td id="prijsPerUur">&euro;</td>
+                                    <td id="subtotaal">&euro;</td>
                                 </tr>
                             </tbody>
                         </table>
