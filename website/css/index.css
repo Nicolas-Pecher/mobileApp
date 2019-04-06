@@ -77,6 +77,20 @@ i {
     color: white;
 }
 
+#projectenCardBody {
+    border-bottom: 1px solid #e5e5e5;
+    /*margin-right: 5px;*/
+    /*margin-left: 5px;*/
+}
+
+#projectenCardBody:not(:first-child){
+    margin-top: 10px;
+}
+
+#projectenCardBody:last-child {
+    border-bottom: 0px;
+}
+
 @media (min-width: 768px) {
     #sidebar-wrapper {
         margin-left: 0;
