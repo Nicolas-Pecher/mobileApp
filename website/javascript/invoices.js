@@ -38,7 +38,6 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
             url: `http://mobileapp-planning-services.azurewebsites.net/api/BedrijfAdres/${geselecteerdeKlant.BedrijfId}`,
             success: function (response) {
 
-                console.log(response);
                 document.getElementById("Huisnummer").append(response.Huisnummer);
                 document.getElementById("straatNaam").append(response.Straatnaam);
                 document.getElementById("postcode").append(response.Postcode);
@@ -51,18 +50,22 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
         });
 
         let projecten = [];
+        let totaalUren = [];
         //ajax get request projecten 
         $.ajax({
             type: "get",
             url: `http://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/${geselecteerdeKlant.KlantId}`,
             success: function (response) {
-                console.log(response);
-                projecten.push(response);
+                //console.log(response);
                 response.forEach(project => {
+                    //console.log(project);
+                    projecten.push(project);
                     document.getElementById("projectNaam").append(project.ProjectNaam);
                 });
+                console.log(projecten);
             }
         });
+
     }
 });
 
