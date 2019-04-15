@@ -31,22 +31,22 @@
                     <div class="card-body">
                         <form action="../controllers/insertConsultant.php" method="POST" enctype="multipart/form-data" id="formConsultant">
                             <div class="row">
-                                <div class="form-group col">
+                                <div class="form-group col-sm-6">
                                     <label for="naamConsultant">Voornaam en achternaam:</label>
                                     <input type="text" name="naamConsultant" class="form-control form-control-sm" value="<?php echo $naamConsultant; ?>"/>
                                 </div>
-                                <div class="form-group col">
+                                <div class="form-group col-sm-6">
                                     <label for="email">Emailadres:</label>
                                     <input type="email" name="emailConsultant" class="form-control form-control-sm" value="<?php echo $emailConsultant; ?>"/>
                                 </div>
 
                             </div>
                             <div class="row">
-                                <div class="form-group col">
+                                <div class="form-group col-sm-6">
                                     <label for="loon">Loon per uur:</label>
                                     <input type="text" name="loonConsultant" class="form-control form-control-sm" value="<?php echo $loonConsultant; ?>">
                                 </div>
-                                <div class="form-group col">
+                                <div class="form-group col-sm-6">
                                     <label for="password">Wachtwoord:</label>
                                     <input type="password" name="wachtwoordConsultant" class="form-control form-control-sm" value="<?php echo $wachtwoordConsultant; ?>">
                                 </div>
@@ -61,8 +61,8 @@
                             <!--                    </div>-->
                             <!--                    <a href="" class="btn btn-sm mt-1" id="addNewProjectBtn"><i class="fas fa-plus"></i></a>-->
                             <br>
-                            <button type="submit" name="submit" class="btn px-4" id="addConsultantBtn">Toevoegen</button>
-                            <button type="button" onclick="history.back();" class="btn px-4" id="toevoegenTimeEntryBtn">Annuleren</button>
+                            <button type="submit" name="submit" class="btn btn-sm px-4 mb-2" id="addConsultantBtn">Toevoegen</button>
+                            <button type="button" onclick="history.back();" class="btn btn-sm px-4 mb-2" id="addConsultantBtn">Annuleren</button>
                         </form>
                     </div>
                 </div>

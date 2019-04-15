@@ -3,12 +3,12 @@
     color: white;
 }
 
-#addConsultantBtn, .detailsConsultantBtn, #addKlantBtn {
+#addConsultantBtn, .detailsConsultantBtn, #addKlantBtn, #addProjectBtn {
     background-color: #f13c1f;
     color: white;
 }
 
-#addConsultantBtn:hover {
+#addConsultantBtn:hover, #addKlantBtn:hover, #addProjectBtn:hover {
     background-color: #666666;
     border-color: #666666;
     color: white;

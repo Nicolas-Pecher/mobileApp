@@ -100,7 +100,7 @@
                     <!--                        <a href="" class="btn btn-sm mt-1" id="addNewProjectBtn"><i class="fas fa-plus"></i></a>-->
                     <br>
                     <button type="submit" name="submit" class="btn px-4 mb-3" id="addKlantBtn">Toevoegen</button>
-                    <button type="button" onclick="history.back();" class="btn px-4 mb-3" id="toevoegenTimeEntryBtn">Annuleren</button>
+                    <button type="button" onclick="history.back();" class="btn px-4 mb-3" id="addKlantBtn">Annuleren</button>
                 </form>
             </div>
 
