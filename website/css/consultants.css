@@ -3,7 +3,7 @@
     color: white;
 }
 
-#addConsultantBtn, .detailsConsultantBtn {
+#addConsultantBtn, .detailsConsultantBtn, #addKlantBtn {
     background-color: #f13c1f;
     color: white;
 }

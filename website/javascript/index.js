@@ -52,13 +52,18 @@ $(document).ready(function () {
 
             data.forEach(project => {
 
-                let contentDiv = $('<div class="row align-items-center pb-2" id="projectenCardBody"></div>');
-                let subDiv = $('<div class="col-auto"></div>');
-                subDiv.append($('<h6 class="card-title mb-1"></h6>').attr('value', project.ProjectNaam).text(project.ProjectNaam));
-                subDiv.append($('<p class="card-text small text-muted"></p>').attr('value', project.KlantNaam).text(project.KlantNaam));
-                contentDiv.append(subDiv);
+                // let contentDiv = $('<div class="row align-items-center pb-2" id="projectenCardBody"></div>');
+                // let subDiv = $('<div class="col-auto"></div>');
+                // subDiv.append($('<h6 class="card-title mb-1"></h6>').attr('value', project.ProjectNaam).text(project.ProjectNaam));
+                // subDiv.append($('<p class="card-text small text-muted"></p>').attr('value', project.KlantNaam).text(project.KlantNaam));
+                // contentDiv.append(subDiv);
+                // cardBody.append(contentDiv);
+                // //cardBody.append($('<hr>'));
+
+                let contentDiv = $('<div class="card-body" id="projectenCardBody"></div>');
+                contentDiv.append($('<h6 class="card-title"></h6>').attr('value', project.ProjectNaam).text(project.ProjectNaam));
+                contentDiv.append($('<p class="card-text small text-muted"></p>').attr('value', project.KlantNaam).text(project.KlantNaam));
                 cardBody.append(contentDiv);
-                //cardBody.append($('<hr>'));
 
             });
         }
@@ -91,22 +96,22 @@ $(document).ready(function () {
                 datasets: [{
                     data: values,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        'rgba(153, 102, 255, 0.3)',
+                        'rgba(75, 192, 192, 0.3)',
+                        'rgba(255, 99, 132, 0.3)',
+                        'rgba(255, 206, 86, 0.3)',
+                        'rgba(255, 159, 64, 0.3)',
+                        'rgba(54, 162, 235, 0.3)'
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
+                        'rgba(153, 102, 255, 0.3)',
+                        'rgba(75, 192, 192, 0.3)',
+                        'rgba(255, 99, 132, 0.3)',
+                        'rgba(255, 206, 86, 0.3)',
+                        'rgba(255, 159, 64, 0.3)',
+                        'rgba(54, 162, 235, 0.3)'
                     ],
-                    borderWidth: 1
+                    borderWidth: 0
                 }],
                 labels: names,
             };
@@ -125,7 +130,7 @@ $(document).ready(function () {
         
     });
 
-    //tabel timesheets
+    //tabel laatste timesheets
     $.ajax({
         type: 'GET',
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/LaatsteTimesheets/' + gebruikerId,
@@ -137,7 +142,6 @@ $(document).ready(function () {
             data.forEach(timesheet => {
 
                 let dateTemp = new Date(timesheet.Datum);
-                //let date = dateTemp.getHours().toString().padStart(2, '0') + ':' + dateTemp.getMinutes().toString().padStart(2, '0') + ':' + dateTemp.getSeconds().toString().padStart(2, '0');
                 let date = dateTemp.getDate().toString().padStart(2, '0') + '/' + dateTemp.getMonth().toString().padStart(2, '0') + '/' + dateTemp.getFullYear();
 
                 let verschilTemp = new Date(timesheet.VerschilUren);
@@ -150,12 +154,65 @@ $(document).ready(function () {
                 table.append(tr);
             });
         }
-        
     });
 
-
-
-
-    
-
+    // let ctxx = document.getElementById("gewerkteUrenDezeWeekChart");
+    //
+    // $.ajax({
+    //     type : 'GET',
+    //     url : 'https://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenPerProject/' + gebruikerId,
+    //     success: function (data) {
+    //
+    //         console.log(data);
+    //
+    //         let values = new Array();
+    //         let names = new Array();
+    //
+    //         data.forEach(project => {
+    //
+    //             let uren = new Date(project.TotaalUren);
+    //             let urenChart = uren.getHours().toString().padStart(2, '0');
+    //
+    //             values.push(urenChart);
+    //
+    //             names.push(project.ProjectNaam);
+    //         });
+    //
+    //         let dataDonut = {
+    //             datasets: [{
+    //                 data: values,
+    //                 backgroundColor: [
+    //                     'rgba(255, 99, 132, 0.2)',
+    //                     'rgba(54, 162, 235, 0.2)',
+    //                     'rgba(255, 206, 86, 0.2)',
+    //                     'rgba(75, 192, 192, 0.2)',
+    //                     'rgba(153, 102, 255, 0.2)',
+    //                     'rgba(255, 159, 64, 0.2)'
+    //                 ],
+    //                 borderColor: [
+    //                     'rgba(255, 99, 132, 1)',
+    //                     'rgba(54, 162, 235, 1)',
+    //                     'rgba(255, 206, 86, 1)',
+    //                     'rgba(75, 192, 192, 1)',
+    //                     'rgba(153, 102, 255, 1)',
+    //                     'rgba(255, 159, 64, 1)'
+    //                 ],
+    //                 borderWidth: 1
+    //             }],
+    //             labels: names,
+    //         };
+    //
+    //         let myDoughnutChart = new Chart(ctx, {
+    //             type: 'doughnut',
+    //             data: dataDonut,
+    //             options: {
+    //
+    //             }
+    //         });
+    //     },
+    //     error: function (data) {
+    //
+    //     }
+    //
+    // });
 });

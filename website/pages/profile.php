@@ -44,12 +44,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="boss">Werkgever:</label>
-                                    <input type="text" name="boss" id="bedrijfNaamProfile" class="form-control form-control-sm">
+                                    <input type="text" name="boss" id="bedrijfNaamProfile" class="form-control form-control-sm" disabled>
                                     <input type="text" id="bedrijfIdProfile" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display: none;" >
                                 </div>
                                 <div class="form-group">
                                     <label for="roll">Rol:</label>
-                                    <input type="text" name="roll" class="form-control form-control-sm" value="<?php echo $_SESSION['gebruikerRol']; ?>">
+                                    <input type="text" name="roll" class="form-control form-control-sm" disabled value="<?php echo $_SESSION['gebruikerRol']; ?>">
                                 </div>
                                 <button type="submit" class="btn btn-sm pl-4 pr-4 mt-3" id="changePasswordBtn">Wijzigen</button>
                             </form>
