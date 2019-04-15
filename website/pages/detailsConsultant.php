@@ -51,11 +51,11 @@
 <!--                        </form>-->
                 </div>
                 <div class="col-sm-9">
-                    <div class="card" style="min-height: 50vh;">
+                    <div class="card mb-4" style="min-height: 50vh;">
                         <div class="card-header">
                             <h5 class="">Timesheets</h5>
                         </div>
-                        <div class="tabledisplay">
+                        <div class="tabledisplay" id="timesheetsConsultant">
 
                         </div>
                     </div>
@@ -77,5 +77,6 @@
     <script src="../javascript/showActivePage.js"></script>
     <script src="../javascript/detailsConsultant.js"></script>
     <script src="../javascript/components/displayList.js"></script>
+    <script src="../javascript/deleteTimeEntry.js"></script>
 
 </body>

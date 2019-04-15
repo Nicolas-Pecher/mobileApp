@@ -17,7 +17,7 @@
         <?php include './components/topNavigation.php';?>
 
         <div class="container my-4 mx-2">
-            <p class="small"><i class="fas fa-home"></i>/ &nbsp;Timesheets&nbsp; / &nbsp;Wijzigen uren</p>
+            <p class="small"><i class="fas fa-home"></i>/ &nbsp;Wijzigen uren</p>
         </div>
 
         <div class="container-fluid mx-2">
@@ -48,7 +48,7 @@
                                     <input type="time" class="form-control form-control-sm" id="eindTijd">
                                 </div>
                             </div>
-                            <!--                    <a href="" class="btn btn-sm mb-2" id="extraEntryBtn"><i class="fas fa-plus"></i></a>-->
+<!--                        <a href="" class="btn btn-sm mb-2" id="extraEntryBtn"><i class="fas fa-plus"></i></a>-->
                             <div class="form-group">
                                 <label for="opmerking">Opmerking (optioneel):</label>
                                 <textarea class="form-control form-control-sm" rows="2" id="opmerking"></textarea>
@@ -59,7 +59,7 @@
                                 </label>
                             </div>
                             <button type="submit" class="btn px-4" id="toevoegenTimeEntryBtn">Wijzigen</button>
-                            <button type="button" onclick="history.back();" class="btn px-4" id="toevoegenTimeEntryBtn">Cancel</button>
+                            <button type="button" onclick="history.back();" class="btn px-4" id="toevoegenTimeEntryBtn">Annuleren</button>
                         </form>
                     </div>
                 </div>
