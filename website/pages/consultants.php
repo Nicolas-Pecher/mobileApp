@@ -17,12 +17,12 @@
 
         <?php include './components/topNavigation.php'; ?>
 
-        <div class="container m-3 ml-3">
-            <p class="small pt-2"><i class="fas fa-home"></i>/ Consultants</p>
+        <div class="container my-4 mx-2">
+            <p class="small"><i class="fas fa-home"></i>/ &nbsp;Consultants</p>
         </div>
 
-        <div class="container m-3">
-            <h1>Consultants</h1>
+        <div class="container-fluid mx-2">
+            <h1 class="mb-4">Consultants</h1>
 
             <div class="mt-3 d-flex">
                 <div class="">
@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <div class="mt-4 mr-4 tabledisplay">
+            <div class="mt-4 mb-4 tabledisplay">
                 <option id="bedrijfIdVoorConsultant" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;">
                <!--The consultants table is displayed here-->
                
