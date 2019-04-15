@@ -30,19 +30,25 @@ $(document).ready(function () {
         success: function (data) {
             console.log(data);
 
-            data.forEach(project => {
-
             let body = $('#huidigeProjecten');
 
-            let row = $('<tr></tr>');
-            row.append($('<td></td>').attr('value', project.ProjectNaam).text(project.ProjectNaam));
-            body.append(row);
 
-            });
+
+            if(data.length != 0) {
+                data.forEach(project => {
+                    let row = $('<tr></tr>');
+                    row.append($('<td></td>').attr('value', project.ProjectNaam).text(project.ProjectNaam));
+                    body.append(row);
+                });
+            } else {
+                body.append($('<td class="p-4"></td>').attr('value', "Geen data").text("Geen data"));
+            }
+
+
         }
     });
 
-    let titles = ['Project', 'Datum', 'Van', 'Tot', 'Totaal'];
+    let titles = ['#','Project', 'Datum', 'Van', 'Tot', 'Totaal'];
     let data = [];
 
     $.ajax({
@@ -51,11 +57,18 @@ $(document).ready(function () {
         success: function (response) {
             console.log(response);
 
-            response.forEach(timesheet => {
-                data.push(timesheet);
-            });
+            if(response.length != 0) {
+                response.forEach(timesheet => {
+                    data.push(timesheet);
+                });
 
-            displayList(titles, data, 'timesheets');
+                displayList(titles, data, 'timesheets');
+            } else {
+                let div = $("#timesheetsConsultant");
+                div.append($('<p class="p-4"></p>').attr('value', "Geen data").text("Geen data"));
+            }
+
+
         }
     });
 
