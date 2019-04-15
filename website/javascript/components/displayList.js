@@ -49,7 +49,7 @@ function consultantTableRows(data, body) {
         $(row).append(`<td><a href="detailsConsultant.php?${data.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button"
         id="detailsConsultantBtn">Details</a></td>`);
         $(body).append(row);
-    })
+    });
 }
 
 function projectTableRows(data, body) {
@@ -59,7 +59,7 @@ function projectTableRows(data, body) {
         $(row).append(`<td>${data.ProjectId}</td>`);
         $(row).append(`<td>${data.ProjectNaam}</td>`);
         $(row).append(`<td>${data.KlantNaam}</td>`);
-        if (data.Overuren == true) {
+        if (data.Overuren === true) {
             $(row).append(`<td><input type="checkbox" checked></td>`);
         }else{
             $(row).append(`<td><input type="checkbox"></td>`);
@@ -67,13 +67,14 @@ function projectTableRows(data, body) {
         $(row).append(`<td><a href="#" class="btn btn-sm btn-outline-secondary" role="button"
         id="wijzigProject">Details</a></td>`);
         $(body).append(row);
-    })
+    });
 }
 
 function timesheetsTableRows(data, body) {
 
     data.forEach(data => {
-       let row = $('<tr></tr>');
+        let row = $('<tr></tr>');
+        $(row).append(`<td>${data.TimesheetId}</td>`);
         $(row).append(`<td>${data.ProjectNaam}</td>`);
         let date = new Date(data.Datum);
         let datum = date.getDate().toString().padStart(2, '0') + '/' + (date.getMonth() + 1).toString().padStart(2,'0') + '/' + date.getFullYear();
@@ -88,11 +89,9 @@ function timesheetsTableRows(data, body) {
         let verschil = verschilTijd.getHours().toString().padStart(2, '0') + ':' + verschilTijd.getMinutes().toString().padStart(2, '0') + ':' + verschilTijd.getSeconds().toString().padStart(2, '0');
         $(row).append(`<td>${verschil}</td>`);
         $(row).append(`<td><a href="modifyTimeEntry.php?${data.TimesheetId}&${data.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button"
-        id="wijzigProject"><i class="fas fa-pen"></i></a></td>`);
+        id="wijzigProject"><i class="fas fa-pen"></i></a><a href="" onclick="deleteTimeEntry(data.TimesheetId)" class="btn btn-sm btn-outline-secondary ml-1" role="button"
+        id="deleteProject"><i class="fas fa-trash-alt"></i></a></td>`);
+        $(row).append(`<td></td>`);
         $(body).append(row);
     });
 }
-
-
-
-
