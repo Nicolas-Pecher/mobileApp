@@ -24,6 +24,9 @@ function displayList(titles, data, listType) {
         //adding last column without header
         $(headers).append(`<th scope="col"></th>`);
         timesheetsTableRows(data, tbody);
+    }if(listType === 'customers') {
+        $(headers).append(`<th scope="col"></th>`);
+        klantTableRows(data, tbody);
     } else {
         //console.log('invalid or not implemented listType');
     }
@@ -94,4 +97,18 @@ function timesheetsTableRows(data, body) {
         $(row).append(`<td></td>`);
         $(body).append(row);
     });
+}
+
+function klantTableRows(data, body) {
+
+    data.forEach(data => {
+        let row = $('<tr></tr>');
+        $(row).append(`<td>${data.KlantId}</td>`);
+        $(row).append(`<td>${data.KlantNaam}</td>`);
+        $(row).append(`<td>${data.BtwNummer}</td>`);
+        $(row).append(`<td>${data.RekeningNummer}</td>`);
+        $(row).append(`<td><a href="detailsKlant.php?${data.KlantId}" class="btn btn-sm btn-outline-secondary" role="button"
+        id="detailsKlantBtn">Details</a></td>`);
+        $(body).append(row);
+    })
 }

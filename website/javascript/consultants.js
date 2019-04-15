@@ -5,10 +5,8 @@ $(document).ready(function () {
     let bedrijfId = $('#bedrijfIdConsultants').val();
     console.log("BedrijfId = " + bedrijfId);
 
-    let titles = ['Id', 'Naam', 'Emailadres'];
+    let titles = ['#', 'Naam', 'Emailadres'];
     let data = [];
-
-    //console.log("heeeey");
 
     //ajax get request om consultants weer te geven
     $.ajax({
