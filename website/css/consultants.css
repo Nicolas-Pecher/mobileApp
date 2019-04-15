@@ -8,7 +8,7 @@
     color: white;
 }
 
-#addConsultantBtn:hover {
+#addConsultantBtn:hover, #addKlantBtn:hover {
     background-color: #666666;
     border-color: #666666;
     color: white;
