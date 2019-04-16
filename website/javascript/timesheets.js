@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     let gebruikerId = $('#gebruikerIdValue').val();
-    console.log("GebruikerId = " + gebruikerId);
+    //console.log("GebruikerId = " + gebruikerId);
 
     activePage('timesheets');
 
@@ -26,7 +26,7 @@ $(document).ready(function () {
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/ConsultantTimesheets/' + gebruikerId,
         success: function (data) {
 
-            console.log(data);
+            //console.log(data);
 
             let obj = data;
             let divTimesheets = $('#timeEntryDiv');
@@ -73,12 +73,23 @@ $(document).ready(function () {
                 let currentdate = new Date();
                 let currentMonth = (currentdate.getMonth() + 1).toString().padStart(2, '0');
                 let datumMonth = (date.getMonth() + 1).toString().padStart(2, '0');
-                console.log(currentMonth);
+                //console.log(currentMonth);
 
                 if(datumMonth === currentMonth) {
-                    $(contentDiv).append(`<p class="col-2"><a href="modifyTimeEntry.php?${timeLog.TimesheetId}&${timeLog.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button"
-        id="wijzigProject"><i class="fas fa-pen"></i></a><a href="" onclick="deleteTimeEntry(timeLog.TimesheetId)" class="btn btn-sm btn-outline-secondary ml-1" role="button"
-        id="deleteProject"><i class="fas fa-trash-alt"></i></a></p>`);
+                    let p = $('<p class="col-2"></p>');
+                    let modify = $(`<a href="modifyTimeEntry.php?${timeLog.TimesheetId}&${timeLog.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button" id="wijzigProject"><i class="fas fa-pen"></i></a>`);
+                    let remove = $('<a class="btn btn-sm btn-outline-secondary ml-1" role="button" id=""><i class="fas fa-trash-alt"></i></a>');
+                    $(p).append(modify);
+                    $(p).append(remove);
+                    $(contentDiv).append(p);
+
+                    //adding event to remove
+                    $(remove).click(function (e) { 
+                        console.log(timeLog.TimesheetId)
+                        deleteTimesheet(timeLog.TimesheetId);
+                        $(contentDiv).remove();
+                    });
+
                 } else {
                     $(contentDiv).append(`<p class="col-2"></p>`);
                 }
@@ -120,12 +131,13 @@ $(document).ready(function () {
 
 function deleteTimesheet(id) {
 
+    console.log('test')
     $.ajax({
         type: 'DELETE',
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/Timesheet/' + id,
         success: function (data) {
             console.log("delete gelukt");
-            location.assign('./timesheets.php');
+            //location.assign('./timesheets.php');
         },
         error: function (data) {
 
