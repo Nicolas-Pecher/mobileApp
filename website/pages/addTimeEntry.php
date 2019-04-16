@@ -36,8 +36,8 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="project">Project:</label>
-                                    <select class="form-control mr-4 form-control-sm" id="selectProject">
-
+                                    <select name="project" class="form-control mr-4 form-control-sm" id="selectProject">
+                                        <option selected="true" disabled>Kies een project</option>
                                     </select>
                                 </div>
                                 <div class="form-group col">
@@ -54,7 +54,7 @@
                                 <label for="opmerking">Opmerking (optioneel):</label>
                                 <textarea name="opmerking" class="form-control form-control-sm" rows="2" id="opmerking"></textarea>
                             </div>
-                            <div class="form-group form-check">
+                            <div class="form-group form-check overuren">
                                 <label class="form-check-label">
                                     <input class="form-check-input" type="checkbox" name="overuren" id="overuren"> Overuren
                                 </label>
