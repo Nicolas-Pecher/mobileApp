@@ -13,36 +13,48 @@ $(document).ready(function () {
         success: function (data) {
             console.log(data);
             let obj = data;
-            //console.log(obj[0]);
-            let dropdown = $('#selectProject');
-            dropdown.empty();
-            dropdown.append('<option selected="true" disabled>Kies een project</option>');
-            //dropdown.prop('selectedIndex', 0);
 
-            for (let i = 0; i < obj.length; i++) {
-                console.log(obj[i].ProjectNaam);
-                dropdown.append($('<option class="projectId"></option>').attr('value', obj[i].ProjectId).text(obj[i].ProjectNaam));
-                console.log(obj[i].ProjectId);
-            }
+
+            let dropdown = $('#selectProject');
+            obj.forEach(project => {
+                let option = $('<option class="projectId"></option>').attr('value', project.ProjectId).text(project.ProjectNaam);
+                dropdown.append(option);
+            });
+
+
+
+            //een project selecteren uit het dropdown menu van de form
+            //om te checken of overuren mogelijk zijn
+
+            $("#selectProject").change(function () {
+                //overuren checkbox zichtbaar maken
+                $('.overuren').css('display', 'block')
+
+                //het id van het geselecteerde project opslagen
+                let projectId = $(this).children("option:selected").val();
+                console.log("You have selected project - " + projectId);
+
+                //het project vinden en nakijken of overuren mogelijk zijn
+                obj.forEach(project => {
+                    if (project.ProjectId == projectId && (!project.Overuren)) {
+                        //console.log(project.Overuren)
+                        $('.overuren').css('display', 'none')
+                    }
+                })
+            });
         }
     });
 
-    let selectedProject = "";
-
-    //een project selecteren uit het dropdown menu van de form
-    $("#selectProject").change(function () {
-        selectedProject = $(this).children("option:selected").val();
-        console.log("You have selected project - " + selectedProject);
-    });
 
     //toevoegen van een timeEntry
     $("#formTimeEntry").submit(function (e) {
         e.preventDefault();
 
+        console.log($("[name='project']").val())
         console.log("test");
 
         let gebruikerId = id;
-        let projectId = selectedProject; //$("[name='projectId']").val();
+        let projectId = $("[name='project']").val()
         let datum = $("[name='datum']").val();
         let beginuur = $("[name='beginuur']").val();
         let einduur = $("[name='einduur']").val();

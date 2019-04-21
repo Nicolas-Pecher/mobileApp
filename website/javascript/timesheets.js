@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
-    let gebruikerId = $('#gebruikerIdTimeEntry').val();
-    console.log("GebruikerId = " + gebruikerId);
+    let gebruikerId = $('#gebruikerIdValue').val();
+    //console.log("GebruikerId = " + gebruikerId);
 
     activePage('timesheets');
 
@@ -26,7 +26,7 @@ $(document).ready(function () {
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/ConsultantTimesheets/' + gebruikerId,
         success: function (data) {
 
-            console.log(data);
+            //console.log(data);
 
             let obj = data;
             let divTimesheets = $('#timeEntryDiv');
@@ -34,7 +34,7 @@ $(document).ready(function () {
 
             obj.forEach(timeLog => {
 
-                console.log(timeLog.ProjectNaam);
+               // console.log(timeLog.ProjectNaam);
 
                 //datum formaat aanpassen naar dd-mm-YYYY
                 let date = new Date(timeLog.Datum);
@@ -52,22 +52,47 @@ $(document).ready(function () {
                 let verschilTijd = new Date(timeLog.VerschilUren);
                 let werktijd = verschilTijd.getHours().toString().padStart(2, '0') + ':' + verschilTijd.getMinutes().toString().padStart(2, '0') + ':' + verschilTijd.getSeconds().toString().padStart(2, '0');
 
-                let div = ($('<div "></div>'));
-                //console.log(timeLog);
+                let div = ($('<div></div>'));
 
                 if (!(timeLog.Datum.substring(0, 10) == vorigeDatum)) {
-                    console.log("same date");
-                    div.append($('<h5 class="timesheetDate"></h5>').attr('value', timeLog.Datum).text(datum));
+                  //  console.log("same date");
+                    div.append($('<h5 class="timesheetDate border-top pt-3"></h5>').attr('value', timeLog.Datum).text(datum));
                 }
 
-                let contentDiv = $('<div class="d-flex timesheetBody row pt-3 pb-2 border-bottom border-top"></div>');
-                let urenDiv = $('<div class="d-flex col-5"></div>');
-                contentDiv.append($('<p class="col-3 mb-2"></p>').attr('value', timeLog.ProjectNaam).text(timeLog.ProjectNaam));
-                urenDiv.append($('<p class=""></p>').attr('value', timeLog.Beginuur).text(begin));
-                urenDiv.append($('<p></p>').text(" - "));
-                urenDiv.append($('<p class=""></p>').attr('value', timeLog.Einduur).text(eind));
-                contentDiv.append(urenDiv);
-                contentDiv.append($('<p class="col-2"></p>').attr('value', timeLog.VerschilUren).text(werktijd));
+                let contentDiv = $('<div class="d-flex timesheetBody row px-0"></div>');
+                //let urenDiv = $('<div class="d-flex col-3"></div>');
+                contentDiv.append($('<input id="timeEntryId" style="display: none;"/>').attr('value', timeLog.TimesheetId).text(timeLog.TimesheetId));
+                //console.log($('#timeEntryId').val());
+                contentDiv.append($('<p class="col-5"></p>').attr('value', timeLog.ProjectNaam).text(timeLog.ProjectNaam));
+                contentDiv.append($('<p class="col-1"></p>').attr('value', timeLog.Beginuur).text(begin));
+                contentDiv.append($('<p class="mr-2"></p>').text('-'));
+                contentDiv.append($('<p class="col-1"></p>').attr('value', timeLog.Einduur).text(eind));
+                //contentDiv.append(urenDiv);
+                contentDiv.append($('<p class="col-2  ml-auto"></p>').attr('value', timeLog.VerschilUren).text(werktijd));
+
+                let currentdate = new Date();
+                let currentMonth = (currentdate.getMonth() + 1).toString().padStart(2, '0');
+                let datumMonth = (date.getMonth() + 1).toString().padStart(2, '0');
+                //console.log(currentMonth);
+
+                if(datumMonth === currentMonth) {
+                    let p = $('<p class="col-2"></p>');
+                    let modify = $(`<a href="modifyTimeEntry.php?${timeLog.TimesheetId}&${timeLog.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button" id="wijzigProject"><i class="fas fa-pen"></i></a>`);
+                    let remove = $('<a class="btn btn-sm btn-outline-secondary ml-1" role="button" id=""><i class="fas fa-trash-alt"></i></a>');
+                    $(p).append(modify);
+                    $(p).append(remove);
+                    $(contentDiv).append(p);
+
+                    //adding event to remove
+                    $(remove).click(function (e) { 
+                        console.log(timeLog.TimesheetId)
+                        deleteTimesheet(timeLog.TimesheetId);
+                        $(contentDiv).remove();
+                    });
+
+                } else {
+                    $(contentDiv).append(`<p class="col-2"></p>`);
+                }
 
                 div.append($(contentDiv));
 
@@ -77,10 +102,53 @@ $(document).ready(function () {
                 vorigeDatum = timeLog.Datum.substring(0, 10);
             });
 
+            $('#deleteTimeEntry').click(function () {
+
+                console.log("in click functie");
+
+                let id = $('#timeEntryId').val();
+                console.log("id timesheet : " + id);
+                deleteTimesheet(id);
+
+            });
         }
+
     });
+
+
+
+
+
+    function bewerkenTimesheet() {
+
+    }
+
+
+
+
 
 });
 
+function deleteTimesheet(id) {
 
+    console.log('test')
+    $.ajax({
+        type: 'DELETE',
+        url: 'https://mobileapp-planning-services.azurewebsites.net/api/Timesheet/' + id,
+        success: function (data) {
+            console.log("delete gelukt");
+            //location.assign('./timesheets.php');
+        },
+        error: function (data) {
+
+        }
+    });
+
+
+}
+
+function saveData(data) {
+
+
+}
 

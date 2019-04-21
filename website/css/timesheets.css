@@ -10,20 +10,16 @@
 
 .timesheetDate {
     color: #f13c1f;
-    margin-bottom: 25px;
-    margin-top: 25px;
+    margin-bottom: 20px;
+    margin-top: 2px;
 }
 
 hr{
     margin-top: 0px;
 }
 
-.timesheetBody{
-    line-height: 10px;
-}
+.timesheetBody {
 
-.timesheetBody p {
-    margin-right: 2rem;
 }
 
 #extraEntryBtn {

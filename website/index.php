@@ -46,7 +46,8 @@
             
             <?php if($_SESSION['gebruikerRol'] != 'consultant' ) { ?>
 
-                <a href="./pages/consultants.php" class="list-group-item list-group-item-action" id="consultants"><i class="fas fa-users mr-3"></i>Consultants</a>
+                <a href="./pages/consultants.php" class="list-group-item list-group-item-action" id="consultants"><i class="fas fa-user-friends mr-3"></i>Consultants</a>
+                <a href="./pages/consultants.php" class="list-group-item list-group-item-action" id="klanten"><i class="fas fa-address-book mr-3"></i>Klanten</a>
                 <a href="./pages/projects.php" class="list-group-item list-group-item-action" id="projects"><i class="fas fa-folder mr-3"></i>Projecten</a>
                 <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s1" data-parent="#sidebar-wrapper"><i class="fas fa-chart-pie mr-3"></i>Rapporten<i class="fas fa-sort-down float-right"></i></a>
                 <div id="s1" class="sublinks collapse">
@@ -90,66 +91,74 @@
             </ul>
         </nav>
 
-        <div class="container m-3 ml-3">
-            <p class="small pt-2"> <i class="fas fa-home"></i>/  Dashboard</p>
+        <div class="container my-4 mx-2">
+            <p class="small"><i class="fas fa-home"></i>/ &nbsp;Dashboard</p>
         </div>
 
-        <div class="container m-3">
+        <div class="container-fluid mx-2">
 
-                <h2 class="mt-4 pt-2">Welkom <?php echo $_SESSION['naam']; ?>,</h2>
+                <h2 class="mb-4">Welkom <?php echo $_SESSION['naam']; ?>,</h2>
 
             <?php if($_SESSION['gebruikerRol'] == "consultant") { ?>
 
                 <!-- gewerkte uren, overuren, ziektedagen en vakantiedagen -->
-                <div class="row mt-2 pt-4">
-                    <div class="col card mr-3">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h6 class="card-title text-uppercase text-muted mb-2">Gewerkte uren</h6>
-                                    <span class="h4" id="gewerkteUrenDashboard">60:00:00</span>
-                                </div>
-                                <div class="col-auto">
-                                    <span class="h3 text-muted"><i class="fas fa-clock"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col card mr-3">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h6 class="card-title text-uppercase text-muted mb-2">Overuren</h6>
-                                    <span class="h4">00:40:00</span>
-                                </div>
-                                <div class="col-auto">
-                                    <span class="h3 text-muted"><i class="fas fa-clock"></i></span>
+                <div class="row justify-content-between">
+                    <div class="col-11 col-sm-6 col-xl mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h6 class="card-title text-uppercase text-muted mb-2">Gewerkte uren</h6>
+                                        <span class="h4" id="gewerkteUren"></span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="h3 text-muted"><i class="fas fa-clock"></i></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col card mr-3">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h6 class="card-title text-uppercase text-muted mb-2">Ziektedagen</h6>
-                                    <span class="h4">2 dagen</span>
-                                </div>
-                                <div class="col-auto">
-                                    <span class="h3 text-muted"><i class="fas fa-calendar-times"></i></span>
+                    <div class="col-11 col-sm-6 col-xl mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h6 class="card-title text-uppercase text-muted mb-2">Overuren</h6>
+                                        <span class="h4" id="overuren"></span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="h3 text-muted"><i class="fas fa-clock"></i></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col card mr-3">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h6 class="card-title text-uppercase text-muted mb-2">Vakantiedagen</h6>
-                                    <span class="h4">8 dagen</span>
+                    <div class="col-11 col-sm-6 col-xl mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h6 class="card-title text-uppercase text-muted mb-2">Ziektedagen</h6>
+                                        <span class="h4">0 dag(en)</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="h3 text-muted"><i class="fas fa-calendar-times"></i></span>
+                                    </div>
                                 </div>
-                                <div class="col-auto">
-                                    <span class="h3 text-muted"><i class="far fa-calendar-check"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-11 col-sm-6 col-xl mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h6 class="card-title text-uppercase text-muted mb-2">Vakantiedagen</h6>
+                                        <span class="h4">0 dag(en)</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="h3 text-muted"><i class="far fa-calendar-check"></i></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -157,8 +166,8 @@
                 </div>
 
                 <!--  -->
-                <div class="row mt-4">
-                    <div class="col-7">
+                <div class="row mt-2 align-items-stretch">
+                    <div class="col-11 col-md-7 col-lg-7 mb-4">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-header-title">Gewerkte uren per project</h5>
@@ -168,93 +177,66 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-5">
+                    <div class="col-11 col-md-5 col-lg-5 mb-4">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-header-title">Huidige projecten</h5>
                             </div>
-                            <div class="card-body">
+                            <div id="projectenConsultantDiv">
                                 <!-- huidige projecten -->
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <h6 class="card-title mb-1">Project Mobile Apps</h6>
-                                        <p class="card-text small text-muted">Delaware</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <h6 class="card-title mb-1">Project Mobile Apps</h6>
-                                        <p class="card-text small text-muted">Delaware</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <h6 class="card-title mb-1">Project Mobile Apps</h6>
-                                        <p class="card-text small text-muted">Delaware</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <h6 class="card-title mb-1">Project Mobile Apps</h6>
-                                        <p class="card-text small text-muted">Delaware</p>
-                                    </div>
-                                </div>
+<!--                                <div class="row align-items-center">-->
+<!--                                    <div class="col-auto">-->
+<!--                                        <h6 class="card-title mb-1">Project Mobile Apps</h6>-->
+<!--                                        <p class="card-text small text-muted">Delaware</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <hr>-->
+<!--                                <div class="row align-items-center">-->
+<!--                                    <div class="col-auto">-->
+<!--                                        <h6 class="card-title mb-1">Project Mobile Apps</h6>-->
+<!--                                        <p class="card-text small text-muted">Delaware</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <hr>-->
+<!--                                <div class="row align-items-center">-->
+<!--                                    <div class="col-auto">-->
+<!--                                        <h6 class="card-title mb-1">Project Mobile Apps</h6>-->
+<!--                                        <p class="card-text small text-muted">Delaware</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                             </div>
                         </div>
 
                     </div>
-                    <div class="col-7">
-
-                    </div>
-                    <div class="col-5">
+                    <div class="col-11 col-md-11 col-lg-6 mb-4">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-header-title">Deze week</h5>
+                                <h5 class="card-header-title">Laatst gelogde uren</h5>
                             </div>
                             <div class="table-responsive">
                                 <!-- tabel timesheets huidige week -->
                                 <table class="table table-nowrap card-table">
-
-                                    <tbody>
-                                    <tr>
-                                        <td>23/03/2019</td>
-                                        <td>Project Mobile Apps</td>
-                                        <td>04:00:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>23/03/2019</td>
-                                        <td>Project Mobile Apps</td>
-                                        <td>04:00:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>23/03/2019</td>
-                                        <td>Project Mobile Apps</td>
-                                        <td>04:00:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>23/03/2019</td>
-                                        <td>Project Mobile Apps</td>
-                                        <td>04:00:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>23/03/2019</td>
-                                        <td>Project Mobile Apps</td>
-                                        <td>04:00:00</td>
-                                    </tr>
+                                    <tbody id="laatsteTimesheetsTable">
+<!--                                    <tr>-->
+<!--                                        <td>23/03/2019</td>-->
+<!--                                        <td>Project Mobile Apps</td>-->
+<!--                                        <td>04:00:00</td>-->
+<!--                                    </tr>-->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-
                     </div>
-                </div>
-
-                <div class="row">
-
-
+                    <div class="col-11 col-md-11 col-lg-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-header-title">Gewerkte uren deze week</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="gewerkteUrenDezeWeekChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             <?php } ?>
@@ -269,61 +251,22 @@
 </div>
 <!-- /#wrapper -->
 
-<input type="text" id="gebruikerIdDashboard" value="<?php echo $_SESSION['gebruikerId']; ?>" style="display:none;" >
+<input type="text" id="gebruikerIdValue" value="<?php echo $_SESSION['gebruikerId']; ?>" style="display:none;" >
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="./javascript/index.js"></script>
+<script src="./javascript/totaalUrenPerConsultant.js"></script>
+
 <!-- Menu toggle script -->
 <script>
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
-    });
-</script>
-
-<script>
-    let ctx = document.getElementById('myChart');
-
-    let data = {
-        datasets: [{
-            data: [10, 20, 30],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }],
-        labels: ['Project Mobile Apps', 'Integration Project', 'Software Project II'],
-    };
-
-    let myDoughnutChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: data,
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
     });
 </script>
 

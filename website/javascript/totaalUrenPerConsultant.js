@@ -1,27 +1,31 @@
-console.log("joehoeeeee");
-
 $(document).ready(function () {
 
-    let gebruikerId = $('#gebruikerIdTimeEntry').val();
+    let gebruikerId = $('#gebruikerIdValue').val();
+    //console.log("GebruikerId = " + gebruikerId);
 
-    console.log("GebruikerId = " + gebruikerId);
+    let gewerkteUrenCard = $('#gewerkteUren');
 
-    //get request voor totaal gewerkte uren van de ingelogde consultant
     $.ajax({
-        type: 'GET',
-        url: 'https://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenConsultant/' + gebruikerId,
+        type : 'get',
+        url : 'https://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenConsultant/' + gebruikerId,
         success: function (data) {
 
             console.log(data);
 
-            let obj = data;
-            let pTotaal = $('#totaalUren');
+            let totaalUren = new Date(data.TotaalUren);
+            let gewerkteUren = totaalUren.getHours().toString().padStart(2, '0') + ':' + totaalUren.getMinutes().toString().padStart(2, '0') + ':' + totaalUren.getSeconds().toString().padStart(2, '0');
 
-            let totaal = new Date(obj.TotaalUren);
-            let totaalUren = totaal.getHours().toString().padStart(2, '0') + ':' + totaal.getMinutes().toString().padStart(2, '0') + ':' + totaal.getSeconds().toString().padStart(2, '0');
+            gewerkteUrenCard.attr('value', data.TotaalUren).text(gewerkteUren);
 
-            pTotaal.attr('value', obj.TotaalUren).text(totaalUren);
+        },
+        error : function (data) {
+            let geenTotaalTemp = new Date();
+            geenTotaalTemp.setHours(0,0,0);
 
+            let geenTotaal;
+            geenTotaal = geenTotaalTemp.getHours().toString().padStart(2, '0') + ':' + geenTotaalTemp.getMinutes().toString().padStart(2, '0') + ':' + geenTotaalTemp.getSeconds().toString().padStart(2, '0');
+
+            gewerkteUrenCard.attr('value', geenTotaal).text(geenTotaal);
         }
     });
 

@@ -8,8 +8,6 @@ import ShowTimeSheets from './showTimeSheets'
 
 
 export default class Home extends React.Component {
-
-
     constructor(props) {
         super(props)
         this.state = {
@@ -19,21 +17,16 @@ export default class Home extends React.Component {
         }
     }
 
-    onPress() {
-        if (!this.state.newEntry) {
-            this.setState({
-                newEntry: true
-            })
-        } else {
-            //console.log('cancel')
-            this.setState({ newEntry: false })
-        }
+    onPress = () => {
+        console.log('state of button:' + this.state.newEntry)
+        this.setState({
+            newEntry: !this.state.newEntry
+        })
     }
 
     showNewEntry() {
-
         if (this.state.newEntry) {
-            return <LogTime colorTheme={this.props.colorTheme} />
+            return <LogTime colorTheme={this.props.colorTheme} save={this.onPress}/>
         }
     }
 
@@ -69,7 +62,7 @@ export default class Home extends React.Component {
                 <View style={styles.container}>
                     <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end', }} >
                         <TouchableOpacity activeOpacity={0.5} onPress={() => this.onPress()} style={{ shadowColor: '#000', shadowOffset: { width: 1, height: 2 }, shadowOpacity: 0.2, shadowRadius: 3 }}>
-                            <Text style={{ backgroundColor: '#FBFBFB', borderRadius: 3, paddingTop: '3%', paddingBottom: '3%', paddingLeft:'10%',paddingRight:'10%', overflow: 'hidden', marginRight: '2%', color: this.props.colorTheme.lightColor }}>{buttontext}</Text>
+                            <Text style={{ backgroundColor: '#FBFBFB', borderRadius: 3, paddingTop: '3%', paddingBottom: '3%', paddingLeft: '10%', paddingRight: '10%', overflow: 'hidden', marginRight: '2%', color: this.props.colorTheme.lightColor }}>{buttontext}</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 10, zIndex: 0 }}>

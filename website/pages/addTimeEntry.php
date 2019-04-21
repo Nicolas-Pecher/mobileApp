@@ -17,35 +17,53 @@
 
     <?php include './components/topNavigation.php';?>
 
-        <div class="container m-3 ml-3">
-            <p class="small pt-2"><i class="fas fa-home"></i>/  Timesheets / Toevoegen uren</p>
+        <div class="container my-4 mx-2">
+            <p class="small"><i class="fas fa-home"></i>/ &nbsp;Timesheets&nbsp; / &nbsp;Toevoegen uren</p>
         </div>
 
-        <div class="container m-3">
-            <h1>Toevoegen uren</h1>
+        <div class="container-fluid mx-2">
+
+            <h1 class="mb-4">Toevoegen uren</h1>
 
             <div class="mt-4 pr-4" id="addTimeEntry-wrapper">
-                <form action="timesheets.php" name="formTimeEntry" id="formTimeEntry" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="datum">Datum</label>
-                        <input name="datum" type="date" class="form-control form-control-sm" id="datum">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="" name="formTimeEntry" id="formTimeEntry" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="datum">Datum:</label>
+                                <input name="datum" type="date" class="form-control form-control-sm" id="datum">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label for="project">Project:</label>
+                                    <select name="project" class="form-control mr-4 form-control-sm" id="selectProject">
+                                        <option selected="true" disabled>Kies een project</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col">
+                                    <label for="beginuur">Van:</label>
+                                    <input name="beginuur" type="time" class="form-control form-control-sm" id="beginuur">
+                                </div>
+                                <div class="form-group col">
+                                    <label for="einduur">Tot:</label>
+                                    <input name="einduur" type="time" class="form-control ml-2 form-control-sm" id="einduur">
+                                </div>
+                            </div>
+<!--                        <a href="" class="btn btn-sm mb-2" id="extraEntryBtn"><i class="fas fa-plus"></i></a>-->
+                            <div class="form-group">
+                                <label for="opmerking">Opmerking (optioneel):</label>
+                                <textarea name="opmerking" class="form-control form-control-sm" rows="2" id="opmerking"></textarea>
+                            </div>
+                            <div class="form-group form-check overuren">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="overuren" id="overuren"> Overuren
+                                </label>
+                            </div>
+                            <button class="btn px-4" type="submit" id="toevoegenTimeEntryBtn">Toevoegen</button>
+                            <button type="button" onclick="history.back();" class="btn px-4" id="toevoegenTimeEntryBtn">Annuleren</button>
+                        </form>
                     </div>
-                    <div class="form-group d-flex test" id="test">
-                        <select class="form-control mr-4 form-control-sm" id="selectProject">
-
-                        </select>
-                        <input name="beginuur" type="time" class="form-control mr-2 form-control-sm" id="beginuur">
-                        <i class="fas fa-long-arrow-alt-right mt-2"></i>
-                        <input name="einduur" type="time" class="form-control ml-2 form-control-sm" id="einduur">
-                    </div>
-                    <a href="" class="btn btn-sm mb-2" id="extraEntryBtn"><i class="fas fa-plus"></i></a>
-                    <div class="form-group">
-                        <label for="opmerking">Opmerking (optioneel)</label>
-                        <textarea name="opmerking" class="form-control form-control-sm" rows="2" id="opmerking"></textarea>
-                    </div>
-                    <button onclick="window.open('timesheets.php')" class="btn" type="submit" id="toevoegenTimeEntryBtn">Toevoegen</button>
-                </form>
-
+                </div>
             </div>
 
         </div>

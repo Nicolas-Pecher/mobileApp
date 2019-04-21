@@ -1,42 +1,71 @@
 activePage('invoices');
 
-let bedrijven = [];
+let klanten = [];
+//let adresGeselecteerdeBedrijf = [];
 let number = 0;
+let bedrijfId = $('#bedrijfIdInvoices').val();
 
-//ajax get request om klanten(bedrijven) weer te geven in eerste drop down
+//ajax get request om klanten weer te geven in eerste drop down
 $.ajax({
     type: "get",
-    url: "http://mobileapp-planning-services.azurewebsites.net/api/Bedrijf",
+    url: `http://mobileapp-planning-services.azurewebsites.net/api/KlantenVanBedrijf/${bedrijfId}`,
     success: function (data) {
-
         data.forEach(klant => {
-            number = number + 1;
-            bedrijven.push(klant);
-            $('#listKlanten').append(`<li class="list-group-item list-group-item-action" id="${klant.BedrijfNaam}">${klant.BedrijfNaam}</li>`);
+            klanten.push(klant);
+            $('#listKlanten').append(`<li class="list-group-item list-group-item-action" id="${klant.KlantNaam}">${klant.KlantNaam}</li>`);
         });
     }
 });
 
-console.log(bedrijven);
+
+console.log(klanten);
 
 //functie die een eventlistener toevoegt aan de li elements TODO ervoor zorgen dat wanneer user zich vergist de lijst niet groter wordt
 document.getElementById("listKlanten").addEventListener("click", function (e) {
     if (e.target && e.target.nodeName == "LI") {
-        var geselecteerdeBedrijf = new Object();
-        for (let index = 0; index < bedrijven.length; index++) {
-            if (e.target.id == bedrijven[index].Naam) {
-                geselecteerdeBedrijf = bedrijven[index];
+        var geselecteerdeKlant = new Object();
+        for (let index = 0; index < klanten.length; index++) {
+            if (e.target.id == klanten[index].KlantNaam) {
+                geselecteerdeKlant = klanten[index];
             }
         }
-        console.log(geselecteerdeBedrijf);
-        document.getElementById("straatnummer").append("straatnummer van " + e.target.id + " ");
-        document.getElementById("straatnaam").append("straatnaam van " + e.target.id + " ");
-        document.getElementById("postcode").append("postcode van " + e.target.id + " ");
-        document.getElementById("gemeente").append("gemeente van " + e.target.id + " ");
-        document.getElementById("land").append("land van " + e.target.id + " ");
-        document.getElementById("btwNummer").append(" "+ geselecteerdeBedrijf.BtwNummer);
-        rekenNr = "BE68539000000000";
-        document.getElementById("rekeningNummer").append(" " + rekenNr);//TODO met ajaxcall get de rekening nummer van bedrijf(klant)
+
+        console.log(geselecteerdeKlant.BedrijfId);
+
+        //ajax get request adressen 
+        $.ajax({
+            type: "get",
+            url: `http://mobileapp-planning-services.azurewebsites.net/api/BedrijfAdres/${geselecteerdeKlant.BedrijfId}`,
+            success: function (response) {
+
+                document.getElementById("Huisnummer").append(response.Huisnummer);
+                document.getElementById("straatNaam").append(response.Straatnaam);
+                document.getElementById("postcode").append(response.Postcode);
+                document.getElementById("gemeente").append(response.Gemeente);
+                document.getElementById("land").append(response.Land);
+                document.getElementById("btwNummer").append("21");
+                rekenNr = "BE68539000000000";
+                document.getElementById("rekeningNummer").append(" " + rekenNr);//TODO met ajaxcall get de rekening nummer van bedrijf(klant)
+            }
+        });
+
+        let projecten = [];
+        let totaalUren = [];
+        //ajax get request projecten 
+        $.ajax({
+            type: "get",
+            url: `http://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/${geselecteerdeKlant.KlantId}`,
+            success: function (response) {
+                //console.log(response);
+                response.forEach(project => {
+                    //console.log(project);
+                    projecten.push(project);
+                    document.getElementById("projectNaam").append(project.ProjectNaam);
+                });
+                console.log(projecten);
+            }
+        });
+
     }
 });
 
