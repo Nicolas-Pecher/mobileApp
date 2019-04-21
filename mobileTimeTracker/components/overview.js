@@ -3,38 +3,29 @@ import { StyleSheet, Text, View, ScrollView,TouchableOpacity } from 'react-nativ
 import Dropdown from './Inputs/dropdown';
 import TimelogRow from './timelogrow';
 
-//temporary options for the dropdown menu
-let testItems = [];
-
-
 
 export default class Overview extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      project: testItems[0],
+      project: {},
       showProjects: false,
-      projects: testItems
+      projects: [],
+      timesheets: []
     }
   }
 
  componentDidMount() {
-  fetch('https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker',{
-    method:'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body:JSON.stringify({
-      id: 7//this.props.user
-    })
-  })
+  fetch('https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker/7')
   .then((response) => response.json())
   .then((response) => {
     if (response != null){
-      //console.log(response);
-      this.testItems = response;
+      console.log(response);
+      this.setState({
+        project:response[0],
+        projects:response
+      })
     } else {
       console.log(response);
     }
@@ -57,8 +48,9 @@ export default class Overview extends React.Component {
   //show dropdown component
   showProjects() {
     if (this.state.showProjects) {
-      return <Dropdown options={testItems} removeDropDown={this.toggleShowProjects} colorTheme={this.props.colorTheme} selected={this.selectedProject} />
+      return <Dropdown options={this.state.projects} removeDropDown={this.toggleShowProjects} colorTheme={this.props.colorTheme} selected={this.selectedProject} />
     }
+    
   }
 
   //change the selected project
@@ -68,6 +60,28 @@ export default class Overview extends React.Component {
     })
   }
 
+  showTimesheets(){
+    fetch('https://mobileapp-planning-services.azurewebsites.net/api/TimesheetsPerProjectEnGebruiker',{
+      method:'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify({
+        IdEen: 7,
+        IdTwee: this.state.project.ProjectId
+      })
+    })
+    .then((response) => response.json())
+    .then((response) => {
+      if (response != null){
+        console.log(response);
+        this.state.timesheets = response
+      } else {
+        console.log(response);
+      }
+    })
+  }
 
   render() {
     const fontsize = 16;
@@ -79,27 +93,14 @@ export default class Overview extends React.Component {
         <View style={{ flex: 1, marginLeft: 'auto', marginRight: 'auto', width: '80%' }}>
 
           <TouchableOpacity activeOpacity={0.5} onPress={() => this.toggleShowProjects()}>
-            <Text style={{ color: this.props.colorTheme.lightColor, fontSize: 22, paddingLeft: 20, paddingTop: 15, paddingBottom: 15 }}>{this.state.project.key}</Text>
+            <Text style={{ color: this.props.colorTheme.lightColor, fontSize: 22, paddingLeft: 20, paddingTop: 15, paddingBottom: 15 }}>{this.state.project.ProjectNaam}</Text>
           </TouchableOpacity>
         </View>
 
         <View style={{ flex: 12 }}>
           <ScrollView >
-
-            <View style={{ paddingTop: 15 }}>
-              <Text style={{ color: this.props.colorTheme.lightColor, marginBottom: 10, fontSize: fontsize }}>1 Jan</Text>
-              <TimelogRow colorTheme={this.props.colorTheme} />
-              <TimelogRow colorTheme={this.props.colorTheme} />
-              <TimelogRow colorTheme={this.props.colorTheme} />
-            </View>
-
-            <View style={{ paddingTop: 15 }}>
-              <Text style={{ color: this.props.colorTheme.lightColor, marginBottom: 10, fontSize: fontsize }}>31 Dec</Text>
-              <TimelogRow colorTheme={this.props.colorTheme} />
-              <TimelogRow colorTheme={this.props.colorTheme} />
-              <TimelogRow colorTheme={this.props.colorTheme} />
-              <TimelogRow colorTheme={this.props.colorTheme} />
-            </View>
+            {this.showTimesheets()}
+            
 
           </ScrollView>
         </View>

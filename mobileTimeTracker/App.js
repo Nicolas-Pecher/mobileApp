@@ -19,6 +19,9 @@ export default class App extends React.Component {
     }
   }
 
+
+
+  
   //show the page that has to be displayed
   getDisplay() {
     if (this.state.menu == 'home') {
