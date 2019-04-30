@@ -24,8 +24,8 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
         for (let index = 0; index < klanten.length; index++) {
             if (e.target.id == klanten[index].KlantNaam) {
                 geselecteerdeKlant = klanten[index];
-                document.getElementById("btwNummer").append(" " + geselecteerdeKlant.BtwNummer);
-                document.getElementById("rekeningNummer").append(" " + geselecteerdeKlant.RekeningNummer);
+                $("#btwNummer").text(" " + geselecteerdeKlant.BtwNummer);
+                $("#rekeningNummer").text(" " + geselecteerdeKlant.RekeningNummer);
             }
         }
 
@@ -34,11 +34,11 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
             type: "get",
             url: `http://mobileapp-planning-services.azurewebsites.net/api/KlantAdres/${geselecteerdeKlant.BedrijfId}`,
             success: function (response) {
-                document.getElementById("Huisnummer").append(response.Huisnummer);
-                document.getElementById("straatNaam").append(response.Straatnaam);
-                document.getElementById("postcode").append(response.Postcode);
-                document.getElementById("gemeente").append(response.Gemeente);
-                document.getElementById("land").append(response.Land);
+                $("#Huisnummer").text(response.Huisnummer);
+                $("#straatNaam").text(response.Straatnaam);
+                $("#postcode").text(response.Postcode);
+                $("#gemeente").text(response.Gemeente);
+                $("#land").text(response.Land);
             }
         });
 
@@ -48,19 +48,41 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
             url: `http://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/${geselecteerdeKlant.KlantId}`,
             success: function (response) {
                 console.log(response);
+                $('#inhoud').empty();
                 response.forEach(element => {
-                    let row = $('<tr></tr>');
-                    $(row).append(`<td>${element.ProjectNaam}</td>`);
-                    $(row).append(`<td>${""}</td>`);
-                    $(row).append(`<td>${""}</td>`);
-                    $(row).append(`<td>${""}</td>`);
-                    $('#inhoud').append(row);
+                    $.ajax({
+                        type: "get",
+                        url: `http://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenPerProject/getbyproject/${element.ProjectId}`,
+                        success: function (time) {
+                            totalTime = new Date(time);
+                            console.log(time);
+                            let total = totalTime.getHours() + ":" + totalTime.getMinutes()
+                           
+                            let row = $('<tr></tr>');
+                            $(row).append(`<td>${element.ProjectNaam}</td>`);
+                            $(row).append(`<td>${""}</td>`);
+                            $(row).append(`<td>${total}</td>`);
+                            $(row).append(`<td>${""}</td>`);
+                            $('#inhoud').append(row);
+                            
+                        }
+                    });
                 });
             }
         });
 
+
+
+
     }
 }); //einde add eventlistener click
+
+
+function getTotaalUren(id) {
+
+}
+
+
 
 //datum van verstuur maken (vandaag)
 var vandaag = new Date();
