@@ -17,9 +17,6 @@ $.ajax({
     }
 });
 
-
-console.log(klanten);
-
 //functie die een eventlistener toevoegt aan de li elements TODO ervoor zorgen dat wanneer user zich vergist de lijst niet groter wordt
 document.getElementById("listKlanten").addEventListener("click", function (e) {
     if (e.target && e.target.nodeName == "LI") {
@@ -27,47 +24,43 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
         for (let index = 0; index < klanten.length; index++) {
             if (e.target.id == klanten[index].KlantNaam) {
                 geselecteerdeKlant = klanten[index];
+                document.getElementById("btwNummer").append(" " + geselecteerdeKlant.BtwNummer);
+                document.getElementById("rekeningNummer").append(" " + geselecteerdeKlant.RekeningNummer);
             }
         }
-
-        console.log(geselecteerdeKlant.BedrijfId);
 
         //ajax get request adressen 
         $.ajax({
             type: "get",
-            url: `http://mobileapp-planning-services.azurewebsites.net/api/BedrijfAdres/${geselecteerdeKlant.BedrijfId}`,
+            url: `http://mobileapp-planning-services.azurewebsites.net/api/KlantAdres/${geselecteerdeKlant.BedrijfId}`,
             success: function (response) {
-
                 document.getElementById("Huisnummer").append(response.Huisnummer);
                 document.getElementById("straatNaam").append(response.Straatnaam);
                 document.getElementById("postcode").append(response.Postcode);
                 document.getElementById("gemeente").append(response.Gemeente);
                 document.getElementById("land").append(response.Land);
-                document.getElementById("btwNummer").append("21");
-                rekenNr = "BE68539000000000";
-                document.getElementById("rekeningNummer").append(" " + rekenNr);//TODO met ajaxcall get de rekening nummer van bedrijf(klant)
             }
         });
 
-        let projecten = [];
-        let totaalUren = [];
         //ajax get request projecten 
         $.ajax({
             type: "get",
             url: `http://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/${geselecteerdeKlant.KlantId}`,
             success: function (response) {
-                //console.log(response);
-                response.forEach(project => {
-                    //console.log(project);
-                    projecten.push(project);
-                    document.getElementById("projectNaam").append(project.ProjectNaam);
+                console.log(response);
+                response.forEach(element => {
+                    let row = $('<tr></tr>');
+                    $(row).append(`<td>${element.ProjectNaam}</td>`);
+                    $(row).append(`<td>${""}</td>`);
+                    $(row).append(`<td>${""}</td>`);
+                    $(row).append(`<td>${""}</td>`);
+                    $('#inhoud').append(row);
                 });
-                console.log(projecten);
             }
         });
 
     }
-});
+}); //einde add eventlistener click
 
 //datum van verstuur maken (vandaag)
 var vandaag = new Date();
@@ -89,6 +82,6 @@ uitersteDatum = ' ' + dag + '/' + maand + '/' + jaar;
 
 document.getElementById("uitersteDatum").append(uitersteDatum);
 
-//rekeningnummer maken van ONS BEDRIJF
+//rekeningnummer maken van ONS BEDRIJF todo get van database
 rekNr = "BE68539007547034";
 document.getElementById("rekeningNummerOns").append(" " + rekNr);
