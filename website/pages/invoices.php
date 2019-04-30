@@ -80,20 +80,13 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Project</th>
-                                    <th scope="col">Gewerkte uren</th>
-                                    <th scope="col">Overuren</th>
                                     <th scope="col">Prijs per uur</th>
+                                    <th scope="col">Totaal Uren</th>
                                     <th scope="col">Subtotaal</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td id="projectNaam"></td>
-                                    <td id="gewerkteUren">&euro;</td>
-                                    <td id="overUren">&euro;</td>
-                                    <td id="prijsPerUur">&euro;</td>
-                                    <td id="subtotaal">&euro;</td>
-                                </tr>
+                            <tbody id="inhoud">
+                                <!--wordt gevuld in invoices.js-->
                             </tbody>
                         </table>
                         <table class="normal table table-borderless">
