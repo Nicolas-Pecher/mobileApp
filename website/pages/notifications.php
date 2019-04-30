@@ -84,8 +84,6 @@
 
 <?php include './components/footer.php'; ?>
 
-<script src="../javascript/showActivePage.js"></script>
-<script src="../javascript/addTimeEntry.js"></script>
 
 
 </body>

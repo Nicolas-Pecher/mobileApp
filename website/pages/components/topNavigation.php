@@ -46,7 +46,7 @@
                     </div>
 
                 </div>
-                <div class="border-top dropdown-header"><a href="./pages/notifications.php" class="" style="color: #666666; ">Bekijk alle notificaties</a> </div>
+                <div class="border-top dropdown-header"><a href="./notifications.php" class="" style="color: #666666; ">Bekijk alle notificaties</a> </div>
             </div>
         </li>
         <li class="nav-item">

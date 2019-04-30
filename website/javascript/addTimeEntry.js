@@ -12,16 +12,12 @@ $(document).ready(function () {
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker/' + id,
         success: function (data) {
             console.log(data);
-            let obj = data;
-
 
             let dropdown = $('#selectProject');
-            obj.forEach(project => {
+            data.forEach(project => {
                 let option = $('<option class="projectId"></option>').attr('value', project.ProjectId).text(project.ProjectNaam);
                 dropdown.append(option);
             });
-
-
 
             //een project selecteren uit het dropdown menu van de form
             //om te checken of overuren mogelijk zijn
@@ -35,7 +31,7 @@ $(document).ready(function () {
                 console.log("You have selected project - " + projectId);
 
                 //het project vinden en nakijken of overuren mogelijk zijn
-                obj.forEach(project => {
+                data.forEach(project => {
                     if (project.ProjectId == projectId && (!project.Overuren)) {
                         //console.log(project.Overuren)
                         $('.overuren').css('display', 'none')
