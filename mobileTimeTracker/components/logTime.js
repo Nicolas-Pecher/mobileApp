@@ -46,19 +46,19 @@ export default class LogTime extends Component {
         duration: 100,
       }
     ).start();                        // Starts the animation
-    fetch('http://mobileapp-planning-services.azurewebsites.net/api/Projects')
-            .then((response) => response.json())
-            //.then((response) => console.log(response))
-            .then((responseJson) => {
-                this.setState({
-                    projects: responseJson,
-                    project:responseJson[0]
-                }, function () {
-                });
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+    fetch('http://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker/4') // DON'T FORGET TO CHANGE THIS
+      .then((response) => response.json())
+      //.then((response) => console.log(response))
+      .then((responseJson) => {
+        this.setState({
+          projects: responseJson,
+          project: responseJson[0]
+        }, function () {
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   setDate = (newDate) => {
@@ -75,6 +75,11 @@ export default class LogTime extends Component {
 
   //change the state of visibility of the selected dropdown
   ToggleTimePicker = (type) => {
+    this.setState({
+      showDatePicker: false,
+      showBeginPicker:false,
+      showEndPicker:false,
+    })
     if (type == 'date') {
       this.setState({
         showDatePicker: !this.state.showDatePicker
@@ -126,6 +131,7 @@ export default class LogTime extends Component {
 
   //show or hide the dropdown
   toggleShowProjects() {
+
     if (!this.state.showProjects) {
       this.setState({
         showProjects: true
@@ -160,21 +166,26 @@ export default class LogTime extends Component {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        GebruikerId: 1,
-        ProjectId: this.state.project.id,
-        Datum: this.state.date,
-        Beginuur: this.state.begin,
-        Einduur: this.state.end,
-        Opmerking: '',
-        Overuur: false,
-      }),
-    });
+      body: JSON.stringify(
+        {
+          GebruikerId: 4,
+          ProjectId: this.state.project.ProjectId,
+          Datum: this.state.date,
+          Beginuur: this.state.begin,
+          Einduur: this.state.end,
+          Opmerking: '',
+          Overuur: false
+        }
+      ),
+    })
+      .then((response) => response.json())
+      .then((response) => console.log(response));
     this.props.save();
   }
 
   render() {
-        let { fadeAnim } = this.state;
+    let { fadeAnim } = this.state;
+    console.log(this.state.project)
     return (
       <Animated.View style={{ zIndex: 1, height: '90%', width: '100%', position: 'absolute', bottom: 0, backgroundColor: '#F1F1F1', opacity: fadeAnim }} behavior="padding" enabled>
         <View style={{ marginLeft: 10, marginRight: 10 }}>
@@ -184,7 +195,7 @@ export default class LogTime extends Component {
           <ShowLine />
 
           <TouchableOpacity activeOpacity={0.5} onPress={() => this.toggleShowProjects()}>
-            <Text style={{ color: this.props.colorTheme.lightColor, fontSize: 22, paddingLeft: 20, paddingTop: 15, paddingBottom: 15 }}>{this.state.project.key}</Text>
+            <Text style={{ color: this.props.colorTheme.lightColor, fontSize: 22, paddingLeft: 20, paddingTop: 15, paddingBottom: 15 }}>{this.state.project.ProjectNaam}</Text>
           </TouchableOpacity>
 
           <ShowLine />
