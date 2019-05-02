@@ -42,11 +42,10 @@
                     
                     <div id="factuur">
 
-                        <h3 class="text-left ml-5">Ons bedrijf</h3>
+                        <h3 id="naamBedrijf" class="text-left ml-5"></h3>
 
-                        <address class="text-left ml-5">
-                            Nijverheidskaai 170, 1070 Anderlecht<br>
-                            België, tel.: 02 523 37 37
+                        <address id="adresBedrijf"class="text-left ml-5">
+                            <!--gevuld door ajax call in invoice.js-->
                         </address>
 
                         <h2 class="ml-5">Factuurnummer: #</h2>
