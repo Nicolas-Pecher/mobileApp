@@ -1,5 +1,8 @@
 body {
+    /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
+
     overflow-x: hidden;
+    height: 100%;
 }
 
 #sidebar-wrapper {
@@ -27,9 +30,9 @@ body {
 }
 
 .sidebar-wrapper .active {
-    background-color: #da1d00;
+    background-color: #f13c1f;
     color: white;
-    border: #da1d00;
+    border: #f13c1f;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -43,6 +46,7 @@ body {
 
 #page-content-wrapper {
     min-width: 100vw;
+    min-height: 100vh;
 }
 
 #page-content-wrapper .badge {
@@ -57,8 +61,17 @@ body {
     color: #F13C1F;
 }
 
+#content {
+    min-height: 80%;
+}
+
+footer {
+
+
+}
+
 #wrapper.toggled #sidebar-wrapper {
-    margin-left: 0;
+    margin-left: 0rem;
 }
 
 i {
@@ -84,7 +97,7 @@ i {
 }
 
 #projectenCardBody:not(:first-child){
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 #projectenCardBody:last-child {
@@ -93,7 +106,7 @@ i {
 
 @media (min-width: 768px) {
     #sidebar-wrapper {
-        margin-left: 0;
+        margin-left: 0rem;
     }
 
     #page-content-wrapper {

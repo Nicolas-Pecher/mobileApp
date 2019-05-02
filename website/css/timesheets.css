@@ -10,8 +10,8 @@
 
 .timesheetDate {
     color: #f13c1f;
-    margin-bottom: 25px;
-    margin-top: 25px;
+    margin-bottom: 20px;
+    margin-top: 2px;
 }
 
 hr{
@@ -19,7 +19,7 @@ hr{
 }
 
 .timesheetBody {
-    padding: 10px 20px
+
 }
 
 #extraEntryBtn {

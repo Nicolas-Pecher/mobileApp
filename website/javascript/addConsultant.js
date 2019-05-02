@@ -42,6 +42,7 @@ $(document).ready(function () {
         let gebruikerNaam = $("[name='naamConsultant']").val();
         let email = $("[name='email']").val();
         let wachtwoord = $("[name='password']").val();
+        let loon = $("[name='loon']").val();
 
         //let hash = Base64.encode(wachtwoord);
 
@@ -50,7 +51,8 @@ $(document).ready(function () {
             Email : email,
             Wachtwoord : wachtwoord,
             Rol : "consultant",
-            BedrijfId : bedrijfId
+            BedrijfId : bedrijfId,
+            LoonPerUur : loon
         }
 
         console.log(dataJSON);
@@ -62,9 +64,10 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                alert("Saved Successfully");
+                //alert("Saved Successfully");
                 console.log(data);
                 //document.getElementById("formTimeEntry").reset();
+                location.assign('./consultants.php');
             },
             error: function (data) {
                 alert("Error please try again");

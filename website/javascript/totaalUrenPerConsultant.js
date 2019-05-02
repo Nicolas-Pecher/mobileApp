@@ -1,9 +1,7 @@
-console.log("joehoeeeee");
-
 $(document).ready(function () {
 
     let gebruikerId = $('#gebruikerIdValue').val();
-    console.log("GebruikerId = " + gebruikerId);
+    //console.log("GebruikerId = " + gebruikerId);
 
     let gewerkteUrenCard = $('#gewerkteUren');
 

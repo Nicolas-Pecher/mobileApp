@@ -4,13 +4,6 @@ import Dropdown from './Inputs/dropdown'
 
 //animaton from the React native documentation https://facebook.github.io/react-native/docs/animations
 
-
-let testItems = [
-  { key: 'Project 1', id: 1 },
-  { key: 'Project 2', id: 2 },
-  { key: 'Project 3', id: 3 },
-];
-
 // This is like a <hr> in html
 function ShowLine() {
   return (
@@ -31,12 +24,12 @@ export default class LogTime extends Component {
 
     this.state = {
       fadeAnim: new Animated.Value(0),
-      project: testItems[0],
+      project: {},
       showProjects: false,
       showDatePicker: false,
       showBeginPicker: false,
       showEndPicker: false,
-      projects: testItems,
+      projects: [],
       date: new Date(),
       begin: new Date(),
       end: new Date(),
@@ -58,11 +51,10 @@ export default class LogTime extends Component {
             //.then((response) => console.log(response))
             .then((responseJson) => {
                 this.setState({
-                    isLoading: false,
-                    timesheets: responseJson,
+                    projects: responseJson,
+                    project:responseJson[0]
                 }, function () {
                 });
-
             })
             .catch((error) => {
                 console.error(error);
@@ -148,7 +140,7 @@ export default class LogTime extends Component {
   //render the dropdown
   showProjects() {
     if (this.state.showProjects) {
-      return <Dropdown options={testItems} removeDropDown={this.toggleShowProjects} colorTheme={this.props.colorTheme} selected={this.selectedProject} />
+      return <Dropdown options={this.state.projects} removeDropDown={this.toggleShowProjects} colorTheme={this.props.colorTheme} selected={this.selectedProject} />
     }
   }
 

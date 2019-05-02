@@ -46,7 +46,8 @@
             
             <?php if($_SESSION['gebruikerRol'] != 'consultant' ) { ?>
 
-                <a href="./pages/consultants.php" class="list-group-item list-group-item-action" id="consultants"><i class="fas fa-users mr-3"></i>Consultants</a>
+                <a href="./pages/consultants.php" class="list-group-item list-group-item-action" id="consultants"><i class="fas fa-user-friends mr-3"></i>Consultants</a>
+                <a href="./pages/consultants.php" class="list-group-item list-group-item-action" id="klanten"><i class="fas fa-address-book mr-3"></i>Klanten</a>
                 <a href="./pages/projects.php" class="list-group-item list-group-item-action" id="projects"><i class="fas fa-folder mr-3"></i>Projecten</a>
                 <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s1" data-parent="#sidebar-wrapper"><i class="fas fa-chart-pie mr-3"></i>Rapporten<i class="fas fa-sort-down float-right"></i></a>
                 <div id="s1" class="sublinks collapse">
@@ -90,25 +91,19 @@
             </ul>
         </nav>
 
-        <div class="container m-3 ml-3">
-            <p class="small pt-2"> <i class="fas fa-home"></i>/  Dashboard</p>
+        <div class="container my-4 mx-2">
+            <p class="small"><i class="fas fa-home"></i>/ &nbsp;Dashboard</p>
         </div>
 
-        <div class="container m-3 mr-2">
+        <div class="container-fluid mx-2">
 
-                <h2 class="mt-4 mb-4 pt-2">Welkom <?php echo $_SESSION['naam']; ?>,</h2>
+                <h2 class="mb-4">Welkom <?php echo $_SESSION['naam']; ?>,</h2>
 
             <?php if($_SESSION['gebruikerRol'] == "consultant") { ?>
 
-                <div class="container-fluid">
-
-
-
-                </div>
-
                 <!-- gewerkte uren, overuren, ziektedagen en vakantiedagen -->
                 <div class="row justify-content-between">
-                    <div class="col-11 col-md-6 col-lg mb-4">
+                    <div class="col-11 col-sm-6 col-xl mb-4">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row align-items-center">
@@ -123,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-11 col-md-6 col-lg mb-4">
+                    <div class="col-11 col-sm-6 col-xl mb-4">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row align-items-center">
@@ -138,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-11 col-md-6 col-lg mb-4">
+                    <div class="col-11 col-sm-6 col-xl mb-4">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row align-items-center">
@@ -153,7 +148,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-11 col-md-6 col-lg mb-4">
+                    <div class="col-11 col-sm-6 col-xl mb-4">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row align-items-center">
@@ -171,8 +166,8 @@
                 </div>
 
                 <!--  -->
-                <div class="row mt-4 align-items-stretch">
-                    <div class="col-7">
+                <div class="row mt-2 align-items-stretch">
+                    <div class="col-11 col-md-7 col-lg-7 mb-4">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-header-title">Gewerkte uren per project</h5>
@@ -182,12 +177,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-5">
+                    <div class="col-11 col-md-5 col-lg-5 mb-4">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-header-title">Huidige projecten</h5>
                             </div>
-                            <div class="card-body" id="projectenConsultantDiv" >
+                            <div id="projectenConsultantDiv">
                                 <!-- huidige projecten -->
 <!--                                <div class="row align-items-center">-->
 <!--                                    <div class="col-auto">-->
@@ -213,13 +208,10 @@
                         </div>
 
                     </div>
-                    <div class="col-7">
-
-                    </div>
-                    <div class="col-5">
+                    <div class="col-11 col-md-11 col-lg-6 mb-4">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-header-title">Deze week</h5>
+                                <h5 class="card-header-title">Laatst gelogde uren</h5>
                             </div>
                             <div class="table-responsive">
                                 <!-- tabel timesheets huidige week -->
@@ -230,37 +222,21 @@
 <!--                                        <td>Project Mobile Apps</td>-->
 <!--                                        <td>04:00:00</td>-->
 <!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <td>23/03/2019</td>-->
-<!--                                        <td>Project Mobile Apps</td>-->
-<!--                                        <td>04:00:00</td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <td>23/03/2019</td>-->
-<!--                                        <td>Project Mobile Apps</td>-->
-<!--                                        <td>04:00:00</td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <td>23/03/2019</td>-->
-<!--                                        <td>Project Mobile Apps</td>-->
-<!--                                        <td>04:00:00</td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <td>23/03/2019</td>-->
-<!--                                        <td>Project Mobile Apps</td>-->
-<!--                                        <td>04:00:00</td>-->
-<!--                                    </tr>-->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-
                     </div>
-                </div>
-
-                <div class="row">
-
-
+                    <div class="col-11 col-md-11 col-lg-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-header-title">Gewerkte uren deze week</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="gewerkteUrenDezeWeekChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             <?php } ?>
@@ -280,23 +256,18 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="./javascript/index.js"></script>
 <script src="./javascript/totaalUrenPerConsultant.js"></script>
+
 <!-- Menu toggle script -->
 <script>
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-</script>
-
-<script>
-
-
-
-
 </script>
 
 </body>

@@ -70,7 +70,6 @@ export default class App extends React.Component {
     //console.log('getting the color')
     try {
         const value = await AsyncStorage.getItem('color');
-        console.log(JSON.parse(value));
         if (JSON.parse(value) == 'blue') {
           this.setState({
             colorTheme: {theme:'blue',lightColor:'#53ACBE',darkColor:'#0E0055'}
