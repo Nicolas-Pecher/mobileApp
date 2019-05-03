@@ -10,7 +10,7 @@ export default class Dropdown extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            selected: this.props.options[0].id
+            selected: this.props.options[0].ProjectId
         };
     };
 
@@ -24,17 +24,17 @@ export default class Dropdown extends Component {
 
         //get the selected option with his id that was saved in the state
         this.props.options.forEach(option => {
-            if (option.id == this.state.selected) {
+            if (option.ProjectId == this.state.selected) {
                 this.props.selected(option);
             }
         });
         this.props.removeDropDown();
     }
 
-    changeSelected = (id) => {
+    changeSelected = (ProjectId) => {
         //console.log(id);
         this.setState({
-            selected: id
+            selected: ProjectId
         });
     }
 
@@ -56,11 +56,11 @@ export default class Dropdown extends Component {
                     <ScrollView style={{ flex: 1, paddingLeft: 15, paddingRight: 15, paddingTop: 15 }}>
                         {
                             this.props.options.map((option) => {
-                                if (this.state.selected == option.id) {
-                                    return (<TouchableOpacity key={option.id} ><Text style={{ color: this.props.colorTheme.lightColor, textAlign: 'center', paddingTop: 10, paddingBottom: 10, fontSize: 20 }}>{option.key}</Text></TouchableOpacity>);
+                                if (this.state.selected == option.ProjectId) {
+                                    return (<TouchableOpacity key={option.ProjectId} ><Text style={{ color: this.props.colorTheme.lightColor, textAlign: 'center', paddingTop: 10, paddingBottom: 10, fontSize: 20 }}>{option.ProjectNaam}</Text></TouchableOpacity>);
                                 }
-                                const text = <Text style={{ textAlign: 'center', paddingTop: 10, paddingBottom: 10, fontSize: 20 }}>{option.key}</Text>
-                                return (<TouchableOpacity activeOpacity={0.5} onPress={() => this.changeSelected(option.id)} key={option.id}>{text}</TouchableOpacity>);
+                                const text = <Text style={{ textAlign: 'center', paddingTop: 10, paddingBottom: 10, fontSize: 20 }}>{option.ProjectNaam}</Text>
+                                return (<TouchableOpacity activeOpacity={0.5} onPress={() => this.changeSelected(option.ProjectId)} key={option.ProjectId}>{text}</TouchableOpacity>);
                             })
                         }
                     </ScrollView>
