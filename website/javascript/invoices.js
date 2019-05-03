@@ -13,49 +13,35 @@ $.ajax({
     success: function (data) {
         data.forEach(klant => {
             klanten.push(klant);
-            $('#listKlanten').append(`<li class="list-group-item list-group-item-action" id="${klant.KlantNaam}">${klant.KlantNaam}</li>`);
+            $('#listKlanten').append(`<option id="${klant.KlantNaam}" class="dropdown-item" >${klant.KlantNaam}</option>`);
         });
-        //get bedrijven
+        //get bedrijf
         $.ajax({
             type: "get",
-            url: `http://mobileapp-planning-services.azurewebsites.net/api/Bedrijf`,
-            success: function (response) {
-                response.forEach(bedrijf => {
-                    bedrijven.push(bedrijf);
-                    $('#listBedrijven').append(`<li class="list-group-item list-group-item-action" id="${bedrijf.BedrijfNaam}">${bedrijf.BedrijfNaam}</li>`);
+            url: `http://mobileapp-planning-services.azurewebsites.net/api/Bedrijf/${bedrijfId}`,
+            success: function (bedrijf) {
+                $('#listBedrijven').append(`<li class="list-group-item list-group-item-action" id="${bedrijf.BedrijfNaam}">${bedrijf.BedrijfNaam}</li>`);
+                $('#naamBedrijf').append(bedrijf.BedrijfNaam)
+                $.ajax({
+                    type: "get",
+                    url: `http://mobileapp-planning-services.azurewebsites.net/api/BedrijfAdres/${bedrijfId}`,
+                    success: function (response) {
+                        $('#adresBedrijf').append(response.Gemeente + " ");
+                        var d = "<br>"
+                        $('#adresBedrijf').append(response.Huisnummer + d);
+                        $('#adresBedrijf').append(response.Straatnaam + " ");
+                        $('#adresBedrijf').append(response.Postcode + d);
+                        $('#adresBedrijf').append(response.Land + " ");
+                    }
                 });
             }
         });
     }
 });
 
-document.getElementById("listBedrijven").addEventListener("click", function (e) {
-    if (e.target && e.target.nodeName == "LI") {
-        var geselecteerdeBedrijf = new Object();
-        for (let index = 0; index < bedrijven.length; index++) {
-            if (e.target.id == bedrijven[index].BedrijfNaam) {
-                geselecteerdeBedrijf = bedrijven[index];
-                $('#naamBedrijf').append(geselecteerdeBedrijf.BedrijfNaam);
-            }
-        }
-        $.ajax({
-            type: "get",
-            url: `http://mobileapp-planning-services.azurewebsites.net/api/BedrijfAdres/${geselecteerdeBedrijf.BedrijfId}`,
-            success: function (response) {
-                $('#adresBedrijf').append(response.Gemeente + " ");
-                var d = "<br>"
-                $('#adresBedrijf').append(response.Huisnummer + d);
-                $('#adresBedrijf').append(response.Straatnaam + " ");
-                $('#adresBedrijf').append(response.Postcode + d);
-                $('#adresBedrijf').append(response.Land + " ");
-            }
-        });
-    }
-})
-
 //functie die een eventlistener toevoegt aan de li elements TODO ervoor zorgen dat wanneer user zich vergist de lijst niet groter wordt
 document.getElementById("listKlanten").addEventListener("click", function (e) {
-    if (e.target && e.target.nodeName == "LI") {
+    if (e.target && e.target.nodeName == "OPTION") {
         var geselecteerdeKlant = new Object();
         for (let index = 0; index < klanten.length; index++) {
             if (e.target.id == klanten[index].KlantNaam) {
@@ -100,6 +86,32 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
                             $(row).append(`<td>${total}</td>`);
                             $(row).append(`<td>${""}</td>`);
                             $('#inhoud').append(row);
+
+                            //ajax voor totaal loon van consultanten
+                            /* in die ajax call komt die code dan
+                            
+                            let row1 = $('<tr></tr>');
+                            $(row).append(`<td>${element.ProjectNaam}</td>`);
+                            $(row).append(`<td>${""}</td>`);
+                            $(row).append(`<td>${"Subtotaal"}</td>`);
+                            $(row).append(`<td>${""}</td>`);
+
+                            let row2 = $('<tr></tr>');
+                            $(row).append(`<td>${element.ProjectNaam}</td>`);
+                            $(row).append(`<td>${""}</td>`);
+                            $(row).append(`<td>${"Bedrag excl. BTW"}</td>`);
+                            $(row).append(`<td>${""}</td>`);
+
+                            let row3 = $('<tr></tr>');
+                            $(row).append(`<td>${element.ProjectNaam}</td>`);
+                            $(row).append(`<td>${""}</td>`);
+                            $(row).append(`<td>${"Totaal"}</td>`);
+                            $(row).append(`<td>${""}</td>`);
+
+                            $('#inhoud').append(row1);
+                            $('#inhoud').append(row2);
+                            $('#inhoud').append(row3);
+                            */
                             
                         }
                     });
