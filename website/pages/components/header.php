@@ -20,6 +20,7 @@
     <!-- Custom stylesheets -->
     <link rel="stylesheet" href="../css/timesheets.css">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/invoices.css">
     <link rel="stylesheet" href="../css/projects.css">
     <link rel="stylesheet" href="../css/consultants.css">
     <link rel="stylesheet" href="../css/login.css">

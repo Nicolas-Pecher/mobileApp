@@ -18,21 +18,24 @@ function ShowLine() {
 }
 
 
-export default class LogTime extends Component {
+export default class EditTimeSheet extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       fadeAnim: new Animated.Value(0),
-      project: {},
+      project: {
+        ProjectId:this.props.timesheet.ProjectId,
+        ProjectNaam:this.props.timesheet.ProjectNaam,
+      },
       showProjects: false,
       showDatePicker: false,
       showBeginPicker: false,
       showEndPicker: false,
       projects: [],
-      date: new Date(),
-      begin: new Date(),
-      end: new Date(),
+      date: new Date(this.props.timesheet.Datum),
+      begin: new Date(this.props.timesheet.Beginuur),
+      end: new Date(this.props.timesheet.Einduur),
 
     }
     this.toggleShowProjects = this.toggleShowProjects.bind(this);
@@ -52,7 +55,6 @@ export default class LogTime extends Component {
       .then((responseJson) => {
         this.setState({
           projects: responseJson,
-          project: responseJson[0]
         }, function () {
         });
       })
@@ -77,8 +79,8 @@ export default class LogTime extends Component {
   ToggleTimePicker = (type) => {
     this.setState({
       showDatePicker: false,
-      showBeginPicker: false,
-      showEndPicker: false,
+      showBeginPicker:false,
+      showEndPicker:false,
     })
     if (type == 'date') {
       this.setState({
@@ -160,8 +162,8 @@ export default class LogTime extends Component {
   //save all the selected data
   saveTimeLog = () => {
     console.log("save");
-    fetch('https://mobileapp-planning-services.azurewebsites.net/api/Timesheet', {
-      method: 'POST',
+    fetch(`https://mobileapp-planning-services.azurewebsites.net/api/Timesheet/${this.props.timesheet.TimesheetId}`, {
+      method: 'PUT',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -183,7 +185,7 @@ export default class LogTime extends Component {
       .then((response) => {
         this.props.updateHome()
       });
-    this.props.save();
+      this.props.save();
   }
 
   render() {
@@ -193,7 +195,7 @@ export default class LogTime extends Component {
       <Animated.View style={{ zIndex: 1, height: '90%', width: '100%', position: 'absolute', bottom: 0, backgroundColor: '#F1F1F1', opacity: fadeAnim }} behavior="padding" enabled>
         <View style={{ marginLeft: 10, marginRight: 10 }}>
 
-          <Text style={{ textAlign: 'center', color: "#484848", fontSize: 22, paddingTop: 20, paddingBottom: 20, }}>Add time</Text>
+          <Text style={{ textAlign: 'center', color: "#484848", fontSize: 22, paddingTop: 20, paddingBottom: 20, }}>Edit time</Text>
 
           <ShowLine />
 
@@ -235,9 +237,3 @@ export default class LogTime extends Component {
     )
   }
 }
-
-/*const styles = StyleSheet.create({
-  line: {
-
-  },
-});*/

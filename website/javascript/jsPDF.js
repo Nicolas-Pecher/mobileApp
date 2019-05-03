@@ -1,5 +1,6 @@
 document.getElementById("genPDF").addEventListener('click', function () {
 
+    /*
     var side = $('#sidebar-wrapper');
     savedSideBar = side.clone(true);
 
@@ -9,7 +10,9 @@ document.getElementById("genPDF").addEventListener('click', function () {
     side.remove();
 
     top.remove();
-
+*/
+    $('#titel').remove();
+    $('#overzichtKlanten').remove();
     window.setTimeout(() => {
         var pdf = new jsPDF('p', 'pt', 'a4');
     pdf.addHTML(document.body, function () {

@@ -1,0 +1,14 @@
+#divLinks{
+    float: left;
+}
+#divRechts{
+    float: right;
+}
+#genPDF {
+    display: block;
+    max-width: 300px;
+    margin: auto;
+  }
+.lichtGrijs{
+    color: #aeaeaf;
+}
