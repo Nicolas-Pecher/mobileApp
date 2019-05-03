@@ -18,16 +18,34 @@ export default class Home extends React.Component {
     }
 
     onPress = () => {
-        console.log('state of button:' + this.state.newEntry)
         this.setState({
             newEntry: !this.state.newEntry
         })
+
     }
 
     showNewEntry() {
         if (this.state.newEntry) {
-            return <LogTime colorTheme={this.props.colorTheme} save={this.onPress}/>
+            return <LogTime colorTheme={this.props.colorTheme} save={this.onPress} updateHome={this.updateProjects} />
         }
+    }
+
+    updateProjects = () => {
+        console.log("UPDATING");
+        fetch('http://mobileapp-planning-services.azurewebsites.net/api/Timesheet')
+            .then((response) => response.json())
+            //.then((response) => console.log(response))
+            .then((responseJson) => {
+                this.setState({
+                    isLoading: false,
+                    timesheets: responseJson,
+                }, function () {
+                });
+
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     componentDidMount() {
@@ -49,7 +67,7 @@ export default class Home extends React.Component {
 
     displayTimesheets() {
         if (!this.state.isLoading) {
-            return <ShowTimeSheets timesheets={this.state.timesheets} colorTheme={this.props.colorTheme} />
+            return <ShowTimeSheets timesheets={this.state.timesheets} colorTheme={this.props.colorTheme} updateHome={this.updateProjects}/>
         }
     }
 
@@ -87,26 +105,3 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
 });
-
-
-/* =======================================================================
-
-<ScrollView >
-
-                            <View style={{ paddingTop: 5 }}>
-                                <Text style={{ color: this.props.colorTheme.lightColor, marginBottom: 10, fontSize: fontsize }}>1 Jan</Text>
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                            </View>
-
-                            <View style={{ paddingTop: 15 }}>
-                                <Text style={{ color: this.props.colorTheme.lightColor, marginBottom: 10, fontSize: fontsize }}>31 Dec</Text>
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                            </View>
-
-                        </ScrollView>
-*/
