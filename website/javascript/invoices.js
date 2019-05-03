@@ -1,7 +1,6 @@
 activePage('invoices');
 
 let klanten = [];
-let bedrijven = [];
 //let adresGeselecteerdeBedrijf = [];
 let number = 0;
 let bedrijfId = $('#bedrijfIdInvoices').val();
@@ -15,43 +14,8 @@ $.ajax({
             klanten.push(klant);
             $('#listKlanten').append(`<li class="list-group-item list-group-item-action" id="${klant.KlantNaam}">${klant.KlantNaam}</li>`);
         });
-        //get bedrijven
-        $.ajax({
-            type: "get",
-            url: `http://mobileapp-planning-services.azurewebsites.net/api/Bedrijf`,
-            success: function (response) {
-                response.forEach(bedrijf => {
-                    bedrijven.push(bedrijf);
-                    $('#listBedrijven').append(`<li class="list-group-item list-group-item-action" id="${bedrijf.BedrijfNaam}">${bedrijf.BedrijfNaam}</li>`);
-                });
-            }
-        });
     }
 });
-
-document.getElementById("listBedrijven").addEventListener("click", function (e) {
-    if (e.target && e.target.nodeName == "LI") {
-        var geselecteerdeBedrijf = new Object();
-        for (let index = 0; index < bedrijven.length; index++) {
-            if (e.target.id == bedrijven[index].BedrijfNaam) {
-                geselecteerdeBedrijf = bedrijven[index];
-                $('#naamBedrijf').append(geselecteerdeBedrijf.BedrijfNaam);
-            }
-        }
-        $.ajax({
-            type: "get",
-            url: `http://mobileapp-planning-services.azurewebsites.net/api/BedrijfAdres/${geselecteerdeBedrijf.BedrijfId}`,
-            success: function (response) {
-                $('#adresBedrijf').append(response.Gemeente + " ");
-                var d = "<br>"
-                $('#adresBedrijf').append(response.Huisnummer + d);
-                $('#adresBedrijf').append(response.Straatnaam + " ");
-                $('#adresBedrijf').append(response.Postcode + d);
-                $('#adresBedrijf').append(response.Land + " ");
-            }
-        });
-    }
-})
 
 //functie die een eventlistener toevoegt aan de li elements TODO ervoor zorgen dat wanneer user zich vergist de lijst niet groter wordt
 document.getElementById("listKlanten").addEventListener("click", function (e) {
@@ -83,7 +47,7 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
             type: "get",
             url: `http://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/${geselecteerdeKlant.KlantId}`,
             success: function (response) {
-            
+                console.log(response);
                 $('#inhoud').empty();
                 response.forEach(element => {
                     $.ajax({
@@ -91,7 +55,7 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
                         url: `http://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenPerProject/getbyproject/${element.ProjectId}`,
                         success: function (time) {
                             totalTime = new Date(time);
-
+                            console.log(time);
                             let total = totalTime.getHours() + ":" + totalTime.getMinutes()
                            
                             let row = $('<tr></tr>');
