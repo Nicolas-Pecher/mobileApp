@@ -3,12 +3,12 @@
     color: white;
 }
 
-#addConsultantBtn, .detailsConsultantBtn, #addKlantBtn, #addProjectBtn {
+#addConsultantBtn, .detailsConsultantBtn, #addKlantBtn, #addProjectBtn, #genPDF {
     background-color: #f13c1f;
     color: white;
 }
 
-#addConsultantBtn:hover, #addKlantBtn:hover, #addProjectBtn:hover {
+#addConsultantBtn:hover, #addKlantBtn:hover, #addProjectBtn:hover, #genPDF:hover {
     background-color: #666666;
     border-color: #666666;
     color: white;

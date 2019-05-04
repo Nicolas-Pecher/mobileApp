@@ -20,16 +20,18 @@ $.ajax({
             url: `http://mobileapp-planning-services.azurewebsites.net/api/Bedrijf/${bedrijfId}`,
             success: function (bedrijf) {
                 $('#listBedrijven').append(`<li class="list-group-item list-group-item-action" id="${bedrijf.BedrijfNaam}">${bedrijf.BedrijfNaam}</li>`);
-                $('#naamBedrijf').append(bedrijf.BedrijfNaam)
+                $('#naamBedrijf').append(bedrijf.BedrijfNaam);
                 $.ajax({
                     type: "get",
                     url: `http://mobileapp-planning-services.azurewebsites.net/api/BedrijfAdres/${bedrijfId}`,
                     success: function (response) {
-                        $('#adresBedrijf').append(response.Gemeente + " ");
-                        var d = "<br>"
+
+                        let d = "<br>";
+
+                        $('#adresBedrijf').append(response.Straatnaam);
                         $('#adresBedrijf').append(response.Huisnummer + d);
-                        $('#adresBedrijf').append(response.Straatnaam + " ");
-                        $('#adresBedrijf').append(response.Postcode + d);
+                        $('#adresBedrijf').append(response.Postcode + " ");
+                        $('#adresBedrijf').append(response.Gemeente + " ");
                         $('#adresBedrijf').append(response.Land + " ");
                     }
                 });
@@ -55,7 +57,7 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
             type: "get",
             url: `http://mobileapp-planning-services.azurewebsites.net/api/KlantAdres/${geselecteerdeKlant.BedrijfId}`,
             success: function (response) {
-                $("#Huisnummer").text(response.Huisnummer);
+                $("#huisnummer").text(response.Huisnummer);
                 $("#straatNaam").text(response.Straatnaam);
                 $("#postcode").text(response.Postcode);
                 $("#gemeente").text(response.Gemeente);
