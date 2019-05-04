@@ -77,14 +77,14 @@ $(document).ready(function () {
 
                 if(datumMonth === currentMonth) {
                     let p = $('<p class="col-2"></p>');
-                    let modify = $(`<a href="modifyTimeEntry.php?${timeLog.TimesheetId}&${timeLog.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button" id="wijzigProject"><i class="fas fa-pen"></i></a>`);
-                    let remove = $('<a class="btn btn-sm btn-outline-secondary ml-1" role="button" id=""><i class="fas fa-trash-alt"></i></a>');
+                    let modify = $(`<a href="modifyTimeEntry.php?${timeLog.TimesheetId}&${timeLog.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button" id=""><i class="fas fa-pen"></i></a>`);
+                    let remove = $('<a href="" class="btn btn-sm btn-outline-secondary ml-1" role="button" id=""><i class="fas fa-trash-alt"></i></a>');
                     $(p).append(modify);
                     $(p).append(remove);
                     $(contentDiv).append(p);
 
                     //adding event to remove
-                    $(remove).click(function (e) { 
+                    $(remove).click(function() {
                         console.log(timeLog.TimesheetId)
                         deleteTimesheet(timeLog.TimesheetId);
                         $(contentDiv).remove();
@@ -101,31 +101,9 @@ $(document).ready(function () {
                 //datum klaar maken voor volgende loop
                 vorigeDatum = timeLog.Datum.substring(0, 10);
             });
-
-            $('#deleteTimeEntry').click(function () {
-
-                console.log("in click functie");
-
-                let id = $('#timeEntryId').val();
-                console.log("id timesheet : " + id);
-                deleteTimesheet(id);
-
-            });
         }
 
     });
-
-
-
-
-
-    function bewerkenTimesheet() {
-
-    }
-
-
-
-
 
 });
 
@@ -147,8 +125,4 @@ function deleteTimesheet(id) {
 
 }
 
-function saveData(data) {
-
-
-}
 

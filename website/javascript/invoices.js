@@ -1,7 +1,6 @@
 activePage('invoices');
 
 let klanten = [];
-let bedrijven = [];
 //let adresGeselecteerdeBedrijf = [];
 let number = 0;
 let bedrijfId = $('#bedrijfIdInvoices').val();
@@ -21,16 +20,18 @@ $.ajax({
             url: `http://mobileapp-planning-services.azurewebsites.net/api/Bedrijf/${bedrijfId}`,
             success: function (bedrijf) {
                 $('#listBedrijven').append(`<li class="list-group-item list-group-item-action" id="${bedrijf.BedrijfNaam}">${bedrijf.BedrijfNaam}</li>`);
-                $('#naamBedrijf').append(bedrijf.BedrijfNaam)
+                $('#naamBedrijf').append(bedrijf.BedrijfNaam);
                 $.ajax({
                     type: "get",
                     url: `http://mobileapp-planning-services.azurewebsites.net/api/BedrijfAdres/${bedrijfId}`,
                     success: function (response) {
-                        $('#adresBedrijf').append(response.Gemeente + " ");
-                        var d = "<br>"
+
+                        let d = "<br>";
+
+                        $('#adresBedrijf').append(response.Straatnaam);
                         $('#adresBedrijf').append(response.Huisnummer + d);
-                        $('#adresBedrijf').append(response.Straatnaam + " ");
-                        $('#adresBedrijf').append(response.Postcode + d);
+                        $('#adresBedrijf').append(response.Postcode + " ");
+                        $('#adresBedrijf').append(response.Gemeente + " ");
                         $('#adresBedrijf').append(response.Land + " ");
                     }
                 });
@@ -51,12 +52,12 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
             }
         }
 
-        //ajax get request adressen 
+        //ajax get request adressen
         $.ajax({
             type: "get",
             url: `http://mobileapp-planning-services.azurewebsites.net/api/KlantAdres/${geselecteerdeKlant.BedrijfId}`,
             success: function (response) {
-                $("#Huisnummer").text(response.Huisnummer);
+                $("#huisnummer").text(response.Huisnummer);
                 $("#straatNaam").text(response.Straatnaam);
                 $("#postcode").text(response.Postcode);
                 $("#gemeente").text(response.Gemeente);
@@ -64,12 +65,12 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
             }
         });
 
-        //ajax get request projecten 
+        //ajax get request projecten
         $.ajax({
             type: "get",
             url: `http://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/${geselecteerdeKlant.KlantId}`,
             success: function (response) {
-            
+                console.log(response);
                 $('#inhoud').empty();
                 response.forEach(element => {
                     $.ajax({
@@ -77,9 +78,9 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
                         url: `http://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenPerProject/getbyproject/${element.ProjectId}`,
                         success: function (time) {
                             totalTime = new Date(time);
-
+                            console.log(time);
                             let total = totalTime.getHours() + ":" + totalTime.getMinutes()
-                           
+
                             let row = $('<tr></tr>');
                             $(row).append(`<td>${element.ProjectNaam}</td>`);
                             $(row).append(`<td>${""}</td>`);
@@ -89,7 +90,7 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
 
                             //ajax voor totaal loon van consultanten
                             /* in die ajax call komt die code dan
-                            
+
                             let row1 = $('<tr></tr>');
                             $(row).append(`<td>${element.ProjectNaam}</td>`);
                             $(row).append(`<td>${""}</td>`);
@@ -112,7 +113,7 @@ document.getElementById("listKlanten").addEventListener("click", function (e) {
                             $('#inhoud').append(row2);
                             $('#inhoud').append(row3);
                             */
-                            
+
                         }
                     });
                 });
