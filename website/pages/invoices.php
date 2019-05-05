@@ -39,7 +39,7 @@
                 </form>
 
                 <div class="card p-3 mb-4">
-                    <div class="card-body">
+                    <div id="card-body" class="card-body">
                         <div>
                             <div class="float-left">
                                 <h3>Factuur #<span>1</span></h3>
@@ -101,24 +101,7 @@
                         </div>
                     </div>
                 </div>
-
-<!--                <div class="">-->
-<!--                    <div class="form-group">-->
-<!--                        <div class="btn-group">-->
-<!--                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kies Klant-->
-<!--                            </button>-->
-<!--                            <button id="genPDF" class="btn btn-secondary ml-4">Print Factuur</button>-->
-<!--                            <div id="listKlanten" class="dropdown-menu">-->
-<!--                                uit ajax call-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!---->
-<!--                    </div>-->
-<!---->
-<!---->
-<!--                </div>-->
             </div>
-            <!--einde container-->
 
             <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
 
