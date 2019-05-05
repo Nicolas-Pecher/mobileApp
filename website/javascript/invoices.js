@@ -14,6 +14,7 @@ $.ajax({
             klanten.push(klant);
             $('#listKlanten').append(`<option id="${klant.KlantNaam}" class="dropdown-item" >${klant.KlantNaam}</option>`);
         });
+
         //get bedrijf
         $.ajax({
             type: "get",
@@ -41,89 +42,90 @@ $.ajax({
 });
 
 //functie die een eventlistener toevoegt aan de li elements TODO ervoor zorgen dat wanneer user zich vergist de lijst niet groter wordt
-document.getElementById("listKlanten").addEventListener("click", function (e) {
-    if (e.target && e.target.nodeName == "OPTION") {
-        var geselecteerdeKlant = new Object();
-        for (let index = 0; index < klanten.length; index++) {
-            if (e.target.id == klanten[index].KlantNaam) {
-                geselecteerdeKlant = klanten[index];
-                $("#btwNummer").text(" " + geselecteerdeKlant.BtwNummer);
-                $("#rekeningNummer").text(" " + geselecteerdeKlant.RekeningNummer);
-            }
+document.getElementById("listKlanten").addEventListener("change", function (e) {
+
+    var geselecteerdeKlant = new Object();
+    for (let index = 0; index < klanten.length; index++) {
+
+        if (e.target.value == klanten[index].KlantNaam) {
+            geselecteerdeKlant = klanten[index];
+            $("#btwNummer").text(" " + geselecteerdeKlant.BtwNummer);
+            $("#rekeningNummer").text(" " + geselecteerdeKlant.RekeningNummer);
         }
-
-        //ajax get request adressen
-        $.ajax({
-            type: "get",
-            url: `http://mobileapp-planning-services.azurewebsites.net/api/KlantAdres/${geselecteerdeKlant.BedrijfId}`,
-            success: function (response) {
-                $("#huisnummer").text(response.Huisnummer);
-                $("#straatNaam").text(response.Straatnaam);
-                $("#postcode").text(response.Postcode);
-                $("#gemeente").text(response.Gemeente);
-                $("#land").text(response.Land);
-            }
-        });
-
-        //ajax get request projecten
-        $.ajax({
-            type: "get",
-            url: `http://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/${geselecteerdeKlant.KlantId}`,
-            success: function (response) {
-                console.log(response);
-                $('#inhoud').empty();
-                response.forEach(element => {
-                    $.ajax({
-                        type: "get",
-                        url: `http://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenPerProject/getbyproject/${element.ProjectId}`,
-                        success: function (time) {
-                            totalTime = new Date(time);
-                            console.log(time);
-                            let total = totalTime.getHours() + ":" + totalTime.getMinutes()
-
-                            let row = $('<tr></tr>');
-                            $(row).append(`<td>${element.ProjectNaam}</td>`);
-                            $(row).append(`<td>${""}</td>`);
-                            $(row).append(`<td>${total}</td>`);
-                            $(row).append(`<td>${""}</td>`);
-                            $('#inhoud').append(row);
-
-                            //ajax voor totaal loon van consultanten
-                            /* in die ajax call komt die code dan
-
-                            let row1 = $('<tr></tr>');
-                            $(row).append(`<td>${element.ProjectNaam}</td>`);
-                            $(row).append(`<td>${""}</td>`);
-                            $(row).append(`<td>${"Subtotaal"}</td>`);
-                            $(row).append(`<td>${""}</td>`);
-
-                            let row2 = $('<tr></tr>');
-                            $(row).append(`<td>${element.ProjectNaam}</td>`);
-                            $(row).append(`<td>${""}</td>`);
-                            $(row).append(`<td>${"Bedrag excl. BTW"}</td>`);
-                            $(row).append(`<td>${""}</td>`);
-
-                            let row3 = $('<tr></tr>');
-                            $(row).append(`<td>${element.ProjectNaam}</td>`);
-                            $(row).append(`<td>${""}</td>`);
-                            $(row).append(`<td>${"Totaal"}</td>`);
-                            $(row).append(`<td>${""}</td>`);
-
-                            $('#inhoud').append(row1);
-                            $('#inhoud').append(row2);
-                            $('#inhoud').append(row3);
-                            */
-
-                        }
-                    });
-                });
-            }
-        });
-
-
-
-
     }
+
+    //ajax get request adressen
+    $.ajax({
+        type: "get",
+        url: `http://mobileapp-planning-services.azurewebsites.net/api/KlantAdres/${geselecteerdeKlant.BedrijfId}`,
+        success: function (response) {
+            $("#huisnummer").text(response.Huisnummer);
+            $("#straatNaam").text(response.Straatnaam);
+            $("#postcode").text(response.Postcode);
+            $("#gemeente").text(response.Gemeente);
+            $("#land").text(response.Land);
+        }
+    });
+
+    //ajax get request projecten
+    $.ajax({
+        type: "get",
+        url: `http://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/${geselecteerdeKlant.KlantId}`,
+        success: function (response) {
+            console.log(response);
+            $('#inhoud').empty();
+            response.forEach(element => {
+                $.ajax({
+                    type: "get",
+                    url: `http://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenPerProject/getbyproject/${element.ProjectId}`,
+                    success: function (time) {
+                        totalTime = new Date(time);
+                        console.log(time);
+                        let total = totalTime.getHours() + ":" + totalTime.getMinutes()
+
+                        let row = $('<tr></tr>');
+                        $(row).append(`<td>${element.ProjectNaam}</td>`);
+                        $(row).append(`<td>${""}</td>`);
+                        $(row).append(`<td>${total}</td>`);
+                        $(row).append(`<td>${""}</td>`);
+                        $('#inhoud').append(row);
+
+                        //ajax voor totaal loon van consultanten
+                        /* in die ajax call komt die code dan
+
+                        let row1 = $('<tr></tr>');
+                        $(row).append(`<td>${element.ProjectNaam}</td>`);
+                        $(row).append(`<td>${""}</td>`);
+                        $(row).append(`<td>${"Subtotaal"}</td>`);
+                        $(row).append(`<td>${""}</td>`);
+
+                        let row2 = $('<tr></tr>');
+                        $(row).append(`<td>${element.ProjectNaam}</td>`);
+                        $(row).append(`<td>${""}</td>`);
+                        $(row).append(`<td>${"Bedrag excl. BTW"}</td>`);
+                        $(row).append(`<td>${""}</td>`);
+
+                        let row3 = $('<tr></tr>');
+                        $(row).append(`<td>${element.ProjectNaam}</td>`);
+                        $(row).append(`<td>${""}</td>`);
+                        $(row).append(`<td>${"Totaal"}</td>`);
+                        $(row).append(`<td>${""}</td>`);
+
+                        $('#inhoud').append(row1);
+                        $('#inhoud').append(row2);
+                        $('#inhoud').append(row3);
+                        */
+
+                    }
+                });
+            });
+        }
+    });
+
+
+
+
+
 }); //einde add eventlistener click
 
 
