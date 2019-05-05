@@ -25,8 +25,8 @@ export default class EditTimeSheet extends Component {
     this.state = {
       fadeAnim: new Animated.Value(0),
       project: {
-        ProjectId:this.props.timesheet.ProjectId,
-        ProjectNaam:this.props.timesheet.ProjectNaam,
+        ProjectId: this.props.timesheet.ProjectId,
+        ProjectNaam: this.props.timesheet.ProjectNaam,
       },
       showProjects: false,
       showDatePicker: false,
@@ -79,8 +79,8 @@ export default class EditTimeSheet extends Component {
   ToggleTimePicker = (type) => {
     this.setState({
       showDatePicker: false,
-      showBeginPicker:false,
-      showEndPicker:false,
+      showBeginPicker: false,
+      showEndPicker: false,
     })
     if (type == 'date') {
       this.setState({
@@ -159,6 +159,10 @@ export default class EditTimeSheet extends Component {
     })
   }
 
+  cancel = () => {
+    this.props.save();
+  }
+
   //save all the selected data
   saveTimeLog = () => {
     console.log("save");
@@ -185,7 +189,7 @@ export default class EditTimeSheet extends Component {
       .then((response) => {
         this.props.updateHome()
       });
-      this.props.save();
+    this.props.save();
   }
 
   render() {
@@ -224,10 +228,16 @@ export default class EditTimeSheet extends Component {
           </TouchableOpacity>
 
           <ShowLine />
+          <View style={{display:'flex',flexDirection:'row'}}>
+            <TouchableOpacity activeOpacity={0.5} onPress={() => this.saveTimeLog()} style={{flex:1}}>
+              <Text style={{ color: this.props.colorTheme.lightColor, fontSize: 25, paddingTop: 25, paddingBottom: 15}}>Cancel</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity activeOpacity={0.5} onPress={() => this.saveTimeLog()}>
-            <Text style={{ color: this.props.colorTheme.lightColor, fontSize: 25, paddingLeft: 20, paddingTop: 25, paddingBottom: 15, textAlign: "center" }}>Confirm</Text>
-          </TouchableOpacity>
+            <TouchableOpacity activeOpacity={0.5} onPress={() => this.cancel()} style={{flex:1}}>
+              <Text style={{ color: this.props.colorTheme.lightColor, fontSize: 25, paddingTop: 25, paddingBottom: 15,textAlign:"right" }}>Confirm</Text>
+            </TouchableOpacity>
+          </View>
+
 
           {this.showTimePicker()}
 
