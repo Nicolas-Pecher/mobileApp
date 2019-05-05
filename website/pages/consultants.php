@@ -40,14 +40,9 @@
 
         </div>
 
-
-
-
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
 
         <input type="text" id="bedrijfIdConsultants" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
-
-        <footer class="border-top small text-center"><p class="pt-2">&copy; Copyright 2019, Project Mobile Apps groep 2</p></footer>
 
     </div>
     <!-- /#page-content-wrapper -->
