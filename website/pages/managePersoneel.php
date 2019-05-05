@@ -27,9 +27,7 @@
                 <h1 class="mb-4">Personeel</h1>
 
                 <div class="mt-3 d-flex">
-                    <div class="">
-                        <button class="btn timesheetsBtn mr-2"><i class="fas fa-plus"></i> Toevoegen</button>
-                    </div>
+                    <a href="./addEmployee.php"><button class="btn timesheetsBtn mr-2"><i class="fas fa-plus"></i> Toevoegen</button></a>
                 </div>
 
                 <div class="my-4 tabledisplay">
