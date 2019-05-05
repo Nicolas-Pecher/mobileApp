@@ -27,6 +27,8 @@ function displayList(titles, data, listType) {
     }if(listType === 'customers') {
         $(headers).append(`<th scope="col"></th>`);
         klantTableRows(data, tbody);
+    }if (listType === 'personeel') {
+        personeelTableRows(data, tbody);        
     } else {
         //console.log('invalid or not implemented listType');
     }
@@ -111,4 +113,17 @@ function klantTableRows(data, body) {
         id="detailsKlantBtn">Details</a></td>`);
         $(body).append(row);
     })
+}
+
+
+function personeelTableRows(data, body) {
+
+    data.forEach(data => {
+        let row = $('<tr></tr>');
+        $(row).append(`<td id="consultantId">${data.GebruikerId}</td>`);
+        $(row).append(`<td id="gebruikerNaam">${data.GebruikerNaam}</td>`);
+        $(row).append(`<td id="email">${data.Email}</td>`);
+        $(row).append(`<td id="rol">${data.Rol}</td>`);
+        $(body).append(row);
+    });
 }

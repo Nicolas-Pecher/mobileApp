@@ -14,6 +14,17 @@
     color: white;
 }
 
+.addConsultantBtn{
+    background-color: #f13c1f;
+    color: white;
+}
+
+.addConsultantBtn:hover{
+    background-color: #666666;
+    border-color: #666666;
+    color: white;
+}
+
 #detailsConsultantBtn:hover {
     background-color: #666666;
     color: white;
