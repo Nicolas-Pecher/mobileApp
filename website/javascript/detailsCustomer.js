@@ -1,50 +1,23 @@
 $(document).ready(function () {
 
+    activePage('klanten');
+
+    // ophalen klant id
     let klantId = location.search.substring(1);
     console.log("KlantId = " + klantId);
 
+    // ophalen bedrijf id
     let bedrijfId = $("#bedrijfIdValue").val();
     console.log("BedrijfId = " + bedrijfId);
 
+    // weergeven gegevens van de klant
     $.ajax({
         type: 'GET',
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/Klant/' + klantId,
         success: function (data) {
             console.log(data);
 
-            let naam = $('.klantNaam');
-
-            naam.attr('value', data.KlantNaam).text(data.KlantNaam);
-
-        }
-    });
-
-
-    $.ajax({
-        type: 'GET',
-        url: 'https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/' + klantId,
-        success: function (data) {
-            console.log(data);
-
-            let body = $('#projectsCustomer');
-
-            if(data.length != 0) {
-                data.forEach(project => {
-                    let row = $('<tr></tr>');
-                    row.append($('<td></td>').attr('value', project.ProjectNaam).text(project.ProjectNaam));
-                    body.append(row);
-                });
-            } else {
-                body.append($('<td class="p-4"></td>').attr('value', "Geen data").text("Geen data"));
-            }
-        }
-    });
-
-    $.ajax({
-        type: 'GET',
-        url: 'https://mobileapp-planning-services.azurewebsites.net/api/Klant/' + klantId,
-        success: function (data) {
-            console.log(data);
+            $('.klantNaam').attr('value', data.KlantNaam).text(data.KlantNaam);
 
             $("[name='name']").val(data.KlantNaam);
             $("[name='btwnummer']").val(data.BtwNummer);
@@ -53,6 +26,7 @@ $(document).ready(function () {
 
             let adresId = data.AdresId;
 
+            // weergeven adres van de klant
             $.ajax({
                 type: 'GET',
                 url: 'https://mobileapp-planning-services.azurewebsites.net/api/Adres/' + adresId,
@@ -71,6 +45,32 @@ $(document).ready(function () {
         }
     });
 
+    // weergeven projecten van de klant
+    $.ajax({
+        type: 'GET',
+        url: 'https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/' + klantId,
+        success: function (data) {
+            console.log(data);
+
+            let body = $('#projectsCustomer');
+
+            let nummer = 1;
+
+            if(data.length != 0) {
+                data.forEach(project => {
+                    let row = $('<tr></tr>');
+                    row.append($('<td></td>').attr('value', project.ProjectId).text(nummer));
+                    row.append($('<td></td>').attr('value', project.ProjectNaam).text(project.ProjectNaam));
+                    body.append(row);
+                    nummer++;
+                });
+            } else {
+                body.append($('<p class="p-4"></p>').attr('value', "Geen data").text("Nog geen data"));
+            }
+        }
+    });
+
+    // wijzigen van de gegevens van de klant
     $("#modifyCustomerForm").submit(function (e) {
         e.preventDefault();
 
@@ -81,7 +81,7 @@ $(document).ready(function () {
         let btwNummer = $("[name='btwnummer']").val();
         let rekeningNummer = $("[name='rekeningnummer']").val();
 
-        let dataJSON = {
+        let dataJSONKlant = {
             KlantId: klantId,
             KlantNaam: klantnaam,
             BedrijfId: bedrijfId,
@@ -93,13 +93,11 @@ $(document).ready(function () {
         $.ajax({
             type: 'PUT',
             url: 'https://mobileapp-planning-services.azurewebsites.net/api/Klant/' + klantId,
-            data: JSON.stringify(dataJSON),
+            data: JSON.stringify(dataJSONKlant),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                //alert("Saved Successfully");
                 console.log("Updated Successfully : " + data);
-                //document.getElementById("formTimeEntry").reset();
                 //location.assign('./detailsConsultant.php?' + gebruikerId);
             },
             error: function (data) {
@@ -131,10 +129,9 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                //alert("Saved Successfully");
                 console.log("Updated Successfully : " + data);
-                //document.getElementById("formTimeEntry").reset();
-                //location.assign('./detailsConsultant.php?' + gebruikerId);
+                //location.assign('./detailsCustomer.php?' + klantId);
+                alert("Wijzigen gegevens en adres van klant " + klantnaam + " succesvol!");
             },
             error: function (data) {
                 alert("Error please try again");

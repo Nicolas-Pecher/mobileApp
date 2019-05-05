@@ -75,7 +75,7 @@ document.getElementById("listKlanten").addEventListener("change", function (e) {
         type: "get",
         url: `http://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/${geselecteerdeKlant.KlantId}`,
         success: function (response) {
-    
+
             $('#inhoud').empty();
             response.forEach(element => {
                 $.ajax({
@@ -95,7 +95,7 @@ document.getElementById("listKlanten").addEventListener("change", function (e) {
                             type: "get",
                             url: `http://mobileapp-planning-services.azurewebsites.net/api/LoonPerProject/${element.ProjectId}`,
                             success: function (loon) {
-                                
+
                                 var totLoon = 0;
                                 loon.forEach(l => {
                                     totLoon = totLoon + l.Loon;
@@ -113,36 +113,6 @@ document.getElementById("listKlanten").addEventListener("change", function (e) {
                     }
                 });
             });
-
-            console.log(totalen); //array is gevuld met waarden die opgeteld moeten worden met functie maakSom
-
-            console.log("som: " + maakSom()); //functie kan niet aan de waarden binnen de array
-
-            var som = maakSom();
-            var somExlBtw = som * 0.21;
-
-            let row1 = $('<tr></tr>');
-            $(row1).append(`<td>${""}</td>`);
-            $(row1).append(`<td>${""}</td>`);
-            $(row1).append(`<td>${"Subtotaal"}</td>`);
-            $(row1).append(`<td>${som}</td>`);
-
-            
-            let row2 = $('<tr></tr>');
-            $(row2).append(`<td>${""}</td>`);
-            $(row2).append(`<td>${""}</td>`);
-            $(row2).append(`<td>${"Bedrag excl. BTW"}</td>`);
-            $(row2).append(`<td>${somExlBtw}</td>`);
-
-            let row3 = $('<tr></tr>');
-            $(row3).append(`<td>${""}</td>`);
-            $(row3).append(`<td>${""}</td>`);
-            $(row3).append(`<td>${"Totaal"}</td>`);
-            $(row3).append(`<td>${som+somExlBtw}</td>`);
-            
-            $('#inhoud').after(row3);
-            $('#inhoud').after(row2);
-            $('#inhoud').after(row1);
         }
     });
 
@@ -171,8 +141,51 @@ document.getElementById("uitersteDatum").append(uitersteDatum);
 function maakSom() {
     var som = 0.0;
     totalen.forEach(totaal => {
-        som+=totaal;
-        console.log(totaal);
+        som += totaal;
     });
     return som.toFixed(2);
 }
+
+$(document).ajaxStop(function () {
+    maakTabel();
+});
+
+function maakTabel() {
+    var som = maakSom();
+    console.log(som);
+
+    $('.verwijder').remove();
+
+    var somExlBtw = som * 0.21;
+    parseFloat(somExlBtw);
+    var xclBtw = somExlBtw.toFixed(2);
+    parseFloat(xclBtw);
+
+    var result = parseFloat(som) + parseFloat(xclBtw);
+    //alert(result.toFixed(2));
+    var finalTotal = result.toFixed(2);
+
+    let row1 = $('<tr class="verwijder"></tr>');
+    $(row1).append(`<td>${""}</td>`);
+    $(row1).append(`<td>${""}</td>`);
+    $(row1).append(`<td>${"Subtotaal"}</td>`);
+    $(row1).append(`<td>${som}</td>`);
+
+
+    let row2 = $('<tr class="verwijder"></tr>');
+    $(row2).append(`<td>${""}</td>`);
+    $(row2).append(`<td>${""}</td>`);
+    $(row2).append(`<td>${"BTW bedrag"}</td>`);
+    $(row2).append(`<td>${xclBtw}</td>`);
+
+    let row3 = $('<tr class="verwijder"></tr>');
+    $(row3).append(`<td>${""}</td>`);
+    $(row3).append(`<td>${""}</td>`);
+    $(row3).append(`<td>${"Totaal"}</td>`);
+    $(row3).append(`<td>${finalTotal}</td>`);
+
+    $('#inhoud').after(row3);
+    $('#inhoud').after(row2);
+    $('#inhoud').after(row1);
+}
+

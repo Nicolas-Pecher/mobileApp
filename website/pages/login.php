@@ -51,7 +51,7 @@
                     <input class="form-check-input" type="checkbox" name="loggedIn" id="loginCheck"> Ingelogd blijven
                 </label>
             </div>
-            <button type="submit" href="" class="btn btn-block" id="login-button">Inloggen</button>
+            <button type="submit" class="btn btn-block" id="login-button">Inloggen</button>
             <div class="text-center mt-2">
                 <a href="#" class="d-block small text-dark">Wachtwoord vergeten?</a>
             </div>
