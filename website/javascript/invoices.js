@@ -4,6 +4,7 @@ let klanten = [];
 //let adresGeselecteerdeBedrijf = [];
 let number = 0;
 let bedrijfId = $('#bedrijfIdInvoices').val();
+var totalen = [];
 
 //ajax get request om klanten weer te geven in eerste drop down
 $.ajax({
@@ -22,6 +23,8 @@ $.ajax({
             success: function (bedrijf) {
                 $('#listBedrijven').append(`<li class="list-group-item list-group-item-action" id="${bedrijf.BedrijfNaam}">${bedrijf.BedrijfNaam}</li>`);
                 $('#naamBedrijf').append(bedrijf.BedrijfNaam);
+                $('#rekeningNummerOns').append(bedrijf.RekeningNummer);
+                $('#btwNummerOns').append(bedrijf.BtwNummer);
                 $.ajax({
                     type: "get",
                     url: `http://mobileapp-planning-services.azurewebsites.net/api/BedrijfAdres/${bedrijfId}`,
@@ -29,7 +32,7 @@ $.ajax({
 
                         let d = "<br>";
 
-                        $('#adresBedrijf').append(response.Straatnaam);
+                        $('#adresBedrijf').append(response.Straatnaam + " ");
                         $('#adresBedrijf').append(response.Huisnummer + d);
                         $('#adresBedrijf').append(response.Postcode + " ");
                         $('#adresBedrijf').append(response.Gemeente + " ");
@@ -72,68 +75,78 @@ document.getElementById("listKlanten").addEventListener("change", function (e) {
         type: "get",
         url: `http://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/${geselecteerdeKlant.KlantId}`,
         success: function (response) {
-            console.log(response);
+    
             $('#inhoud').empty();
             response.forEach(element => {
                 $.ajax({
                     type: "get",
                     url: `http://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenPerProject/getbyproject/${element.ProjectId}`,
                     success: function (time) {
+
                         totalTime = new Date(time);
-                        console.log(time);
+
+                        var tijd = parseFloat(totalTime.getHours() + "." + totalTime.getMinutes());
+
                         let total = totalTime.getHours() + ":" + totalTime.getMinutes()
 
                         let row = $('<tr></tr>');
-                        $(row).append(`<td>${element.ProjectNaam}</td>`);
-                        $(row).append(`<td>${""}</td>`);
-                        $(row).append(`<td>${total}</td>`);
-                        $(row).append(`<td>${""}</td>`);
+
+                        $.ajax({
+                            type: "get",
+                            url: `http://mobileapp-planning-services.azurewebsites.net/api/LoonPerProject/${element.ProjectId}`,
+                            success: function (loon) {
+                                
+                                var totLoon = 0;
+                                loon.forEach(l => {
+                                    totLoon = totLoon + l.Loon;
+                                });
+                                subtotaal = (totLoon * tijd).toFixed(2);
+                                $(row).append(`<td>${element.ProjectNaam}</td>`);
+                                $(row).append(`<td>${totLoon}</td>`);
+                                $(row).append(`<td>${total}</td>`);
+                                $(row).append(`<td>${subtotaal}</td>`);
+                                totalen.push(parseFloat(subtotaal));
+                            }
+                        });
+
                         $('#inhoud').append(row);
-
-                        //ajax voor totaal loon van consultanten
-                        /* in die ajax call komt die code dan
-
-                        let row1 = $('<tr></tr>');
-                        $(row).append(`<td>${element.ProjectNaam}</td>`);
-                        $(row).append(`<td>${""}</td>`);
-                        $(row).append(`<td>${"Subtotaal"}</td>`);
-                        $(row).append(`<td>${""}</td>`);
-
-                        let row2 = $('<tr></tr>');
-                        $(row).append(`<td>${element.ProjectNaam}</td>`);
-                        $(row).append(`<td>${""}</td>`);
-                        $(row).append(`<td>${"Bedrag excl. BTW"}</td>`);
-                        $(row).append(`<td>${""}</td>`);
-
-                        let row3 = $('<tr></tr>');
-                        $(row).append(`<td>${element.ProjectNaam}</td>`);
-                        $(row).append(`<td>${""}</td>`);
-                        $(row).append(`<td>${"Totaal"}</td>`);
-                        $(row).append(`<td>${""}</td>`);
-
-                        $('#inhoud').append(row1);
-                        $('#inhoud').append(row2);
-                        $('#inhoud').append(row3);
-                        */
-
                     }
                 });
             });
+
+            console.log(totalen); //array is gevuld met waarden die opgeteld moeten worden met functie maakSom
+
+            console.log("som: " + maakSom()); //functie kan niet aan de waarden binnen de array
+
+            var som = maakSom();
+            var somExlBtw = som * 0.21;
+
+            let row1 = $('<tr></tr>');
+            $(row1).append(`<td>${""}</td>`);
+            $(row1).append(`<td>${""}</td>`);
+            $(row1).append(`<td>${"Subtotaal"}</td>`);
+            $(row1).append(`<td>${som}</td>`);
+
+            
+            let row2 = $('<tr></tr>');
+            $(row2).append(`<td>${""}</td>`);
+            $(row2).append(`<td>${""}</td>`);
+            $(row2).append(`<td>${"Bedrag excl. BTW"}</td>`);
+            $(row2).append(`<td>${somExlBtw}</td>`);
+
+            let row3 = $('<tr></tr>');
+            $(row3).append(`<td>${""}</td>`);
+            $(row3).append(`<td>${""}</td>`);
+            $(row3).append(`<td>${"Totaal"}</td>`);
+            $(row3).append(`<td>${som+somExlBtw}</td>`);
+            
+            $('#inhoud').after(row3);
+            $('#inhoud').after(row2);
+            $('#inhoud').after(row1);
         }
     });
 
-
-
-
-
 }); //einde add eventlistener click
-
-
-function getTotaalUren(id) {
-
-}
-
-
 
 //datum van verstuur maken (vandaag)
 var vandaag = new Date();
@@ -155,6 +168,11 @@ uitersteDatum = ' ' + dag + '/' + maand + '/' + jaar;
 
 document.getElementById("uitersteDatum").append(uitersteDatum);
 
-//rekeningnummer maken van ONS BEDRIJF todo get van database
-rekNr = "BE68539007547034";
-document.getElementById("rekeningNummerOns").append(" " + rekNr);
+function maakSom() {
+    var som = 0.0;
+    totalen.forEach(totaal => {
+        som+=totaal;
+        console.log(totaal);
+    });
+    return som.toFixed(2);
+}

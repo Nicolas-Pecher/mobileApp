@@ -78,7 +78,8 @@
                                         <span id="naamBedrijf" class="lichtGrijs"></span>
                                         <br>
                                         Uiterste datum: <span id="uitersteDatum"></span><br>
-                                        Rekeningnummer:<span id="rekeningNummerOns"></span><br>
+                                        Rekeningnummer: <span id="rekeningNummerOns"></span><br>
+                                        BTW nummer: <span id="btwNummerOns"></span><br>
                                     </address>
                                 </div>
 
