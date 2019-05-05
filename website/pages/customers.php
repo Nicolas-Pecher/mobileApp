@@ -39,7 +39,6 @@
 
                 <div class="my-4 tabledisplay">
                     <!--The klanten table is displayed here-->
-
                 </div>
             </div>
         </div>
@@ -48,20 +47,14 @@
 
         <input type="text" id="bedrijfIdValue" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
 
-        <footer class="border-top small text-center">
-            <p class="pt-2">&copy; Copyright 2019, Project Mobile Apps groep 2</p>
-        </footer>
-
     </div>
     <!-- /#page-content-wrapper -->
-
-
 
 </div>
 <!-- /#wrapper -->
 
 <?php include './components/footer.php'; ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="../javascript/showActivePage.js"></script>
 <script src="../javascript/components/displayList.js"></script>
 <script src="../javascript/customers.js"></script>

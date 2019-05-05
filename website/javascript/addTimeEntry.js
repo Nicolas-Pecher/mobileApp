@@ -46,11 +46,11 @@ $(document).ready(function () {
     $("#formTimeEntry").submit(function (e) {
         e.preventDefault();
 
-        console.log($("[name='project']").val())
+        console.log($("[name='project']").val());
         console.log("test");
 
         let gebruikerId = id;
-        let projectId = $("[name='project']").val()
+        let projectId = $("[name='project']").val();
         let datum = $("[name='datum']").val();
         let beginuur = $("[name='beginuur']").val();
         let einduur = $("[name='einduur']").val();
@@ -78,9 +78,10 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                alert("Saved Successfully");
+                //alert("Saved Successfully");
                 console.log(data);
-                document.getElementById("formTimeEntry").reset();
+                //document.getElementById("formTimeEntry").reset();
+                location.assign('./consultants.php');
             },
             error: function (data) {
                 alert("Error please try again");
