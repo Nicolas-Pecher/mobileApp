@@ -115,8 +115,6 @@
 
     <script src="../javascript/showActivePage.js"></script>
     <script src="../javascript/invoices.js"></script>
-    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
-    <script src="https://unpkg.com/jspdf-autotable"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
     <script src="../javascript/jsPDF.JS"></script>
 

@@ -44,7 +44,7 @@ $.ajax({
     }
 });
 
-//functie die een eventlistener toevoegt aan de li elements TODO ervoor zorgen dat wanneer user zich vergist de lijst niet groter wordt
+//functie die een eventlistener toevoegt aan de option elements TODO ervoor zorgen dat wanneer user zich vergist de lijst niet groter wordt
 document.getElementById("listKlanten").addEventListener("change", function (e) {
 
     var geselecteerdeKlant = new Object();
