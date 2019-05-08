@@ -93,11 +93,22 @@ function timesheetsTableRows(data, body) {
         let verschilTijd = new Date(data.VerschilUren);
         let verschil = verschilTijd.getHours().toString().padStart(2, '0') + ':' + verschilTijd.getMinutes().toString().padStart(2, '0') + ':' + verschilTijd.getSeconds().toString().padStart(2, '0');
         $(row).append(`<td>${verschil}</td>`);
-        $(row).append(`<td><a href="modifyTimeEntry.php?${data.TimesheetId}&${data.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button"
-        id="wijzigProject"><i class="fas fa-pen"></i></a><a href="" onclick="deleteTimeEntry(data.TimesheetId)" class="btn btn-sm btn-outline-secondary ml-1" role="button"
-        id="deleteProject"><i class="fas fa-trash-alt"></i></a></td>`);
+        let buttons = $('<td></td>');
+        $(buttons).append(`<a href="modifyTimeEntry.php?${data.TimesheetId}&${data.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button"
+        id="wijzigProject"><i class="fas fa-pen"></i></a>`);
+        let remove = $(`<button href="" class="btn btn-sm btn-outline-secondary ml-1" role="button" id="deleteProject"><i class="fas fa-trash-alt"></i></button>`);
+        $(buttons).append(remove);
+        $(row).append(buttons);
         $(row).append(`<td></td>`);
         $(body).append(row);
+
+        $(remove).click(function() {
+            console.log(data.TimesheetId);
+            deleteTimesheet(data.TimesheetId);
+            $(row).remove();
+        });
+
+
     });
 }
 

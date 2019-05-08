@@ -80,7 +80,7 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 //console.log("Updated Successfully : " + data);
-                history.back();
+                alert("Timesheet succesvol gewijzigd!");
             },
             error: function (data) {
                 //console.log(data);

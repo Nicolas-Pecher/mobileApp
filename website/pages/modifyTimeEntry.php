@@ -64,7 +64,6 @@
                                 <span class="text-danger small" id="overurenError"></span>
                             </div>
                             <button type="submit" class="btn btn-sm px-4" id="modifyTimesheetBtn">Wijzigen</button>
-                            <button type="button" onclick="history.back();" class="btn btn-sm px-4" id="cancelModifyTimesheetBtn">Annuleren</button>
                         </form>
                     </div>
                 </div>
@@ -87,7 +86,7 @@
 
 <script src="../javascript/showActivePage.js"></script>
 <script src="../javascript/modifyTimeEntry.js"></script>
-<script src="../javascript/validation.js"></script>
+<script src="../javascript/components/validation.js"></script>
 
 </body>
 </html>

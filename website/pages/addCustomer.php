@@ -126,7 +126,7 @@
 
 <script src="../javascript/showActivePage.js"></script>
 <script src="../javascript/addCustomer.js"></script>
-<script src="../javascript/validation.js"></script>
+<script src="../javascript/components/validation.js"></script>
 
 </body>
 

@@ -78,14 +78,14 @@ $(document).ready(function () {
                 if(datumMonth === currentMonth) {
                     let p = $('<p class="col-2"></p>');
                     let modify = $(`<a href="modifyTimeEntry.php?${timeLog.TimesheetId}&${timeLog.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button" id=""><i class="fas fa-pen"></i></a>`);
-                    let remove = $('<a href="" class="btn btn-sm btn-outline-secondary ml-1" role="button" id=""><i class="fas fa-trash-alt"></i></a>');
+                    let remove = $('<button href="" class="btn btn-sm btn-outline-secondary ml-1" role="button" id=""><i class="fas fa-trash-alt"></i></button>');
                     $(p).append(modify);
                     $(p).append(remove);
                     $(contentDiv).append(p);
 
                     //adding event to remove
                     $(remove).click(function() {
-                        console.log(timeLog.TimesheetId)
+                        console.log(timeLog.TimesheetId);
                         deleteTimesheet(timeLog.TimesheetId);
                         $(contentDiv).remove();
                     });
@@ -107,22 +107,5 @@ $(document).ready(function () {
 
 });
 
-function deleteTimesheet(id) {
-
-    console.log('test')
-    $.ajax({
-        type: 'DELETE',
-        url: 'https://mobileapp-planning-services.azurewebsites.net/api/Timesheet/' + id,
-        success: function (data) {
-            console.log("delete gelukt");
-            //location.assign('./timesheets.php');
-        },
-        error: function (data) {
-
-        }
-    });
-
-
-}
 
 
