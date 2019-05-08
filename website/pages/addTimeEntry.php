@@ -59,7 +59,7 @@
                                 <textarea name="opmerking" class="form-control form-control-sm" rows="2" id="opmerking"></textarea>
                                 <span class="text-danger small" id="opmerkingError"></span>
                             </div>
-                            <div class="form-group form-check overuren">
+                            <div class="form-group form-check overuren" style="display: none">
                                 <label class="form-check-label">
                                     <input class="form-check-input" type="checkbox" name="overuren" id="overuren"> Overuren
                                 </label>
@@ -76,7 +76,7 @@
 
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
 
-        <input type="text" id="gebruikerIdTimeEntry" value="<?php echo $_SESSION['gebruikerId']; ?>" style="display:none;" >
+        <input type="text" id="gebruikerIdValue" value="<?php echo $_SESSION['gebruikerId']; ?>" style="display:none;" >
 
     </div>
     <!-- /#page-content-wrapper -->

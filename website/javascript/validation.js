@@ -26,8 +26,36 @@ function validateLogin() {
 
 function validateAddTimeEntry() {
 
+    let valid = true;
 
+    //timesheet gegevens
+    if($("#datum").val() === "" ) {
+        $("#datumError").text("* Verplicht veld");
+        $("#datum").focus();
+        valid = false;
+    }
+    if($("#selectProject").children("option:selected").val() === "Kies een project") {
+        $("#projectError").text("* Verplicht veld");
+        //$("#selectProject").focus();
+        valid = false;
+    }
+    if($("#beginuur").val() === "" ) {
+        $("#beginuurError").text("* Verplicht veld");
+        //$("#beginuur").focus();
+        valid = false;
+    }
+    if($("#einduur").val() === "" ) {
+        $("#einduurError").text("* Verplicht veld");
+        //$("#einduur").focus();
+        valid = false;
+    }
+    if($("#overuren").css("display", "block")) {
+        $("#overurenError").text("* Verplicht veld");
+        //$("#overuren").focus();
+        valid = false;
+    }
 
+    return valid;
 }
 
 function validateAddCustomer() {
