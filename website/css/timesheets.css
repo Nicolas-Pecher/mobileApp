@@ -1,9 +1,9 @@
-#addTimeBtn {
+#addBtn {
     background-color: #e5e5e5;
     border: #e5e5e5;
 }
 
-#addTimeBtn:hover {
+#addBtn:hover {
     background-color: #333333;
     color: white;
 }
@@ -19,13 +19,16 @@ hr{
 }
 
 #addTimesheetBtn, #cancelAddTimesheetBtn,
-#modifyTimesheetBtn, #cancelModifyTimesheetBtn, #toevoegenCallInSickBtn, #toevoegenTakeVakationBtn
+#modifyTimesheetBtn, #cancelModifyTimesheetBtn,
+#addConsultantBtn, #cancelAddConsultantBtn
 {
     background-color: #f13c1f;
     color: white;
 }
 
-#addTimesheetBtn:hover, #modifyTimesheetBtn:hover, #cancelAddTimesheetBtn:hover, #cancelModifyTimesheetBtn:hover
+#addTimesheetBtn:hover, #cancelAddTimesheetBtn:hover,
+#modifyTimesheetBtn:hover, #cancelModifyTimesheetBtn:hover,
+#addConsultantBtn:hover, #cancelAddConsultantBtn:hover
 {
     background-color: #555555;
 }

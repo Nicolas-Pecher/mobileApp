@@ -112,3 +112,28 @@ function validateAddCustomer() {
     return valid;
 
 }
+
+function validateAddConsultant() {
+
+    let valid = true;
+
+    if($("#naamConsultant").val() === "" ) {
+        $("#naamConsultantError").text("* Verplicht veld");
+        $("#naamConsultant").focus();
+        valid = false;
+    }
+    if($("#emailConsultant").val() === "" ) {
+        $("#emailConsultantError").text("* Verplicht veld");
+        valid = false;
+    }
+    if($("#loonConsultant").val() === "" ) {
+        $("#loonConsultantError").text("* Verplicht veld");
+        valid = false;
+    }
+    if($("#wachtwoordConsultant").val() === "" ) {
+        $("#wachtwoordConsultantError").text("* Verplicht veld");
+        valid = false;
+    }
+
+    return valid;
+}

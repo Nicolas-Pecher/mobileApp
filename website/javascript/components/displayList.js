@@ -41,19 +41,18 @@ function displayList(titles, data, listType) {
 }
 
 function consultantTableRows(data, body) {
-    
+
+    let number = 1;
+
     data.forEach(data => {
         let row = $('<tr></tr>');
-        $(row).append(`<td id="consultantId">${data.GebruikerId}</td>`);
+        $(row).append(`<td id="consultantId">${number}</td>`);
         $(row).append(`<td id="gebruikerNaam">${data.GebruikerNaam}</td>`);
         $(row).append(`<td id="email">${data.Email}</td>`);
-        let totaalUren = new Date(data.TotaalUren);
-        let totaal = totaalUren.getHours().toString().padStart(2, '0') + ':' + totaalUren.getMinutes().toString().padStart(2, '0') + ':' + totaalUren.getSeconds().toString().padStart(2, '0');
-        //$(row).append(`<td>${totaal}</td>`);
-        //$(row).append(`<td>${overuren}</td>`) niet nodig
         $(row).append(`<td><a href="detailsConsultant.php?${data.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button"
         id="detailsConsultantBtn">Details</a></td>`);
         $(body).append(row);
+        number++;
     });
 }
 
@@ -77,9 +76,11 @@ function projectTableRows(data, body) {
 
 function timesheetsTableRows(data, body) {
 
+    let number = 1;
+
     data.forEach(data => {
         let row = $('<tr></tr>');
-        $(row).append(`<td>${data.TimesheetId}</td>`);
+        $(row).append(`<td>${number}</td>`);
         $(row).append(`<td>${data.ProjectNaam}</td>`);
         let date = new Date(data.Datum);
         let datum = date.getDate().toString().padStart(2, '0') + '/' + (date.getMonth() + 1).toString().padStart(2,'0') + '/' + date.getFullYear();
@@ -94,13 +95,14 @@ function timesheetsTableRows(data, body) {
         let verschil = verschilTijd.getHours().toString().padStart(2, '0') + ':' + verschilTijd.getMinutes().toString().padStart(2, '0') + ':' + verschilTijd.getSeconds().toString().padStart(2, '0');
         $(row).append(`<td>${verschil}</td>`);
         let buttons = $('<td></td>');
-        $(buttons).append(`<a href="modifyTimeEntry.php?${data.TimesheetId}&${data.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button"
+        $(buttons).append(`<a href="modifyTimesheet.php?${data.TimesheetId}&${data.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button"
         id="wijzigProject"><i class="fas fa-pen"></i></a>`);
         let remove = $(`<button class="btn btn-sm btn-outline-secondary ml-1" role="button" id="deleteProject"><i class="fas fa-trash-alt"></i></button>`);
         $(buttons).append(remove);
         $(row).append(buttons);
         $(row).append(`<td></td>`);
         $(body).append(row);
+        number++;
 
         $(remove).click(function() {
             console.log(data.TimesheetId);
@@ -123,7 +125,7 @@ function klantTableRows(data, body) {
         $(row).append(`<td>${data.BtwNummer}</td>`);
         $(row).append(`<td>${data.RekeningNummer}</td>`);
         $(row).append(`<td><a href="detailsCustomer.php?${data.KlantId}" class="btn btn-sm btn-outline-secondary" role="button"
-        id="detailsKlantBtn">Details</a></td>`);
+        id="detailsCustomerBtn">Details</a></td>`);
         $(body).append(row);
         number++;
     })
@@ -132,12 +134,15 @@ function klantTableRows(data, body) {
 
 function personeelTableRows(data, body) {
 
+    let number = 1;
+
     data.forEach(data => {
         let row = $('<tr></tr>');
-        $(row).append(`<td id="consultantId">${data.GebruikerId}</td>`);
+        $(row).append(`<td id="consultantId">${number}</td>`);
         $(row).append(`<td id="gebruikerNaam">${data.GebruikerNaam}</td>`);
         $(row).append(`<td id="email">${data.Email}</td>`);
         $(row).append(`<td id="rol">${data.Rol}</td>`);
         $(body).append(row);
+        number++;
     });
 }
