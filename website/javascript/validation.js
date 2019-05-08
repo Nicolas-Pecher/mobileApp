@@ -49,11 +49,6 @@ function validateAddTimeEntry() {
         //$("#einduur").focus();
         valid = false;
     }
-    if($("#overuren").css("display", "block")) {
-        $("#overurenError").text("* Verplicht veld");
-        //$("#overuren").focus();
-        valid = false;
-    }
 
     return valid;
 }
