@@ -78,7 +78,7 @@ $(document).ready(function () {
                 if(datumMonth === currentMonth) {
                     let p = $('<p class="col-2"></p>');
                     let modify = $(`<a href="modifyTimeEntry.php?${timeLog.TimesheetId}&${timeLog.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button" id=""><i class="fas fa-pen"></i></a>`);
-                    let remove = $('<button href="" class="btn btn-sm btn-outline-secondary ml-1" role="button" id=""><i class="fas fa-trash-alt"></i></button>');
+                    let remove = $('<button class="btn btn-sm btn-outline-secondary ml-1" role="button" id=""><i class="fas fa-trash-alt"></i></button>');
                     $(p).append(modify);
                     $(p).append(remove);
                     $(contentDiv).append(p);

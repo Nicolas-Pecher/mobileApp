@@ -60,6 +60,7 @@
 <script src="../javascript/showActivePage.js"></script>
 <script src="../javascript/timesheets.js"></script>
 <script src="../javascript/totaalUrenPerConsultant.js"></script>
+<script src="../javascript/deleteTimeEntry.js"></script>
 
 </body>
 </html>

@@ -96,7 +96,7 @@ function timesheetsTableRows(data, body) {
         let buttons = $('<td></td>');
         $(buttons).append(`<a href="modifyTimeEntry.php?${data.TimesheetId}&${data.GebruikerId}" class="btn btn-sm btn-outline-secondary" role="button"
         id="wijzigProject"><i class="fas fa-pen"></i></a>`);
-        let remove = $(`<button href="" class="btn btn-sm btn-outline-secondary ml-1" role="button" id="deleteProject"><i class="fas fa-trash-alt"></i></button>`);
+        let remove = $(`<button class="btn btn-sm btn-outline-secondary ml-1" role="button" id="deleteProject"><i class="fas fa-trash-alt"></i></button>`);
         $(buttons).append(remove);
         $(row).append(buttons);
         $(row).append(`<td></td>`);
