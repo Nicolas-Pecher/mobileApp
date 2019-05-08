@@ -1,6 +1,4 @@
 body {
-    /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
-
     overflow-x: hidden;
     height: 100%;
 }
@@ -63,11 +61,6 @@ body {
 
 #content {
     min-height: 80%;
-}
-
-footer {
-
-
 }
 
 #wrapper.toggled #sidebar-wrapper {
