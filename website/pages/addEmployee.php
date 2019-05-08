@@ -85,7 +85,7 @@
 </div>
 <!-- /#wrapper -->
 <?php include './components/footer.php'; ?>
-<script src="../javascript/showActivePage.js"></script>
-<script src="../javascript/addEmployees.js"></script>
+<script src="../javascript/components/showActivePage.js"></script>
+<script src="../javascript/addEmployee.js"></script>
 <!--<script src="../javascript/addConsultant.js"></script>-->
 </body>

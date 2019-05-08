@@ -124,7 +124,7 @@
 
 <?php include './components/footer.php'; ?>
 
-<script src="../javascript/showActivePage.js"></script>
+<script src="../javascript/components/showActivePage.js"></script>
 <script src="../javascript/addCustomer.js"></script>
 <script src="../javascript/components/validation.js"></script>
 

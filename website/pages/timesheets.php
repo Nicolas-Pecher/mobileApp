@@ -26,7 +26,7 @@
 
             <div class="mt-3 d-flex">
                 <div>
-                    <a href="addTimeEntry.php" class="btn mr-2 pl-2" id="addTimeBtn"><i class="fas fa-plus"></i> Toevoegen</a>
+                    <a href="addTimesheet.php" class="btn mr-2 pl-2" id="addTimeBtn"><i class="fas fa-plus"></i> Toevoegen</a>
 <!--                    <a href="callInSick.php" class="btn timesheetsBtn mr-2" id="ziekMelden">Ziek melden</a>-->
 <!--                    <a href="takeVacation.php" class="btn timesheetsBtn" id="vakantie">Vakantiedag(en) aanvragen</a>-->
                 </div>
@@ -57,10 +57,10 @@
 
 <?php include './components/footer.php'; ?>
 
-<script src="../javascript/showActivePage.js"></script>
+<script src="../javascript/components/showActivePage.js"></script>
 <script src="../javascript/timesheets.js"></script>
 <script src="../javascript/totaalUrenPerConsultant.js"></script>
-<script src="../javascript/deleteTimeEntry.js"></script>
+<script src="../javascript/deleteTimesheet.js"></script>
 
 </body>
 </html>

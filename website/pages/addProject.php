@@ -65,7 +65,7 @@
 <!-- /#wrapper -->
 <?php include './components/footer.php'; ?>
 
-<script src="../javascript/showActivePage.js"></script>
+<script src="../javascript/components/showActivePage.js"></script>
 <script src="../javascript/projects.js"></script>
 <script src="../javascript/addProject.js"></script>
 

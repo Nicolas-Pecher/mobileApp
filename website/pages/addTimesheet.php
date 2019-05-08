@@ -7,6 +7,7 @@
 ?>
 
 <body>
+
 <div class="d-flex" id="wrapper">
 
     <?php include './components/sidebar.php'; ?>
@@ -14,30 +15,30 @@
     <!-- Page content -->
     <div id="page-content-wrapper">
 
-        <?php include './components/topNavigation.php';?>
+    <?php include './components/topNavigation.php';?>
 
         <div class="container my-4 mx-2">
-            <p class="small"><i class="fas fa-home"></i>/ &nbsp;Wijzigen uren</p>
+            <p class="small"><i class="fas fa-home"></i>/ &nbsp;Timesheets&nbsp; / &nbsp;Toevoegen uren</p>
         </div>
 
         <div class="container-fluid mx-2">
 
-            <h1 class="mb-4">Wijzigen uren</h1>
+            <h1 class="mb-4">Toevoegen uren</h1>
 
             <div class="mt-4 pr-4" id="addTimeEntry-wrapper">
                 <div class="card">
                     <div class="card-body">
-                        <form action="" id="wijzigTimesheetForm">
+                        <form action="" name="formTimeEntry" id="formTimeEntry" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="datum">Datum:</label>
-                                <input type="date" class="form-control form-control-sm" id="datum" name="datum">
+                                <input name="datum" type="date" class="form-control form-control-sm" id="datum">
                                 <span class="text-danger small" id="datumError"></span>
                             </div>
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="project">Project:</label>
                                     <select name="project" class="form-control mr-4 form-control-sm" id="selectProject">
-
+                                        <option selected="true" disabled>Kies een project</option>
                                     </select>
                                     <span class="text-danger small" id="projectError"></span>
                                 </div>
@@ -63,18 +64,18 @@
                                 </label>
                                 <span class="text-danger small" id="overurenError"></span>
                             </div>
-                            <button type="submit" class="btn btn-sm px-4" id="modifyTimesheetBtn">Wijzigen</button>
+                            <button class="btn btn-sm px-4" type="submit" id="addTimesheetBtn">Toevoegen</button>
+                            <button type="button" onclick="history.back();" class="btn btn-sm px-4" id="cancelAddTimesheetBtn">Annuleren</button>
                         </form>
                     </div>
                 </div>
-
-
-
             </div>
 
         </div>
 
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
+
+        <input type="text" id="gebruikerIdValue" value="<?php echo $_SESSION['gebruikerId']; ?>" style="display:none;" >
 
     </div>
     <!-- /#page-content-wrapper -->
@@ -84,8 +85,8 @@
 
 <?php include './components/footer.php'; ?>
 
-<script src="../javascript/showActivePage.js"></script>
-<script src="../javascript/modifyTimeEntry.js"></script>
+<script src="../javascript/components/showActivePage.js"></script>
+<script src="../javascript/addTimesheet.js"></script>
 <script src="../javascript/components/validation.js"></script>
 
 </body>

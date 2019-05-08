@@ -47,7 +47,7 @@
 
 <?php include './components/footer.php'; ?>
 
-<script src="../javascript/showActivePage.js"></script>
+<script src="../javascript/components/showActivePage.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../javascript/projects.js"></script>
 <script src="../javascript/components/displayList.js"></script>
