@@ -1,11 +1,10 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, AsyncStorage } from 'react-native';
 import Home from './components/home.js';
 import Overview from './components/overview.js';
 import Settings from './components/settings.js';
 import Menu from './components/menu.js';
 import Login from './components/login';
-import AsyncStorage from '@react-native-community/async-storage';
 
 
 
@@ -68,11 +67,11 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.getColorLocally()
-    if(this.getUserLocally()) {
+    /*if(this.getUserLocally()) {
       this.setState({
         loggedIn:true
       })
-    }
+    }*/
     //console.log(this.state.colorTheme.theme)
   }
 

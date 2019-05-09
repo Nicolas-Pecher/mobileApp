@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,AsyncStorage } from 'react-native';
 import LogTime from './logTime';
 import ShowTimeSheets from './showTimeSheets'
 //import TimePicker from './Inputs/timePicker';
@@ -47,7 +47,21 @@ export default class Home extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://mobileapp-planning-services.azurewebsites.net/api/Timesheet')
+        this.getUserLocally()
+    }
+
+    getUserLocally = async () => {
+        try {
+            let value = await AsyncStorage.getItem('user');
+            value = JSON.parse(value)
+            this.getTimesheets(value.GebruikerId)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    getTimesheets = (userId) => {
+        fetch('http://mobileapp-planning-services.azurewebsites.net/api/ConsultantTimesheets/' + userId)
             .then((response) => response.json())
             //.then((response) => console.log(response))
             .then((responseJson) => {

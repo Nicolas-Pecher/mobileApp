@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+import { StyleSheet, Text, View, ScrollView,AsyncStorage } from 'react-native';
 
 
 export default class Overview extends React.Component {
@@ -14,22 +13,19 @@ export default class Overview extends React.Component {
   }
 
   componentDidMount() {
-    var userId = this.getUserLocally(() => {
-      console.log("userid:" + userId)
-      this.getTotalHours(userId);
-      this.getOverhours(userId);
-      this.getProjects(userId);
-    })
-
+    this.getUserLocally();
   }
 
   getUserLocally = async () => {
     try {
-      const value = await AsyncStorage.getItem('user');
-      console.log("user: " + GebruikerId)
-      return value.GebruikerId
+      let value = await AsyncStorage.getItem('user');
+      value = JSON.parse(value)
+      console.log(value.GebruikerId)
+      this.getProjects(value.GebruikerId)
+      this.getOverhours(value.GebruikerId)
+      this.getTotalHours(value.GebruikerId)
     } catch (error) {
-      console.log('user can not be fetched in overview')
+      console.log(error)
     }
   }
 
