@@ -39,9 +39,7 @@ export default class Home extends React.Component {
                 this.setState({
                     isLoading: false,
                     timesheets: responseJson,
-                }, function () {
                 });
-
             })
             .catch((error) => {
                 console.error(error);
@@ -67,7 +65,7 @@ export default class Home extends React.Component {
 
     displayTimesheets() {
         if (!this.state.isLoading) {
-            return <ShowTimeSheets timesheets={this.state.timesheets} colorTheme={this.props.colorTheme} updateHome={this.updateProjects}/>
+            return <ShowTimeSheets timesheets={this.state.timesheets} colorTheme={this.props.colorTheme} updateHome={this.updateProjects} />
         }
     }
 

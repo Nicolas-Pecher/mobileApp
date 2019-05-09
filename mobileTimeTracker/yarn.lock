@@ -690,6 +690,11 @@
     pouchdb-collections "^1.0.1"
     tiny-queue "^0.2.1"
 
+"@react-native-community/async-storage@^1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.3.4.tgz#5a664484d485bcbab79648e1a0ce775b90843f29"
+  integrity sha512-fJmzL27x0BEjhmMXPnDPnUNCZK7bph+NBVCfAz9fzHzAamaiOkdUwuL3PvE4Oj4Kw4knP8ocw5VRDGorAidZ2g==
+
 "@svgr/babel-plugin-add-jsx-attribute@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-4.0.0.tgz#5acf239cd2747b1a36ec7e708de05d914cb9b948"
