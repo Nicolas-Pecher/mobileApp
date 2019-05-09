@@ -50,7 +50,7 @@ export default class Login extends Component {
           onPress={Keyboard.dismiss}>
             <View style={styles.logoContainer}>
               <View style={styles.logoContainer}>
-                <Text style={styles.title}> This is the login </Text>
+                <Text style={styles.title}> Please Log In to start! </Text>
               </View>
               
               <View style={styles.infoContainer}>

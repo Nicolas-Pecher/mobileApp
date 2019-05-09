@@ -229,11 +229,11 @@ export default class EditTimeSheet extends Component {
 
           <ShowLine />
           <View style={{display:'flex',flexDirection:'row'}}>
-            <TouchableOpacity activeOpacity={0.5} onPress={() => this.saveTimeLog()} style={{flex:1}}>
+            <TouchableOpacity activeOpacity={0.5} onPress={() => this.cancel()} style={{flex:1}}>
               <Text style={{ color: this.props.colorTheme.lightColor, fontSize: 25, paddingTop: 25, paddingBottom: 15}}>Cancel</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity activeOpacity={0.5} onPress={() => this.cancel()} style={{flex:1}}>
+            <TouchableOpacity activeOpacity={0.5} onPress={() => this.saveTimeLog()} style={{flex:1}}>
               <Text style={{ color: this.props.colorTheme.lightColor, fontSize: 25, paddingTop: 25, paddingBottom: 15,textAlign:"right" }}>Confirm</Text>
             </TouchableOpacity>
           </View>
