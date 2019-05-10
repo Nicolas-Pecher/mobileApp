@@ -50,7 +50,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link" data-toggle="dropdown"><i class="fas fa-user text-dark"></i> <?php echo $_SESSION['naam']; ?></a>
+            <a href="#" class="nav-link" data-toggle="dropdown"><i class="fas fa-user text-dark"></i></a>
             <div class="dropdown-menu dropdown-menu-right mr-2">
                 <a href="./profile.php" class="dropdown-item"><i class="fas fa-user-edit mr-3"></i>Profiel</a>
                 <a class="dropdown-item"><i class="fas fa-cog mr-3"></i>Instellingen</a>

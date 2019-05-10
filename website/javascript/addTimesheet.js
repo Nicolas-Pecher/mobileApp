@@ -1,15 +1,14 @@
 $(document).ready(function () {
 
-    let id = $("#gebruikerIdTimeEntry").val();
-    console.log("GebruikerId = " + id);
-
     //voor actief list-item in sidebar
     activePage('timesheets');
+
+    let gebruikerId = $("#gebruikerIdValue").val();
 
     // ophalen projecten en weergeven in dropdown van form
     $.ajax({
         type: 'GET',
-        url: 'https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker/' + id,
+        url: 'https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker/' + gebruikerId,
         success: function (data) {
             console.log(data);
 
@@ -44,20 +43,22 @@ $(document).ready(function () {
 
     //toevoegen van een timeEntry
     $("#formTimeEntry").submit(function (e) {
+
         e.preventDefault();
 
-        console.log($("[name='project']").val());
-        console.log("test");
+        validateAddTimeEntry();
 
-        let gebruikerId = id;
+        //timesheet gegevens ophalen en in variabelen steken
+        //gebruiker id staat bovenaan
         let projectId = $("[name='project']").val();
         let datum = $("[name='datum']").val();
         let beginuur = $("[name='beginuur']").val();
         let einduur = $("[name='einduur']").val();
         let opmerking = $("[name='opmerking']").val();
+        let overuur = $("#overuren").prop('checked');
 
-        console.log(projectId);
 
+        // variabelen in een array steken voor ajax
         let dataJSON = {
             GebruikerId: gebruikerId,
             ProjectId: projectId,
@@ -65,12 +66,10 @@ $(document).ready(function () {
             Beginuur: beginuur,
             Einduur: einduur,
             Opmerking: opmerking,
-            Overuur: false
+            Overuur: overuur
         };
 
-        console.log(dataJSON);
-        console.log(projectId);
-
+        //ajax post request om de nieuwe timesheet toe te voegen aan de database
         $.ajax({
             type: 'POST',
             url: 'https://mobileapp-planning-services.azurewebsites.net/api/Timesheet',
@@ -78,13 +77,11 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                //alert("Saved Successfully");
                 console.log(data);
                 //document.getElementById("formTimeEntry").reset();
-                location.assign('./consultants.php');
+                location.assign('./timesheets.php');
             },
             error: function (data) {
-                alert("Error please try again");
                 console.log(data);
             }
         });

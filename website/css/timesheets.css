@@ -1,9 +1,9 @@
-.timesheetsBtn {
+#addTimeBtn {
     background-color: #e5e5e5;
     border: #e5e5e5;
 }
 
-.timesheetsBtn:hover {
+#addTimeBtn:hover {
     background-color: #333333;
     color: white;
 }
@@ -18,17 +18,16 @@ hr{
     margin-top: 0px;
 }
 
-.timesheetBody {
-
-}
-
-#extraEntryBtn {
-    background-color: #e5e5e5;
-}
-
-#toevoegenTimeEntryBtn, #toevoegenCallInSickBtn, #toevoegenTakeVakationBtn {
+#addTimesheetBtn, #cancelAddTimesheetBtn,
+#modifyTimesheetBtn, #cancelModifyTimesheetBtn, #toevoegenCallInSickBtn, #toevoegenTakeVakationBtn
+{
     background-color: #f13c1f;
     color: white;
+}
+
+#addTimesheetBtn:hover, #modifyTimesheetBtn:hover, #cancelAddTimesheetBtn:hover, #cancelModifyTimesheetBtn:hover
+{
+    background-color: #555555;
 }
 
 #callInSickBtn {
