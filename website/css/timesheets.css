@@ -20,7 +20,8 @@ hr{
 
 #addTimesheetBtn, #cancelAddTimesheetBtn,
 #modifyTimesheetBtn, #cancelModifyTimesheetBtn,
-#addConsultantBtn, #cancelAddConsultantBtn
+#addConsultantBtn, #cancelAddConsultantBtn,
+#modifyConsultantBtn
 {
     background-color: #f13c1f;
     color: white;
@@ -28,7 +29,8 @@ hr{
 
 #addTimesheetBtn:hover, #cancelAddTimesheetBtn:hover,
 #modifyTimesheetBtn:hover, #cancelModifyTimesheetBtn:hover,
-#addConsultantBtn:hover, #cancelAddConsultantBtn:hover
+#addConsultantBtn:hover, #cancelAddConsultantBtn:hover,
+#modifyConsultantBtn:hover
 {
     background-color: #555555;
 }
