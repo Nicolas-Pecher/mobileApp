@@ -1,101 +1,112 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView,TouchableOpacity } from 'react-native';
-import Dropdown from './Inputs/dropdown';
-import TimelogRow from './timelogrow';
-
-//temporary options for the dropdown menu
-let testItems = [
-  { key: 'Project 1', id: 1 },
-  { key: 'Project 2', id: 2 },
-  { key: 'Project 3', id: 3 },
-];
+import { StyleSheet, Text, View, ScrollView,AsyncStorage } from 'react-native';
 
 
 export default class Overview extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      project: testItems[0],
-      showProjects: false,
-      projects: testItems
+      totalHours: '',
+      overhours: '',
+      projects: [],
     }
   }
 
-  //show or hide dropdown component
-  toggleShowProjects = () => {
-    if (!this.state.showProjects) {
-      this.setState({
-        showProjects: true
+  componentDidMount() {
+    this.getUserLocally();
+  }
+
+  getUserLocally = async () => {
+    try {
+      let value = await AsyncStorage.getItem('user');
+      value = JSON.parse(value)
+      console.log(value.GebruikerId)
+      this.getProjects(value.GebruikerId)
+      this.getOverhours(value.GebruikerId)
+      this.getTotalHours(value.GebruikerId)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  getProjects = (userId) => {
+    fetch('https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker/' + userId)
+      .then((response) => response.json())
+      //.then((response) => console.log(response))
+      .then((response) => {
+        this.setState({
+          projects: response
+        });
       })
-    } else {
-      this.setState({
-        showProjects: false
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  getTotalHours = (userId) => {
+    fetch('https://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenConsultant/' + userId)
+      .then((response) => response.json())
+      //.then((response) => console.log(response))
+      .then((response) => {
+        this.setState({
+          totalHours: response.TotaalUren
+        });
       })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  getOverhours = (userId) => {
+    fetch('https://mobileapp-planning-services.azurewebsites.net/api/TotaalOverurenConsultant/' + userId)
+      .then((response) => response.json())
+      //.then((response) => console.log(response))
+      .then((response) => {
+        this.setState({
+          overhours: response.TotaalUren
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  hours = (hour) => {
+    console.log(hour)
+    if (hour == '' || hour == undefined) {
+      return '00:00:00'
     }
+    return hour.substring(11, 19);
   }
-
-  //show dropdown component
-  showProjects() {
-    if (this.state.showProjects) {
-      return <Dropdown options={testItems} removeDropDown={this.toggleShowProjects} colorTheme={this.props.colorTheme} selected={this.selectedProject} />
-    }
-  }
-
-  //change the selected project
-  selectedProject = (project) => {
-    this.setState({
-      project: project
-    })
-  }
-
 
   render() {
-    const fontsize = 16;
-
+    let fontsize = 22;
     return (
-      <View style={styles.container}>
-
-
-        <View style={{ flex: 1, marginLeft: 'auto', marginRight: 'auto', width: '80%' }}>
-
-          <TouchableOpacity activeOpacity={0.5} onPress={() => this.toggleShowProjects()}>
-            <Text style={{ color: this.props.colorTheme.lightColor, fontSize: 22, paddingLeft: 20, paddingTop: 15, paddingBottom: 15 }}>{this.state.project.key}</Text>
-          </TouchableOpacity>
+      <ScrollView style={{ paddingLeft: 10, paddingRight: 10, paddingTop: 15, }}>
+        <View style={{ display: 'flex', flexDirection: 'row', paddingBottom: 30 }}>
+          <View style={{ flex: 1 }}>
+            <Text style={{ textAlign: 'center', fontSize: fontsize, color: "#484848" }}>Worked hours</Text>
+            <Text style={{ textAlign: 'center', fontSize: fontsize, color: this.props.colorTheme.lightColor }}>{this.hours(this.state.totalHours)}</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={{ textAlign: 'center', fontSize: fontsize, color: "#484848" }}>Overhours</Text>
+            <Text style={{ textAlign: 'center', fontSize: fontsize, color: this.props.colorTheme.lightColor }}>{this.hours(this.state.overhours)}</Text>
+          </View>
         </View>
-
-        <View style={{ flex: 12 }}>
-          <ScrollView >
-
-            <View style={{ paddingTop: 15 }}>
-              <Text style={{ color: this.props.colorTheme.lightColor, marginBottom: 10, fontSize: fontsize }}>1 Jan</Text>
-              <TimelogRow colorTheme={this.props.colorTheme} />
-              <TimelogRow colorTheme={this.props.colorTheme} />
-              <TimelogRow colorTheme={this.props.colorTheme} />
-            </View>
-
-            <View style={{ paddingTop: 15 }}>
-              <Text style={{ color: this.props.colorTheme.lightColor, marginBottom: 10, fontSize: fontsize }}>31 Dec</Text>
-              <TimelogRow colorTheme={this.props.colorTheme} />
-              <TimelogRow colorTheme={this.props.colorTheme} />
-              <TimelogRow colorTheme={this.props.colorTheme} />
-              <TimelogRow colorTheme={this.props.colorTheme} />
-            </View>
-
-          </ScrollView>
+        <View>
+          <Text style={{ textAlign: 'center', fontSize: fontsize, color: "#484848", paddingBottom: 15 }}>My Projects</Text>
+          {
+            this.state.projects.map(project => {
+              return (
+                <View key={project.ProjectId} style={{ paddingBottom: 15 }}>
+                  <Text style={{ textAlign: 'center', fontSize: fontsize, color: this.props.colorTheme.lightColor }}>{project.ProjectNaam}</Text>
+                  <Text style={{ textAlign: 'center', fontSize: 15, color: "#484848" }}>{project.KlantNaam}</Text>
+                </View>
+              )
+            })
+          }
         </View>
-        {this.showProjects()}
-      </View>
+      </ScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    marginTop: 10,
-  },
-  timeLog: {
-    borderTopColor: "#484848"
-  }
-});
