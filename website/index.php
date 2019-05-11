@@ -288,9 +288,21 @@ if (!isset($_SESSION['gebruikerId'])) {
                 <?php } ?>
 
 
-                <?php if ($_SESSION['gebruikerRol'] == "manager") { ?>
-                    <button id="sendMail">send reminder</button>
-                    <div class="card">
+                <?php if ($_SESSION['gebruikerRol'] == "manager" || $_SESSION['gebruikerRol'] == "hr") { ?>
+                    <?php if ($_SESSION['gebruikerRol'] == "manager") : ?>
+                        <button class="btn btn-secondary mb-5" id="sendMail">send reminder</button>
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <p>Reminder verstuurt naar alle consultanten. <span class="close">&times;</span></p>
+                            </div>
+
+                        </div>
+                    <?php endif; ?>
+                    <option id="isHr" value="hr"></option>
+                    <div class="card mb-5">
                         <div class="card-header">
                             <h5 class="card-header-title">Overzicht Consultants</h5>
                         </div>
@@ -310,32 +322,31 @@ if (!isset($_SESSION['gebruikerId'])) {
                         </div>
                     </div>
 
-
-                    <div class="card">
+                    <div class="card mb-5">
                         <div class="card-header">
                             <h5 class="card-header-title">Overzicht Projecten</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="canvasManager"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card mb-5">
+                        <div class="card-header">
+                            <h5 class="card-header-title">Kosten Per Project</h5>
                         </div>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">Project</th>
-                                        <th scope="col">Totaal uren</th>
+                                        <th scope="col">Totale Kost</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tabelProjecten">
+                                <tbody id="tabelKosten">
                                     <!--gevuld met ajax call-->
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-header-title">Overzicht Projecten</h5>
-                        </div>
-                        <div class="card-body">
-                            <canvas id="canvasManager"></canvas>
                         </div>
                     </div>
 
