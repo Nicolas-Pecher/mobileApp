@@ -137,3 +137,20 @@ function validateAddConsultant() {
 
     return valid;
 }
+
+function validateAddProject() {
+
+    let valid = true;
+
+    if($("#naamProject").val() === "" ) {
+        $("#naamProjectError").text("* Verplicht veld");
+        $("#naamProject").focus();
+        valid = false;
+    }
+    if($("#selectKlant").children("option:selected").val() === "Kies een klant") {
+        $("#selectKlantError").text("* Verplicht veld");
+        valid = false;
+    }
+
+    return valid;
+}
