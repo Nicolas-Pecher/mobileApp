@@ -18,20 +18,20 @@
         <?php include './components/topNavigation.php'; ?>
 
         <div class="container my-4 mx-2">
-            <p class="small"><i class="fas fa-home"></i>/ &nbsp;Consultants&nbsp; / &nbsp;<span class="consultantNaam"></span></p>
+            <p class="small"><i class="fas fa-home"></i>/ &nbsp;Consultants&nbsp; / &nbsp;<span id="naam"></span></p>
         </div>
 
         <div class="container-fluid mx-2">
 
             <h1 id="naam"></h1>
-            <p>Consultant</p>
+            <p class="lichtGrijs">Consultant</p>
             <hr class="mr-4 mb-4">
 
             <div class="row">
                 <div class="col-sm-6 mb-4">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="">Huidige projecten</h5>
+                            <h5 class="">Gegevens</h5>
                         </div>
                         <div class="card-body">
                             <form id="modifyConsultantForm">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4 mb-4">
-                    <div class="card" style="min-height: 50vh;">
+                    <div class="card" style="height: 59.5vh;">
                         <div class="card-header">
                             <h5 class="">Huidige projecten</h5>
                         </div>

@@ -58,9 +58,11 @@ function consultantTableRows(data, body) {
 
 function projectTableRows(data, body) {
 
+    let number = 1;
+
     data.forEach(data => {
         let row = $('<tr></tr>');
-        $(row).append(`<td>${data.ProjectId}</td>`);
+        $(row).append(`<td>${number}</td>`);
         $(row).append(`<td>${data.ProjectNaam}</td>`);
         $(row).append(`<td>${data.KlantNaam}</td>`);
         if (data.Overuren === true) {
@@ -68,9 +70,10 @@ function projectTableRows(data, body) {
         }else{
             $(row).append(`<td><input type="checkbox"></td>`);
         }
-        $(row).append(`<td><a href="#" class="btn btn-sm btn-outline-secondary" role="button"
+        $(row).append(`<td><a href="detailsProject.php?${data.ProjectId}" class="btn btn-sm btn-outline-secondary" role="button"
         id="wijzigProject">Details</a></td>`);
         $(body).append(row);
+        number++;
     });
 }
 
