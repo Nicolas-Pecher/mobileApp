@@ -1,21 +1,27 @@
 <?php 
-$consultanten = file_get_contents("http://mobileapp-planning-services.azurewebsites.net/api/OverzichtConsultants/1");
-$mails = json_decode($consultanten);
+$jsonConsultants = file_get_contents("http://mobileapp-planning-services.azurewebsites.net/api/OverzichtConsultants/1", TRUE);
+$consultants = json_decode($jsonConsultants);
 
-var_dump($mails);
+//var_dump($consultants);
 
-$emailadressen = array();
+$emailConsultants = array();
 
-foreach($mails as $email) {
-    array_push($emailadressen,$email["Email"]);
+foreach($consultants as $consultant) {
+    //var_dump($consultant->Email);
+    array_push($emailConsultants,$consultant->Email);
 }
 
-var_dump($emailadressen);
+//var_dump($emailConsultants);
 
-    foreach ($emailadressen as $mail) {
-        $subject = "timesheets invullen";
-        $message = "Vergeet niet uw timesheets in te vullen.";
-        mail($mail, $subject, $message);
-    }
+
+foreach ($emailConsultants as $email) {
+    //print_r($email);
+    //print_r("\n");
+    $subject = "REMINDER! Timesheets invullen";
+    $message = "Vergeet zeker niet je timesheets van deze maand in te vullen.";
+    mail($email, $subject, $message);
+}
+
+header("location: ../../index.php");
     
 ?>
