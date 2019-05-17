@@ -14,8 +14,6 @@ $(document).ready(function () {
             $("#naamConsultant").attr("value", data.GebruikerNaam).text(data.GebruikerNaam);
             $("#emailConsultant").attr("value", data.Email).text(data.Email);
             $("#loonConsultant").attr("value", data.LoonPerUur).text(data.LoonPerUur);
-            $("[name='wachtwoordConsultant']").attr("value", data.Wachtwoord);
-            password = data.Wachtwoord;
         }
     });
 
@@ -25,61 +23,34 @@ $(document).ready(function () {
 
         //validate
 
-        // let naam = $("[name='naamConsultant']").val();
-        // let email = $("[name='emailConsultant']").val();
-        // let loon = $("[name='loonConsultant']").val();
-        // let wachtwoord = $("[name='wachtwoordConsultant']").val();
-        //
-        // let dataJSON = {
-        //     GebruikerNaam: naam,
-        //     Email: email,
-        //     Wachtwoord: wachtwoord,
-        //     Rol: "consultant",
-        //     BedrijfId: bedrijfId,
-        //     LoonPerUur: loon
-        // };
-        //
-        // $.ajax({
-        //     type: 'PUT',
-        //     url: 'https://mobileapp-planning-services.azurewebsites.net/api/Gebruiker' + consultantId,
-        //     data: JSON.stringify(dataJSON),
-        //     contentType: 'application/json; charset=utf-8',
-        //     dataType: 'json',
-        //     success: function (data) {
-        //         console.log(data);
-        //         //document.getElementById("formTimeEntry").reset();
-        //         //location.assign('./timesheets.php');
-        //     },
-        //     error: function (data) {
-        //         console.log(data);
-        //     }
-        // });
+        let naam = $("[name='naamConsultant']").val();
+        let email = $("[name='emailConsultant']").val();
+        let loon = $("[name='loonConsultant']").val();
 
         let dataJSON = {
-            GebruikerId: 9,
-            ProjectId: 4,
-            Datum: datum,
-            Beginuur: beginuur,
-            Einduur: einduur,
-            Opmerking: opmerking,
-            Overuur: overuren
+            GebruikerNaam: naam,
+            Email: email,
+            Wachtwoord: "",
+            Rol: "consultant",
+            BedrijfId: bedrijfId,
+            LoonPerUur: loon
         };
 
         $.ajax({
             type: 'PUT',
-            url: 'https://mobileapp-planning-services.azurewebsites.net/api/Timesheet/' + timesheetId,
+            url: 'https://mobileapp-planning-services.azurewebsites.net/api/Gebruiker' + consultantId,
             data: JSON.stringify(dataJSON),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                console.log("Updated Successfully : " + data);
-                alert("Timesheet succesvol gewijzigd!");
+                console.log(data);
+                //document.getElementById("formTimeEntry").reset();
+                //location.assign('./timesheets.php');
             },
             error: function (data) {
-                //console.log(data);
+                console.log(data);
             }
         });
-
     });
 
     $.ajax({
@@ -111,8 +82,8 @@ $(document).ready(function () {
     let data = [];
 
     $.ajax({
-       type: 'GET',
-       url: 'https://mobileapp-planning-services.azurewebsites.net/api/ConsultantTimesheets/' + consultantId,
+        type: 'GET',
+        url: 'https://mobileapp-planning-services.azurewebsites.net/api/ConsultantTimesheets/' + consultantId,
         success: function (response) {
             console.log(response);
 
