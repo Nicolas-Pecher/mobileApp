@@ -26,7 +26,6 @@ if (!isset($_SESSION['gebruikerId'])) {
 
     <!-- Custom stylesheets -->
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/dashboard.css">
 
 </head>
 
@@ -51,18 +50,7 @@ if (!isset($_SESSION['gebruikerId'])) {
                     <a href="./pages/consultants.php" class="list-group-item list-group-item-action" id="consultants"><i class="fas fa-user-friends mr-3"></i>Consultants</a>
                     <a href="./pages/customers.php" class="list-group-item list-group-item-action" id="klanten"><i class="fas fa-address-book mr-3"></i>Klanten</a>
                     <a href="./pages/projects.php" class="list-group-item list-group-item-action" id="projects"><i class="fas fa-folder mr-3"></i>Projecten</a>
-                    <a href="pages/employees.php" class="list-group-item list-group-item-action" id="managePersoneel"><i class="fas fa-users mr-3"></i>Manage Personeel</a>
-                    <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#s1" data-parent="#sidebar-wrapper"><i class="fas fa-chart-pie mr-3"></i>Rapporten<i class="fas fa-sort-down float-right"></i></a>
-                    <div id="s1" class="sublinks collapse">
-                        <a href="#" class="list-group-item list-group-item-action">Overzicht consultants</a>
-                        <a href="#" class="list-group-item list-group-item-action">Overzicht overuren</a>
-                        <a href="#" class="list-group-item list-group-item-action">Overzicht onderuren</a>
-
-                        <?php if ($_SESSION['gebruikerRol'] == 'manager') { ?>
-                            <a href="#" class="list-group-item list-group-item-action">Overzicht per klant</a>
-                        <?php } ?>
-
-                    </div>
+                    <a href="pages/employees.php" class="list-group-item list-group-item-action" id="employees"><i class="fas fa-users mr-3"></i>Personeel</a>
 
                     <?php if ($_SESSION['gebruikerRol'] == 'manager') { ?>
                         <a href="./pages/invoices.php" class="list-group-item list-group-item-action" id="invoices"><i class="fas fa-file-invoice-dollar mr-3"></i>Facturen</a>
@@ -288,9 +276,21 @@ if (!isset($_SESSION['gebruikerId'])) {
                 <?php } ?>
 
 
-                <?php if ($_SESSION['gebruikerRol'] == "manager") { ?>
-                    <button id="sendMail">send reminder</button>
-                    <div class="card">
+                <?php if ($_SESSION['gebruikerRol'] == "manager" || $_SESSION['gebruikerRol'] == "hr") { ?>
+                    <?php if ($_SESSION['gebruikerRol'] == "manager") : ?>
+                        <button class="btn btn-secondary mb-5" id="sendMail">send reminder</button>
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <p>Reminder verstuurt naar alle consultanten. <span class="close">&times;</span></p>
+                            </div>
+
+                        </div>
+                    <?php endif; ?>
+                    <option id="isHr" value="hr"></option>
+                    <div class="card mb-5">
                         <div class="card-header">
                             <h5 class="card-header-title">Overzicht Consultants</h5>
                         </div>
@@ -310,32 +310,31 @@ if (!isset($_SESSION['gebruikerId'])) {
                         </div>
                     </div>
 
-
-                    <div class="card">
+                    <div class="card mb-5">
                         <div class="card-header">
                             <h5 class="card-header-title">Overzicht Projecten</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="canvasManager"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card mb-5">
+                        <div class="card-header">
+                            <h5 class="card-header-title">Kosten Per Project</h5>
                         </div>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">Project</th>
-                                        <th scope="col">Totaal uren</th>
+                                        <th scope="col">Totale Kost</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tabelProjecten">
+                                <tbody id="tabelKosten">
                                     <!--gevuld met ajax call-->
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-header-title">Overzicht Projecten</h5>
-                        </div>
-                        <div class="card-body">
-                            <canvas id="canvasManager"></canvas>
                         </div>
                     </div>
 

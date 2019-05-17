@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    activePage('klanten');
+    activePage('customers');
 
     //bedrijf id ophalen
     let bedrijfId = $("#bedrijfIdValue").val();

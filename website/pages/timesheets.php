@@ -26,7 +26,7 @@
 
             <div class="mt-3 d-flex">
                 <div>
-                    <a href="addTimesheet.php" class="btn mr-2 pl-2" id="addTimeBtn"><i class="fas fa-plus"></i> Toevoegen</a>
+                    <a href="addTimesheet.php" class="btn mr-2 pl-2" id="addBtn"><i class="fas fa-plus"></i> Toevoegen</a>
 <!--                    <a href="callInSick.php" class="btn timesheetsBtn mr-2" id="ziekMelden">Ziek melden</a>-->
 <!--                    <a href="takeVacation.php" class="btn timesheetsBtn" id="vakantie">Vakantiedag(en) aanvragen</a>-->
                 </div>

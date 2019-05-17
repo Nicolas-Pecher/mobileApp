@@ -54,6 +54,8 @@ $(document).ready(function () {
 
         validateAddTimeEntry();
 
+        console.log(gebruikerId);
+
         let gebruikerIdForm = gebruikerId;
         let projectId = $("#selectProject").val();
         let datum = $("#datum").val();
@@ -79,7 +81,7 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                //console.log("Updated Successfully : " + data);
+                console.log("Updated Successfully : " + data);
                 alert("Timesheet succesvol gewijzigd!");
             },
             error: function (data) {

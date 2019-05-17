@@ -2,9 +2,9 @@ $(document).ready(function () {
 
     activePage('projects');
 
-    let bedrijfId = $('#bedrijfIdProjecten').val();
+    let bedrijfId = $('#bedrijfIdValue').val();
 
-    let titles = ['Id', 'Naam', 'Klant', 'Overuren Toegestaan'];
+    let titles = ['#', 'Naam', 'Klant', 'Overuren Toegestaan'];
     let data = [];
 
 //ajax get request om projecten weer te geven

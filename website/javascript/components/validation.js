@@ -112,3 +112,62 @@ function validateAddCustomer() {
     return valid;
 
 }
+
+function validateAddConsultant() {
+
+    let valid = true;
+
+    if($("#naamConsultant").val() === "" ) {
+        $("#naamConsultantError").text("* Verplicht veld");
+        $("#naamConsultant").focus();
+        valid = false;
+    }
+    if($("#emailConsultant").val() === "" ) {
+        $("#emailConsultantError").text("* Verplicht veld");
+        valid = false;
+    }
+    if($("#loonConsultant").val() === "" ) {
+        $("#loonConsultantError").text("* Verplicht veld");
+        valid = false;
+    }
+    if($("#wachtwoordConsultant").val() === "" ) {
+        $("#wachtwoordConsultantError").text("* Verplicht veld");
+        valid = false;
+    }
+
+    return valid;
+}
+
+function validateModifyProfile() {
+
+    let valid = true;
+
+    if($("#naamGebruiker").val() === "" ) {
+        $("#naamGebruikerError").text("* Verplicht veld");
+        $("#naamGebruiker").focus();
+        valid = false;
+    }
+    if($("#emailGebruiker").val() === "" ) {
+        $("#emailGebruikerError").text("* Verplicht veld");
+        valid = false;
+    }
+
+    return valid;
+}
+
+function validateAddProject() {
+
+    let valid = true;
+
+    if($("#naamProject").val() === "" ) {
+        $("#naamProjectError").text("* Verplicht veld");
+        $("#naamProject").focus();
+        valid = false;
+    }
+    if($("#selectKlant").children("option:selected").val() === "Kies een klant") {
+        $("#selectKlantError").text("* Verplicht veld");
+        valid = false;
+    }
+
+    return valid;
+}

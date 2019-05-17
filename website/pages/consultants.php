@@ -28,7 +28,7 @@
 
                 <div class="mt-3 d-flex">
                     <div class="">
-                        <a href="addConsultant.php" class="btn timesheetsBtn mr-2"><i class="fas fa-plus"></i> Toevoegen</a>
+                        <a href="addConsultant.php" class="btn pl-2" id="addBtn"><i class="fas fa-plus"></i> Toevoegen</a>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
 
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
 
-        <input type="text" id="bedrijfIdConsultants" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
+        <input type="text" id="bedrijfIdValue" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
 
     </div>
     <!-- /#page-content-wrapper -->

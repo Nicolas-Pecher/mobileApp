@@ -32,12 +32,14 @@
                             <div class="form-group">
                                 <label for="naamProject">Naam:</label>
                                 <input type="text" class="form-control form-control-sm" id="naamProject" name="naamProject">
+                                <span class="text-danger small" id="naamProjectError"></span>
                             </div>
                             <div class="form-group">
                                 <label for="selectKlant">Klant:</label>
                                 <select class="form-control form-control-sm" id="selectKlant" name="selectKlant">
 
                                 </select>
+                                <span class="text-danger small" id="selectKlantError"></span>
                             </div>
                             <div class="form-group form-check">
                                 <label class="form-check-label">
@@ -57,7 +59,7 @@
         </div><!--einde container-->
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
 
-        <input type="text" id="bedrijfIdAddProject" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
+        <input type="text" id="bedrijfIdValue" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
 
     </div>
     <!-- /#page-content-wrapper -->
@@ -66,7 +68,7 @@
 <?php include './components/footer.php'; ?>
 
 <script src="../javascript/components/showActivePage.js"></script>
-<script src="../javascript/projects.js"></script>
 <script src="../javascript/addProject.js"></script>
+<script src="../javascript/components/validation.js"></script>
 
 </body>

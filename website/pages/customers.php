@@ -33,7 +33,7 @@
 
                 <div class="mt-3 d-flex">
                     <div class="">
-                        <a href="addCustomer.php" class="btn timesheetsBtn mr-2"><i class="fas fa-plus"></i> Toevoegen</a>
+                        <a href="addCustomer.php" id="addBtn" class="btn mr-2"><i class="fas fa-plus"></i> Toevoegen</a>
                     </div>
                 </div>
 

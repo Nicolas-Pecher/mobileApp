@@ -44,7 +44,7 @@
                                     <input type="text" name="btwnummer" id="bedrijfNaamProfile" class="form-control form-control-sm">
                                 </div>
                                 <div class="form-group">
-                                    <label for="rekeningnumer">Rekening-nummer(IBAN):</label>
+                                    <label for="rekeningnumer">Rekening-nummer<span class="small"> (IBAN)</span>:</label>
                                     <input type="text" name="rekeningnummer" class="form-control form-control-sm">
                                 </div>
                                 <div class="row">
