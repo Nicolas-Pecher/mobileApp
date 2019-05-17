@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
-    activePage('managePersoneel');
+    activePage('employees');
 
-    let bedrijfId = $('#bedrijfId').val();
-    console.log("BedrijfId = " + bedrijfId);
+    let bedrijfId = $('#bedrijfIdValue').val();
 
     let titles = ['#', 'Naam', 'Emailadres', 'Rol'];
+    let data = [];
 
     //ajax get request om Personeel weer te geven
     $.ajax({
@@ -13,11 +13,14 @@ $(document).ready(function () {
         url: 'http://mobileapp-planning-services.azurewebsites.net/api/gebruikers/GetByCompany/' + bedrijfId,
         success: function (response) {
 
-            data = response;
-            displayList(titles, data, 'personeel');
+            response.forEach(user => {
+                if(user.Rol != "consultant") {
+                    data.push(user);
+                }
+            });
 
+            displayList(titles, data, 'employees');
         }
     });
-
 });
 

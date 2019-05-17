@@ -54,7 +54,7 @@
                                         <span class="text-danger small" id="btwKlantError"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="ibanKlant">Rekening-nummer (IBAN):</label>
+                                        <label for="ibanKlant">Rekening-nummer <span class="small">(IBAN)</span>:</label>
                                         <input type="text" name="ibanKlant" class="form-control form-control-sm"/>
                                         <span class="text-danger small" id="ibanKlantError"></span>
                                     </div>
