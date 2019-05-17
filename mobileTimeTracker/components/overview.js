@@ -10,7 +10,7 @@ export default class Overview extends React.Component {
 
     this.state = {
       project: {},
-      showProjects: false,
+      showProjects: true,
       projects: [],
       timesheets: []
     }
@@ -69,7 +69,7 @@ export default class Overview extends React.Component {
       },
       body:JSON.stringify({
         IdEen: 7,
-        IdTwee: this.state.project.ProjectId
+        IdTwee: 3
       })
     })
     .then((response) => response.json())
