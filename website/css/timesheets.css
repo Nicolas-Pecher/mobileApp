@@ -21,7 +21,9 @@ hr{
 #addTimesheetBtn, #cancelAddTimesheetBtn,
 #modifyTimesheetBtn, #cancelModifyTimesheetBtn,
 #addConsultantBtn, #cancelAddConsultantBtn,
-#modifyConsultantBtn
+#modifyConsultantBtn,
+#modifyUserBtn, #changePasswordBtn,
+.addFormBtn, .cancelFormBtn
 {
     background-color: #f13c1f;
     color: white;
@@ -30,9 +32,12 @@ hr{
 #addTimesheetBtn:hover, #cancelAddTimesheetBtn:hover,
 #modifyTimesheetBtn:hover, #cancelModifyTimesheetBtn:hover,
 #addConsultantBtn:hover, #cancelAddConsultantBtn:hover,
-#modifyConsultantBtn:hover
+#modifyConsultantBtn:hover,
+#modifyUserBtn:hover, #changePasswordBtn:hover,
+.addFormBtn:hover, .cancelFormBtn:hover
 {
     background-color: #555555;
+    color: white;
 }
 
 #callInSickBtn {

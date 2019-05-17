@@ -41,7 +41,6 @@
                                     <input type="email" name="emailConsultant" id="emailConsultant" class="form-control form-control-sm" value="<?php echo $emailConsultant; ?>"/>
                                     <span class="text-danger small" id="emailConsultantError"></span>
                                 </div>
-
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">

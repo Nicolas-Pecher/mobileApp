@@ -138,6 +138,23 @@ function validateAddConsultant() {
     return valid;
 }
 
+function validateModifyProfile() {
+
+    let valid = true;
+
+    if($("#naamGebruiker").val() === "" ) {
+        $("#naamGebruikerError").text("* Verplicht veld");
+        $("#naamGebruiker").focus();
+        valid = false;
+    }
+    if($("#emailGebruiker").val() === "" ) {
+        $("#emailGebruikerError").text("* Verplicht veld");
+        valid = false;
+    }
+
+    return valid;
+}
+
 function validateAddProject() {
 
     let valid = true;

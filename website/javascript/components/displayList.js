@@ -27,7 +27,7 @@ function displayList(titles, data, listType) {
     }if(listType === 'customers') {
         $(headers).append(`<th scope="col"></th>`);
         klantTableRows(data, tbody);
-    }if (listType === 'personeel') {
+    }if (listType === 'employees') {
         personeelTableRows(data, tbody);        
     } else {
         //console.log('invalid or not implemented listType');
