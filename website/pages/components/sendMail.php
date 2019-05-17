@@ -1,5 +1,8 @@
-<?php 
-$jsonConsultants = file_get_contents("http://mobileapp-planning-services.azurewebsites.net/api/OverzichtConsultants/1", TRUE);
+<?php
+
+$bedrijfId = $_SESSION["bedrijfId"];
+
+$jsonConsultants = file_get_contents("http://mobileapp-planning-services.azurewebsites.net/api/OverzichtConsultants/" . $bedrijfId, TRUE);
 $consultants = json_decode($jsonConsultants);
 
 //var_dump($consultants);
