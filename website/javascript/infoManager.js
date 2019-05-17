@@ -5,8 +5,8 @@ $(document).ready(function () {
     var value = document.getElementById("isHr").value;
     let bedrijfId = $('#bedrijfIdConsultants').val();
     var totLoon = 0;
-
-    if (value != "hr") {
+    console.log(value)
+    if (value === "manager") {
         //popup code van https://www.w3schools.com/howto/howto_css_modals.asp hieronder
 
         // Get the modal
@@ -36,27 +36,30 @@ $(document).ready(function () {
         }
     }
 
-    if (value != "hr") {
+    if (value === "manager") {
         document.getElementById("sendMail").addEventListener("click", function () {
-
+            console.log("in klik")
             $.ajax({
                 type: "get",
                 url: 'http://mobileapp-planning-services.azurewebsites.net/api/OverzichtConsultants/' + bedrijfId,
                 success: function (response) {
                     let mails = [];
-                    console.log(response);
+                    
                     response.forEach(element => {
                         mails.push(element.Email);
+                        console.log(element.Email);
                     });
 
                     $.ajax({
                         type: "post",
-                        url: "./pages/components/sendMail",
+                        url: "./pages/components/sendMail.php",
                         data: mails,
-                        dataType: "dataType",
                         success: function (response) {
                             console.log(response);
+                        },error: function(data){
+                            console.log(data);
                         }
+                    
                     });
                 }
             });
@@ -93,7 +96,6 @@ $(document).ready(function () {
 
                         $(row).append(`<td>${geenTotaal}</td>`);
 
-                        
                     }
                 });
 
@@ -117,7 +119,7 @@ $(document).ready(function () {
 
                         $(row).append(`<td>${geenTotaal}</td>`);
 
-                        
+
                     }
                 });
                 $('#tabelConsultants').append(row);

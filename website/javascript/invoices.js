@@ -83,7 +83,7 @@ document.getElementById("listKlanten").addEventListener("change", function (e) {
                     url: `http://mobileapp-planning-services.azurewebsites.net/api/TotaalUrenPerProject/getbyproject/${element.ProjectId}`,
                     success: function (time) {
 
-                        totalTime = new Date(time);
+                        totalTime = new Date(time.Totaal);
 
                         var tijd = parseFloat(totalTime.getHours() + "." + totalTime.getMinutes());
 
