@@ -46,14 +46,14 @@
                 </div>
                 <span class="text-danger small" id="passwordError"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label small">
-                    <input class="form-check-input" type="checkbox" name="loggedIn" id="loginCheck"> Ingelogd blijven
-                </label>
-            </div>
-            <button type="submit" class="btn btn-block" id="login-button">Inloggen</button>
+<!--            <div class="form-group form-check">-->
+<!--                <label class="form-check-label small">-->
+<!--                    <input class="form-check-input" type="checkbox" name="loggedIn" id="loginCheck"> Ingelogd blijven-->
+<!--                </label>-->
+<!--            </div>-->
+            <button type="submit" class="btn btn-block mb-3 mt-4" id="login-button">Inloggen</button>
             <div class="text-center mt-2">
-                <a href="#" class="d-block small text-dark">Wachtwoord vergeten?</a>
+<!--                <a href="#" class="d-block small text-dark">Wachtwoord vergeten?</a>-->
             </div>
         </form>
     </div>

@@ -11,6 +11,7 @@ $(document).ready(function () {
         success: function (data) {
             console.log(data);
             $("#naam").attr("value", data.GebruikerNaam).text(data.GebruikerNaam);
+            $("#naamTitel").attr("value", data.GebruikerNaam).text(data.GebruikerNaam);
             $("#naamConsultant").attr("value", data.GebruikerNaam).text(data.GebruikerNaam);
             $("#emailConsultant").attr("value", data.Email).text(data.Email);
             $("#loonConsultant").attr("value", data.LoonPerUur).text(data.LoonPerUur);

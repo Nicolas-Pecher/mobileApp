@@ -23,7 +23,7 @@
 
         <div class="container-fluid mx-2">
 
-            <h1 id="naam"></h1>
+            <h1 id="naamTitel"></h1>
             <p class="lichtGrijs">Consultant</p>
             <hr class="mr-4 mb-4">
 
