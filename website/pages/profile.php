@@ -33,25 +33,26 @@
                             <h5 class="">Persoonlijke gegevens</h5>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form id="wijzigenProfielForm">
                                 <div class="form-group">
                                     <label for="name">Naam:</label><br>
-                                    <input type="text" name="name" class="form-control form-control-sm" value="<?php echo $_SESSION['naam']; ?>">
+                                    <input type="text" name="name" id="naamGebruiker" class="form-control form-control-sm" value="<?php echo $_SESSION['naam']; ?>">
+                                    <span class="text-danger small" id="naamGebruikerError"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Emailadres:</label>
-                                    <input type="email" name="email" class="form-control form-control-sm" value="<?php echo $_SESSION['email']; ?>">
+                                    <input type="email" name="email" id="emailGebruiker" class="form-control form-control-sm" value="<?php echo $_SESSION['email']; ?>">
+                                    <span class="text-danger small" id="emailGebruikerError"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="boss">Werkgever:</label>
                                     <input type="text" name="boss" id="bedrijfNaamProfile" class="form-control form-control-sm" disabled>
-                                    <input type="text" id="bedrijfIdProfile" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display: none;" >
                                 </div>
                                 <div class="form-group">
                                     <label for="roll">Rol:</label>
                                     <input type="text" name="roll" class="form-control form-control-sm" disabled value="<?php echo $_SESSION['gebruikerRol']; ?>">
                                 </div>
-                                <button type="submit" class="btn btn-sm pl-4 pr-4 mt-3" id="changePasswordBtn">Wijzigen</button>
+                                <button type="submit" class="btn btn-sm px-4 mt-3" id="modifyUserBtn">Wijzigen</button>
                             </form>
                         </div>
 
@@ -85,6 +86,9 @@
 
             <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
 
+            <input type="text" id="bedrijfIdValue" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display: none;" >
+            <input type="text" id="GebruikerIdValue" value="<?php echo $_SESSION['gebruikerId']; ?>" style="display: none;" >
+
         </div>
         <!-- /#page-content-wrapper -->
 
@@ -93,8 +97,9 @@
 
     <?php include './components/footer.php'; ?>
 
-    <script src="../javascript/showActivePage.js"></script>
+    <script src="../javascript/components/showActivePage.js"></script>
     <script src="../javascript/profile.js"></script>
+    <script src="../javascript/components/validation.js"></script>
 
 </body>
 

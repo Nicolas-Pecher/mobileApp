@@ -27,15 +27,15 @@
 
     <div class="card" id="login-wrapper">
         <div class="card-header-title text-center pt-4 pb-4"><i class="fas fa-user-circle fa-4x"></i></div>
-        <form action="../controllers/doLogin.php" method="post" class="card-body">
+        <form action="../controllers/doLogin.php" method="post" class="card-body" onsubmit="return(validateLogin());" name="loginForm">
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                     </div>
                     <input type="email" class="form-control form-control-prepended" id="email" placeholder="Emailadres" value="<?php echo $email; ?>" name="email">
-<!--                    <span class="text-danger small">--><?php //echo $emailErr; ?><!--</span>-->
                 </div>
+                <span class="text-danger small" id="emailError"></span>
             </div>
             <div class="form-group">
                 <div class="input-group">
@@ -43,15 +43,15 @@
                         <span class="input-group-text"><i class="fas fa-lock"></i></span>
                     </div>
                     <input type="password" class="form-control" id="password" placeholder="Wachtwoord" value="<?php echo $password; ?>" name="password">
-<!--                    <span class="text-danger small">--><?php //echo $passwordErr; ?><!--</span>-->
                 </div>
+                <span class="text-danger small" id="passwordError"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label small">
                     <input class="form-check-input" type="checkbox" name="loggedIn" id="loginCheck"> Ingelogd blijven
                 </label>
             </div>
-            <button type="submit" href="" class="btn btn-block" id="login-button">Inloggen</button>
+            <button type="submit" class="btn btn-block" id="login-button">Inloggen</button>
             <div class="text-center mt-2">
                 <a href="#" class="d-block small text-dark">Wachtwoord vergeten?</a>
             </div>
@@ -67,6 +67,8 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="../javascript/components/validation.js"></script>
 
 </body>
 </html>

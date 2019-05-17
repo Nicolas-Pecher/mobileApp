@@ -17,7 +17,16 @@ export default class Overview extends React.Component {
   }
 
  componentDidMount() {
-  fetch('https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker/7')
+  fetch('https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker',{
+    method:'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body:JSON.stringify({
+      id: 7
+    })
+  })
   .then((response) => response.json())
   .then((response) => {
     if (response != null){

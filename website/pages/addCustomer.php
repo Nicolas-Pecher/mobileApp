@@ -35,7 +35,7 @@
 
             <div class="mt-4 pr-4">
 
-                <form action="" method="POST" enctype="multipart/form-data" id="formKlant">
+                <form action="" method="POST" enctype="multipart/form-data" id="formCustomer">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="card mb-3">
@@ -46,14 +46,17 @@
                                     <div class="form-group">
                                         <label for="naamKlant">Naam:</label>
                                         <input type="text" name="naamKlant" class="form-control form-control-sm"/>
+                                        <span class="text-danger small" id="naamKlantError"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="btwKlant">Btw-nummer:</label>
                                         <input type="text" name="btwKlant" class="form-control form-control-sm"/>
+                                        <span class="text-danger small" id="btwKlantError"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="ibanKlant">Rekening-nummer (IBAN):</label>
+                                        <label for="ibanKlant">Rekening-nummer <span class="small">(IBAN)</span>:</label>
                                         <input type="text" name="ibanKlant" class="form-control form-control-sm"/>
+                                        <span class="text-danger small" id="ibanKlantError"></span>
                                     </div>
                                 </div>
                             </div>
@@ -68,26 +71,31 @@
                                         <div class="form-group col-8">
                                             <label for="straat">Straat:</label>
                                             <input type="text" name="straat" class="form-control form-control-sm"/>
+                                            <span class="text-danger small" id="straatError"></span>
                                         </div>
                                         <div class="form-group col-4">
                                             <label for="huisnummer">Huisnr.:</label>
                                             <input type="text" name="huisnummer" class="form-control form-control-sm"/>
+                                            <span class="text-danger small" id="huisnummerError"></span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-4">
                                             <label for="postcode">Postcode:</label>
                                             <input type="text" name="postcode" class="form-control form-control-sm"/>
+                                            <span class="text-danger small" id="postcodeError"></span>
                                         </div>
                                         <div class="form-group col-8">
                                             <label for="gemeente">Gemeente:</label>
                                             <input type="text" name="gemeente" class="form-control form-control-sm"/>
+                                            <span class="text-danger small" id="gemeenteError"></span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-12">
                                             <label for="land">Land:</label>
                                             <input type="text" name="land" class="form-control form-control-sm"/>
+                                            <span class="text-danger small" id="landError"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -96,21 +104,17 @@
                     </div>
 
 
-                    <input type="text" name="bedrijfId" id="bedrijfIdAddConsultant" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
+                    <input type="text" name="bedrijfId" id="bedrijfIdValue" value="<?php echo $_SESSION['bedrijfId']; ?>" style="display:none;" >
                     <!--                        <a href="" class="btn btn-sm mt-1" id="addNewProjectBtn"><i class="fas fa-plus"></i></a>-->
                     <br>
-                    <button type="submit" name="submit" class="btn px-4 mb-3" id="addKlantBtn">Toevoegen</button>
-                    <button type="button" onclick="history.back();" class="btn px-4 mb-3" id="addKlantBtn">Annuleren</button>
+                    <button type="submit" name="submit" class="btn btn-sm px-4 mb-3" id="addKlantBtn">Toevoegen</button>
+                    <button type="button" onclick="history.back();" class="btn btn-sm px-4 mb-3" id="addKlantBtn">Annuleren</button>
                 </form>
             </div>
 
         </div>
 
         <a href="#topPage" class="btn" id="pageButton"><i class="fas fa-caret-up"></i></a>
-
-        <footer class="border-top small text-center">
-            <p class="pt-2">&copy; Copyright 2019, Project Mobile Apps groep 2</p>
-        </footer>
 
     </div>
     <!-- /#page-content-wrapper -->
@@ -119,8 +123,10 @@
 <!-- /#wrapper -->
 
 <?php include './components/footer.php'; ?>
-<script src="../javascript/showActivePage.js"></script>
-<script src="../javascript/customers.js"></script>
+
+<script src="../javascript/components/showActivePage.js"></script>
+<script src="../javascript/addCustomer.js"></script>
+<script src="../javascript/components/validation.js"></script>
 
 </body>
 

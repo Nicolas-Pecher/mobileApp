@@ -1,22 +1,11 @@
 document.getElementById("genPDF").addEventListener('click', function () {
 
-    var side = $('#sidebar-wrapper');
-    savedSideBar = side.clone(true);
+    //source: https://stackoverflow.com/questions/4373922/how-to-print-selected-div-instead-complete-page
 
-    var top = $('#topPage');
-    savedTop = top.clone(true);
+   var printContents = document.getElementById('card-body').innerHTML;
+   var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
 
-    side.remove();
-
-    top.remove();
-
-    window.setTimeout(() => {
-        var pdf = new jsPDF('p', 'pt', 'a4');
-    pdf.addHTML(document.body, function () {
-        pdf.save('web.pdf');
-    });
-    }, 1);
-
-    savedSideBar.appendTo ($(document.body));
-    savedTop.appendTo ($(document.body));
 });

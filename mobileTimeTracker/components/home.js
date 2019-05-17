@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,AsyncStorage } from 'react-native';
 import LogTime from './logTime';
 import ShowTimeSheets from './showTimeSheets'
 //import TimePicker from './Inputs/timePicker';
@@ -18,20 +18,50 @@ export default class Home extends React.Component {
     }
 
     onPress = () => {
-        console.log('state of button:' + this.state.newEntry)
         this.setState({
             newEntry: !this.state.newEntry
         })
+
     }
 
     showNewEntry() {
         if (this.state.newEntry) {
-            return <LogTime colorTheme={this.props.colorTheme} save={this.onPress}/>
+            return <LogTime colorTheme={this.props.colorTheme} save={this.onPress} updateHome={this.updateProjects} />
         }
     }
 
-    componentDidMount() {
+    updateProjects = () => {
+        console.log("UPDATING");
         fetch('http://mobileapp-planning-services.azurewebsites.net/api/Timesheet')
+            .then((response) => response.json())
+            //.then((response) => console.log(response))
+            .then((responseJson) => {
+                this.setState({
+                    isLoading: false,
+                    timesheets: responseJson,
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+    componentDidMount() {
+        this.getUserLocally()
+    }
+
+    getUserLocally = async () => {
+        try {
+            let value = await AsyncStorage.getItem('user');
+            value = JSON.parse(value)
+            this.getTimesheets(value.GebruikerId)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    getTimesheets = (userId) => {
+        fetch('http://mobileapp-planning-services.azurewebsites.net/api/ConsultantTimesheets/' + userId)
             .then((response) => response.json())
             //.then((response) => console.log(response))
             .then((responseJson) => {
@@ -49,7 +79,7 @@ export default class Home extends React.Component {
 
     displayTimesheets() {
         if (!this.state.isLoading) {
-            return <ShowTimeSheets timesheets={this.state.timesheets} colorTheme={this.props.colorTheme} />
+            return <ShowTimeSheets timesheets={this.state.timesheets} colorTheme={this.props.colorTheme} updateHome={this.updateProjects} />
         }
     }
 
@@ -87,26 +117,3 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
 });
-
-
-/* =======================================================================
-
-<ScrollView >
-
-                            <View style={{ paddingTop: 5 }}>
-                                <Text style={{ color: this.props.colorTheme.lightColor, marginBottom: 10, fontSize: fontsize }}>1 Jan</Text>
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                            </View>
-
-                            <View style={{ paddingTop: 15 }}>
-                                <Text style={{ color: this.props.colorTheme.lightColor, marginBottom: 10, fontSize: fontsize }}>31 Dec</Text>
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                                <TimelogRow colorTheme={this.props.colorTheme} />
-                            </View>
-
-                        </ScrollView>
-*/

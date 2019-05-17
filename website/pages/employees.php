@@ -20,20 +20,18 @@
         <div id="content">
 
             <div class="container my-4 mx-2">
-                <p class="small"><i class="fas fa-home"></i>/ &nbsp;Consultants</p>
+                <p class="small"><i class="fas fa-home"></i>/ &nbsp;Personeel</p>
             </div>
 
             <div class="container-fluid mx-2">
-                <h1 class="mb-4">Consultants</h1>
+                <h1 class="mb-4">Personeel</h1>
 
                 <div class="mt-3 d-flex">
-                    <div class="">
-                        <a href="addConsultant.php" class="btn pl-2" id="addBtn"><i class="fas fa-plus"></i> Toevoegen</a>
-                    </div>
+                    <a href="./addEmployee.php"><button class="btn mr-2" id="addBtn"><i class="fas fa-plus"></i> Toevoegen</button></a>
                 </div>
 
                 <div class="my-4 tabledisplay">
-                    <!--The consultants table is displayed here-->
+                    <!--The personeel table is displayed here-->
 
                 </div>
             </div>
@@ -53,7 +51,7 @@
 <?php include './components/footer.php'; ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../javascript/components/showActivePage.js"></script>
-<script src="../javascript/consultants.js"></script>
+<script src="../javascript/employees.js"></script>
 <script src="../javascript/components/displayList.js"></script>
 
 </body>

@@ -9,10 +9,6 @@ body {
     border-radius: 10px;
 }
 
-.card-header {
-
-}
-
 #login-button, #changePasswordBtn {
     background-color: #F13C1F;
     color: white;
