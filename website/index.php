@@ -278,16 +278,19 @@ if (!isset($_SESSION['gebruikerId'])) {
 
                 <?php if ($_SESSION['gebruikerRol'] == "manager" || $_SESSION['gebruikerRol'] == "hr") { ?>
                     <?php if ($_SESSION['gebruikerRol'] == "manager") : ?>
-                        <button class="btn btn-secondary mb-5" id="sendMail">send reminder</button>
+                        <form action="./pages/components/sendMail.php" method="post">
+                            <button class="btn btn-secondary mb-5" id="sendMail">send reminder</button>
+                        </form>
+
                         <!-- The Modal -->
                         <div id="myModal" class="modal">
-
                             <!-- Modal content -->
                             <div class="modal-content">
                                 <p>Reminder verstuurt naar alle consultanten. <span class="close">&times;</span></p>
                             </div>
 
                         </div>
+                        <option id="isHr" value="manager"></option>
                     <?php endif; ?>
                     <option id="isHr" value="hr"></option>
                     <div class="card mb-5">
