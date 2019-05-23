@@ -8,7 +8,7 @@ $(document).ready(function () {
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/Bedrijf/' + bedrijfId,
         success: function (data) {
 
-            console.log(data);
+            //console.log(data);
 
             let bedrijfNaam = $('#bedrijfNaamProfile');
             bedrijfNaam.attr('value', data.BedrijfNaam).text(data.BedrijfNaam);
@@ -40,7 +40,7 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                console.log("Updated Successfully : " + data);
+                //console.log("Updated Successfully : " + data);
                 alert("Gegevens succesvol gewijzigd!");
             },
             error: function (data) {

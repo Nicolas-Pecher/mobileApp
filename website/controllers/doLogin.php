@@ -14,7 +14,6 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 } else {
 
-
     $email = $_POST["email"];
     $password = $_POST["password"];
 
@@ -38,40 +37,30 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
     //check for errors
     if ($response === FALSE) {
-        die('Error');
-    }
 
-    //decode the response
-    $responseData = json_decode($response, TRUE);
+        var_dump($email);
+        $email = $_POST["email"];
 
-    echo "test";
-    //Print the data from the response
-    var_dump($responseData);
-    var_dump($responseData["Rol"]);
-
-
-    if ($responseData !== "") {
-        session_start();
-        $_SESSION['gebruikerId'] = $responseData["GebruikerId"];
-        $_SESSION['naam'] = $responseData["GebruikerNaam"];
-        $_SESSION['email'] = $responseData["Email"];
-        $_SESSION['gebruikerRol'] = $responseData["Rol"];
-        $_SESSION['bedrijfId'] = $responseData["BedrijfId"];
-        $_SESSION['loggedIn'] = true;
-        header("location: ../index.php");
-    }
-}
-
-
-function isFormValidLogin() {
-    global $emailErr, $passwordErr;
-    $allErr = $emailErr . $passwordErr;
-    if(empty($allErr)) {
-        return true;
     } else {
-        return false;
+
+        //decode the response
+        $responseData = json_decode($response, TRUE);
+
+        echo "test";
+        //Print the data from the response
+        var_dump($responseData);
+        var_dump($responseData["Rol"]);
+
+
+        if ($responseData !== "") {
+            session_start();
+            $_SESSION['gebruikerId'] = $responseData["GebruikerId"];
+            $_SESSION['naam'] = $responseData["GebruikerNaam"];
+            $_SESSION['email'] = $responseData["Email"];
+            $_SESSION['gebruikerRol'] = $responseData["Rol"];
+            $_SESSION['bedrijfId'] = $responseData["BedrijfId"];
+            $_SESSION['loggedIn'] = true;
+            header("location: ../index.php");
+        }
     }
 }
-
-
-

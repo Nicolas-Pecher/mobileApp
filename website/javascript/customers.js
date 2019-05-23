@@ -12,7 +12,7 @@ $(document).ready(function () {
        type: 'GET',
        url: 'https://mobileapp-planning-services.azurewebsites.net/api/KlantenVanBedrijf/' + bedrijfId,
        success: function (response) {
-           console.log(response);
+           //console.log(response);
 
            response.forEach(klant => {
                 data.push(klant);

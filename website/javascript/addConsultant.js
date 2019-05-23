@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    activePage('consultants');
+
     let bedrijfId = $('#bedrijfIdValue').val();
 
     //toevoegen van een consultant
@@ -10,11 +12,10 @@ $(document).ready(function () {
         validateAddConsultant();
 
         let gebruikerNaam = $("[name='naamConsultant']").val();
-        let email = $("[name='email']").val();
-        let wachtwoord = $("[name='password']").val();
-        let loon = $("[name='loon']").val();
-
-        //let hash = Base64.encode(wachtwoord);
+        console.log(gebruikerNaam);
+        let email = $("[name='emailConsultant']").val();
+        let wachtwoord = $("[name='wachtwoordConsultant']").val();
+        let loon = $("[name='loonConsultant']").val();
 
         let dataJSON = {
             GebruikerNaam : gebruikerNaam,
@@ -32,6 +33,7 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
+                //alert("succesvol");
                 //console.log(data);
                 location.assign('./consultants.php');
             },

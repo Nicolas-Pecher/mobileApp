@@ -9,16 +9,17 @@ $(document).ready(function () {
         type: 'GET',
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/Gebruiker/' + consultantId,
         success: function (data) {
-            console.log(data);
+            //console.log(data);
             $("#naam").attr("value", data.GebruikerNaam).text(data.GebruikerNaam);
             $("#naamTitel").attr("value", data.GebruikerNaam).text(data.GebruikerNaam);
             $("#naamConsultant").attr("value", data.GebruikerNaam).text(data.GebruikerNaam);
             $("#emailConsultant").attr("value", data.Email).text(data.Email);
             $("#loonConsultant").attr("value", data.LoonPerUur).text(data.LoonPerUur);
+            $("#password").attr("value", data.Wachtwoord);
         }
     });
 
-    $("#wijzigConsultantForm").submit(function (e) {
+    $("#modifyConsultantForm").submit(function (e) {
 
         e.preventDefault();
 
@@ -27,11 +28,12 @@ $(document).ready(function () {
         let naam = $("[name='naamConsultant']").val();
         let email = $("[name='emailConsultant']").val();
         let loon = $("[name='loonConsultant']").val();
+        let wachtwoord = $("[name='wachtwoordConsultant']").val();
 
         let dataJSON = {
             GebruikerNaam: naam,
             Email: email,
-            Wachtwoord: "",
+            Wachtwoord: wachtwoord,
             Rol: "consultant",
             BedrijfId: bedrijfId,
             LoonPerUur: loon
@@ -39,17 +41,17 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'PUT',
-            url: 'https://mobileapp-planning-services.azurewebsites.net/api/Gebruiker' + consultantId,
+            url: 'https://mobileapp-planning-services.azurewebsites.net/api/Gebruiker/' + consultantId,
             data: JSON.stringify(dataJSON),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                //alert("Consultant succesvol gewijzigd");
                 //document.getElementById("formTimeEntry").reset();
-                //location.assign('./timesheets.php');
+                //location.assign('./consultants.php');
             },
             error: function (data) {
-                console.log(data);
+                //console.log(data);
             }
         });
     });
@@ -74,7 +76,7 @@ $(document).ready(function () {
                     number++;
                 });
             } else {
-                body.append($('<td class="p-4"></td>').attr('value', "Geen data").text("Geen data"));
+                body.append($('<td class="p-4"></td>').attr('value', "Nog geen projecten").text("Nog geen projecten"));
             }
         }
     });
@@ -86,7 +88,7 @@ $(document).ready(function () {
         type: 'GET',
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/ConsultantTimesheets/' + consultantId,
         success: function (response) {
-            console.log(response);
+            //console.log(response);
 
             if(response.length != 0) {
                 response.forEach(timesheet => {
@@ -96,7 +98,7 @@ $(document).ready(function () {
                 displayList(titles, data, 'timesheets');
             } else {
                 let div = $("#timesheetsConsultant");
-                div.append($('<p class="p-4"></p>').attr('value', "Geen data").text("Geen data"));
+                div.append($('<p class="p-4"></p>').attr('value', "Nog geen Timesheets").text("Nog geen timesheets"));
             }
 
         }

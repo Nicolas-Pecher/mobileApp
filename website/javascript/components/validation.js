@@ -138,6 +138,36 @@ function validateAddConsultant() {
     return valid;
 }
 
+function validateAddEmployee() {
+
+    let valid = true;
+
+    if($("#naamEmployee").val() === "" ) {
+        $("#naamEmployeeError").text("* Verplicht veld");
+        $("#naamEmployee").focus();
+        valid = false;
+    }
+    if($("#emailEmployee").val() === "" ) {
+        $("#emailEmployeeError").text("* Verplicht veld");
+        valid = false;
+    }
+    if($("#loonEmployee").val() === "" ) {
+        $("#loonEmployeeError").text("* Verplicht veld");
+        valid = false;
+    }
+    if($("#wachtwoordEmployee").val() === "" ) {
+        $("#wachtwoordEmployeeError").text("* Verplicht veld");
+        valid = false;
+    }
+    if($("#selectEmployeeRol").children("option:selected").val() === "Kies een rol") {
+        $("#rolEmployeeError").text("* Verplicht veld");
+        //$("#selectProject").focus();
+        valid = false;
+    }
+
+    return valid;
+}
+
 function validateModifyProfile() {
 
     let valid = true;

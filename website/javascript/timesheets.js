@@ -85,7 +85,7 @@ $(document).ready(function () {
 
                     //adding event to remove
                     $(remove).click(function() {
-                        console.log(timeLog.TimesheetId);
+                        //console.log(timeLog.TimesheetId);
                         deleteTimesheet(timeLog.TimesheetId);
                         $(contentDiv).remove();
                     });

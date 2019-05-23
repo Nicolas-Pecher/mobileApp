@@ -15,13 +15,12 @@ foreach($consultants as $consultant) {
 }
 
 //var_dump($emailConsultants);
-
+$subject = "REMINDER! Timesheets invullen";
+$message = "Vergeet zeker niet je timesheets van deze maand in te vullen.";
 
 foreach ($emailConsultants as $email) {
     //print_r($email);
     //print_r("\n");
-    $subject = "REMINDER! Timesheets invullen";
-    $message = "Vergeet zeker niet je timesheets van deze maand in te vullen.";
     mail($email, $subject, $message);
 }
 

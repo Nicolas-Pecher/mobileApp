@@ -5,7 +5,7 @@ function deleteTimesheet(id) {
         type: 'DELETE',
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/Timesheet/' + id,
         success: function (data) {
-            console.log("delete gelukt");
+            //console.log("delete gelukt");
             //location.assign('./timesheets.php');
         },
         error: function (data) {

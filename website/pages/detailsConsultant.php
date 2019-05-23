@@ -58,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 mb-4">
+                <div class="col-sm-6 mb-4">
                     <div class="card" style="height: 59.5vh;">
                         <div class="card-header">
                             <h5 class="">Huidige projecten</h5>

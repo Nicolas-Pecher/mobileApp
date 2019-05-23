@@ -33,24 +33,24 @@
                             <div class="row">
                                 <div class="form-group col-sm-6">
                                     <label for="naamConsultant">Voornaam en achternaam:</label>
-                                    <input type="text" name="naamConsultant" id="naamConsultant" class="form-control form-control-sm" value="<?php echo $naamConsultant; ?>"/>
+                                    <input type="text" name="naamConsultant" id="naamConsultant" class="form-control form-control-sm" value="<?php //echo $naamConsultant; ?>"/>
                                     <span class="text-danger small" id="naamConsultantError"></span>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label for="email">Emailadres:</label>
-                                    <input type="email" name="emailConsultant" id="emailConsultant" class="form-control form-control-sm" value="<?php echo $emailConsultant; ?>"/>
+                                    <input type="email" name="emailConsultant" id="emailConsultant" class="form-control form-control-sm" value="<?php //echo $emailConsultant; ?>"/>
                                     <span class="text-danger small" id="emailConsultantError"></span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">
                                     <label for="loon">Loon per uur:</label>
-                                    <input type="text" name="loonConsultant" id="loonConsultant" class="form-control form-control-sm" value="<?php echo $loonConsultant; ?>">
+                                    <input type="text" name="loonConsultant" id="loonConsultant" class="form-control form-control-sm" value="<?php //echo $loonConsultant; ?>">
                                     <span class="text-danger small" id="loonConsultantError"></span>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label for="password">Wachtwoord:</label>
-                                    <input type="password" name="wachtwoordConsultant" id="wachtwoordConsultant" class="form-control form-control-sm" value="<?php echo $wachtwoordConsultant; ?>">
+                                    <input type="password" name="wachtwoordConsultant" id="wachtwoordConsultant" class="form-control form-control-sm" value="<?php //echo $wachtwoordConsultant; ?>">
                                     <span class="text-danger small" id="wachtwoordConsultantError"></span>
                                 </div>
                             </div>

@@ -2,10 +2,10 @@ $(document).ready(function () {
 
     let urenProjecten = new Array();
     let namen = new Array();
-    var value = document.getElementById("isHr").value;
+    let value = document.getElementById("isHr").value;
     let bedrijfId = $('#bedrijfIdConsultants').val();
-    var totLoon = 0;
-    console.log(value)
+    let totLoon = 0;
+
     if (value === "manager") {
         //popup code van https://www.w3schools.com/howto/howto_css_modals.asp hieronder
 
@@ -18,7 +18,7 @@ $(document).ready(function () {
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks on the button, open the modal 
+        // When the user clicks on the button, open the modal
         btn.onclick = function () {
             modal.style.display = "block";
         }
@@ -38,13 +38,12 @@ $(document).ready(function () {
 
     if (value === "manager") {
         document.getElementById("sendMail").addEventListener("click", function () {
-            console.log("in klik")
             $.ajax({
                 type: "get",
                 url: 'http://mobileapp-planning-services.azurewebsites.net/api/OverzichtConsultants/' + bedrijfId,
                 success: function (response) {
                     let mails = [];
-                    
+
                     response.forEach(element => {
                         mails.push(element.Email);
                         console.log(element.Email);
@@ -55,11 +54,11 @@ $(document).ready(function () {
                         url: "./pages/components/sendMail.php",
                         data: mails,
                         success: function (response) {
-                            console.log(response);
+                            //console.log(response);
                         },error: function(data){
-                            console.log(data);
+                            //console.log(data);
                         }
-                    
+
                     });
                 }
             });
@@ -72,10 +71,14 @@ $(document).ready(function () {
         url: 'http://mobileapp-planning-services.azurewebsites.net/api/OverzichtConsultants/' + bedrijfId,
         success: function (consultants) {
 
+            let number = 1;
+
             consultants.forEach(consultant => {
 
                 var row = $('<tr></tr>');
 
+                $(row).append(`<td>${number}</td>`);
+                number++;
                 $(row).append(`<td>${consultant.GebruikerNaam}</td>`);
 
                 $.ajax({

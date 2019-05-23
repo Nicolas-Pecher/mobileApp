@@ -10,7 +10,7 @@ $(document).ready(function () {
         type: 'GET',
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanGebruiker/' + gebruikerId,
         success: function (data) {
-            console.log(data);
+            //console.log(data);
 
             let dropdown = $('#selectProject');
             data.forEach(project => {
@@ -27,7 +27,7 @@ $(document).ready(function () {
 
                 //het id van het geselecteerde project opslagen
                 let projectId = $(this).children("option:selected").val();
-                console.log("You have selected project - " + projectId);
+                //console.log("You have selected project - " + projectId);
 
                 //het project vinden en nakijken of overuren mogelijk zijn
                 data.forEach(project => {
@@ -77,12 +77,12 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                //console.log(data);
                 //document.getElementById("formTimeEntry").reset();
                 location.assign('./timesheets.php');
             },
             error: function (data) {
-                console.log(data);
+                //console.log(data);
             }
         });
     });
