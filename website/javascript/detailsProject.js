@@ -45,7 +45,6 @@ $(document).ready(function () {
 
         let naamProject = $("#naamProject").val();
         let klantProject = $("#selectKlant").val();
-        console.log(klantProject);
         let overurenProject = $("#overuren").prop('checked');
 
         $.ajax({
@@ -55,7 +54,6 @@ $(document).ready(function () {
                 //console.log(dataKlant);
 
                 let klantNaam = data.KlantNaam;
-                console.log(klantNaam);
 
                 let dataJSON = {
                     KlantId: klantProject,
@@ -71,7 +69,7 @@ $(document).ready(function () {
                     contentType: 'application/json; charset=utf-8',
                     dataType: 'json',
                     success: function (data) {
-                        console.log("Updated Successfully : " + data);
+                        //console.log("Updated Successfully : " + data);
                         alert("Project succesvol gewijzigd!");
                     },
                     error: function (data) {
@@ -91,14 +89,14 @@ $(document).ready(function () {
 
             let body = $('#huidigeConsultants');
 
+
+            let number = 1;
+
             if(response.length != 0) {
-
-                let number = 1;
-
                 response.forEach(project => {
                     if(project.ProjectId == projectId){
                         let row = $('<tr></tr>');
-                        row.append($('<td></td>').text(number));
+                        row.append($('<td></td>').attr('value', project.GebruikerId).text(number));
                         row.append($('<td></td>').attr('value', project.GebruikerNaam).text(project.GebruikerNaam));
                         //row.append($('<button class="btn btn-sm btn-outline-secondary ml-1" role="button" id="deleteConsultant"><i class="fas fa-trash-alt"></i></button>'));
                         body.append(row);
@@ -107,13 +105,14 @@ $(document).ready(function () {
                 });
 
             } else {
-                let div = $("#huidigeConsultants");
-                div.append($('<p class="p-4"></p>').attr('value', "Geen data").text("Geen data"));
+                body.append($('<p class="p-4"></p>').attr('value', "Geen data").text("Nog geen data"));
             }
         },
         error: function (data) {
-            let div = $("#huidigeConsultants");
-            div.append($('<p class="p-4"></p>').attr('value', "Geen data").text("Geen data"));
+            let body = $('#huidigeConsultants');
+            let row = $('<tr></tr>');
+
+            row.append($('<p class="p-4"></p>').attr('value', "Geen data").text("Geen data"));
         }
     });
 

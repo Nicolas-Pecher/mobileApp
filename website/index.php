@@ -261,16 +261,6 @@ if (!isset($_SESSION['gebruikerId'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-11 col-md-11 col-lg-6 mb-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-header-title">Gewerkte uren deze week</h5>
-                                </div>
-                                <div class="card-body">
-                                    <canvas id="gewerkteUrenDezeWeekChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 <?php } ?>
@@ -297,20 +287,19 @@ if (!isset($_SESSION['gebruikerId'])) {
                         <div class="card-header">
                             <h5 class="card-header-title">Overzicht Consultants</h5>
                         </div>
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Consultant</th>
-                                        <th scope="col">Gewerkte uren</th>
-                                        <th scope="col">Overuren</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tabelConsultants">
-                                    <!--gevuld met ajax call-->
-                                </tbody>
-                            </table>
-                        </div>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Consultant</th>
+                                <th scope="col">Gewerkte uren</th>
+                                <th scope="col">Overuren</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tabelConsultants">
+                            <!--gevuld met ajax call-->
+                            </tbody>
+                        </table>
                     </div>
 
                     <div class="card mb-5">

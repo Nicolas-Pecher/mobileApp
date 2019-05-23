@@ -29,46 +29,45 @@
                 <div class="card mb-4">
                     <div class="card-body">
 
-                        <form  method="POST">
+                        <form id="addEmployeeForm">
                             <div class="row">
                                 <div class="form-group col-sm-6">
-                                    <label>Voornaam en achternaam:</label>
-                                    <input type="text" name="GebruikerNaam" class="form-control form-control-sm"/>
-                                    <span class="text-danger small" id="naamConsultantError"></span>
+                                    <label for="naamEmployee">Voornaam en achternaam:</label>
+                                    <input type="text" name="naamEmployee" id="naamEmployee" class="form-control form-control-sm"/>
+                                    <span class="text-danger small" id="naamEmployeeError"></span>
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <label for="email">Emailadres:</label>
-                                    <input type="email" name="Email" class="form-control form-control-sm"/>
-                                    <span class="text-danger small" id="emailConsultantError"></span>
+                                    <label for="emailEmployee">Emailadres:</label>
+                                    <input type="email" name="emailEmployee" id="emailEmployee" class="form-control form-control-sm"/>
+                                    <span class="text-danger small" id="emailEmployeeError"></span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">
-                                    <label for="loon">Loon per uur:</label>
-                                    <input type="text" name="LoonPerUur" class="form-control form-control-sm"/>
-                                    <span class="text-danger small" id="loonConsultantError"></span>
+                                    <label for="loonEmployee">Loon per uur:</label>
+                                    <input type="text" name="loonEmployee" id="loonEmployee" class="form-control form-control-sm"/>
+                                    <span class="text-danger small" id="loonEmployeeError"></span>
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <label for="password">Wachtwoord:</label>
-                                    <input type="password" name="Wachtwoord" class="form-control form-control-sm"/>
-                                    <span class="text-danger small" id="wachtwoordConsultantError"></span>
+                                    <label for="wachtwoordEmployee">Wachtwoord:</label>
+                                    <input type="password" name="wachtwoordEmployee" id="wachtwoordEmployee" class="form-control form-control-sm"/>
+                                    <span class="text-danger small" id="wachtwoordEmployeeError"></span>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-group col-sm-6">
                                     <label>Rol:</label>
-                                    <select name="Rol" class="form-control form-control-sm">
+                                    <select name="selectEmployeeRol" id="selectEmployeeRol" class="form-control form-control-sm">
                                         <option selected disabled>Kies een rol</option>
-                                        <option value="consultant">consultant</option>
                                         <option value="hr">hr</option>
                                         <option value="manager">manager</option>
                                     </select>
-                                    <span class="text-danger small" id="selectRolConsultantError"></span>
+                                    <span class="text-danger small" id="rolEmployeeError"></span>
                                 </div>
                             </div>
 
-                            <input type="text" name="BedrijfId" value=<?php echo $_SESSION['bedrijfId']; ?> style="display:none;" >
+                            <input type="text" id="bedrijfIdValue" value=<?php echo $_SESSION['bedrijfId']; ?> style="display:none;" >
                             <br>
                             <button type="submit" class="btn btn-sm px-4 mb-2 addFormBtn">Toevoegen</button>
                             <button type="button" onclick="history.back();" class="btn btn-sm px-4 mb-2 cancelFormBtn">Annuleren</button>
@@ -92,5 +91,6 @@
 
 <script src="../javascript/components/showActivePage.js"></script>
 <script src="../javascript/addEmployee.js"></script>
+<script src="../javascript/components/validation.js"></script>
 
 </body>

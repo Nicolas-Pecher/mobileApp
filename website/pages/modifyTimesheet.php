@@ -85,7 +85,7 @@
 <?php include './components/footer.php'; ?>
 
 <script src="../javascript/components/showActivePage.js"></script>
-<script src="../javascript/modifyTimeEntry.js"></script>
+<script src="../javascript/modifyTimesheet.js"></script>
 <script src="../javascript/components/validation.js"></script>
 
 </body>

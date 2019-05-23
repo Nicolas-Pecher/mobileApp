@@ -1,39 +1,45 @@
 $(document).ready(function () {
 
-    activePage('managePersoneel');
+    activePage('employees');
 
-    $("form").submit(function (e) {
+    let bedrijfId = $("#bedrijfIdValue").val();
+
+    //toevoegen employee
+    $("#addEmployeeForm").submit(function (e) {
+
         e.preventDefault();
 
-        var data = {};
-        var a = $(this).serializeArray();
-        $.each(a, function () {
-            if (data[this.name]) {
-                if (!data[this.name].push) {
-                    data[this.name] = [data[this.name]];
-                }
-                data[this.name].push(this.value || '');
-            } else {
-                data[this.name] = this.value || '';
-            }
-        });
+        validateAddEmployee();
 
-        console.log(data);
+        let gebruikerNaam = $("[name='naamEmployee']").val();
+        let email = $("[name='emailEmployee']").val();
+        let wachtwoord = $("[name='wachtwoordEmployee']").val();
+        let loon = $("[name='loonEmployee']").val();
+        let rol = $("[name='selectEmployeeRol']").val();
+
+        let dataJSON = {
+            GebruikerNaam : gebruikerNaam,
+            Email : email,
+            Wachtwoord : wachtwoord,
+            Rol : rol,
+            BedrijfId : bedrijfId,
+            LoonPerUur : loon
+        };
 
         $.ajax({
             type: 'POST',
             url: 'https://mobileapp-planning-services.azurewebsites.net/api/Gebruiker',
-            data: JSON.stringify(data),
+            data: JSON.stringify(dataJSON),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                //alert("Saved Successfully");
-                console.log(data);
-                location.assign("./managePersoneel.php");
+                //alert("succesvol");
+                //console.log(data);
+                location.assign('./employees.php');
             },
             error: function (data) {
-
-                console.log(data);
+                alert("Error please try again");
+                //console.log(data);
             }
         });
     })

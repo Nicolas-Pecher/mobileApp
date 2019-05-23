@@ -4,18 +4,18 @@ $(document).ready(function () {
 
     // ophalen klant id
     let klantId = location.search.substring(1);
-    console.log("KlantId = " + klantId);
+    //console.log("KlantId = " + klantId);
 
     // ophalen bedrijf id
     let bedrijfId = $("#bedrijfIdValue").val();
-    console.log("BedrijfId = " + bedrijfId);
+    //console.log("BedrijfId = " + bedrijfId);
 
     // weergeven gegevens van de klant
     $.ajax({
         type: 'GET',
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/Klant/' + klantId,
         success: function (data) {
-            console.log(data);
+            //console.log(data);
 
             $('.klantNaam').attr('value', data.KlantNaam).text(data.KlantNaam);
 
@@ -31,7 +31,7 @@ $(document).ready(function () {
                 type: 'GET',
                 url: 'https://mobileapp-planning-services.azurewebsites.net/api/Adres/' + adresId,
                 success: function (data) {
-                    console.log(data);
+                    //console.log(data);
 
                     $("[name='straat']").val(data.Straatnaam);
                     $("[name='huisnummer']").val(data.Huisnummer);
@@ -50,7 +50,7 @@ $(document).ready(function () {
         type: 'GET',
         url: 'https://mobileapp-planning-services.azurewebsites.net/api/ProjectVanKlant/' + klantId,
         success: function (data) {
-            console.log(data);
+            //console.log(data);
 
             let body = $('#projectsCustomer');
 
@@ -97,12 +97,13 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                console.log("Updated Successfully : " + data);
+                //alert("Consultant succesvol gewijzigd!");
+                //console.log("Updated Successfully : " + data);
                 //location.assign('./detailsConsultant.php?' + gebruikerId);
             },
             error: function (data) {
                 alert("Error please try again");
-                console.log(data);
+                //console.log(data);
             }
         });
 
@@ -129,13 +130,13 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                console.log("Updated Successfully : " + data);
+                //console.log("Updated Successfully : " + data);
                 //location.assign('./detailsCustomer.php?' + klantId);
                 alert("Wijzigen gegevens en adres van klant " + klantnaam + " succesvol!");
             },
             error: function (data) {
                 alert("Error please try again");
-                console.log(data);
+                //console.log(data);
             }
         });
 

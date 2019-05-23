@@ -18,10 +18,25 @@ $(document).ready(function () {
             //dropdown.prop('selectedIndex', 0);
 
             for (let i = 0; i < data.length; i++) {
-                console.log(data[i].ProjectNaam);
                 dropdown.append($('<option class="projectId"></option>').attr('value', data[i].ProjectId).text(data[i].ProjectNaam));
-                console.log(data[i].ProjectId);
             }
+
+            $("#selectProject").change(function () {
+                //overuren checkbox zichtbaar maken
+                $('.overuren').css('display', 'block')
+
+                //het id van het geselecteerde project opslagen
+                let projectId = $(this).children("option:selected").val();
+                //console.log("You have selected project - " + projectId);
+
+                //het project vinden en nakijken of overuren mogelijk zijn
+                data.forEach(project => {
+                    if (project.ProjectId == projectId && (!project.Overuren)) {
+                        //console.log(project.Overuren)
+                        $('.overuren').css('display', 'none')
+                    }
+                })
+            });
         }
     });
 
@@ -54,8 +69,6 @@ $(document).ready(function () {
 
         validateAddTimeEntry();
 
-        console.log(gebruikerId);
-
         let gebruikerIdForm = gebruikerId;
         let projectId = $("#selectProject").val();
         let datum = $("#datum").val();
@@ -81,7 +94,7 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                console.log("Updated Successfully : " + data);
+                //console.log("Updated Successfully : " + data);
                 alert("Timesheet succesvol gewijzigd!");
             },
             error: function (data) {

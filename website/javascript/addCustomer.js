@@ -37,7 +37,7 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                //console.log(data);
 
                 //ajax call om alle adressen op te halen
                 $.ajax({
@@ -69,10 +69,11 @@ $(document).ready(function () {
                             contentType: 'application/json; charset=utf-8',
                             dataType: 'json',
                             success: function (data) {
-                                console.log(data);
+                                //console.log(data);
+                                location.assign('./customers.php');
                             },
                             error: function (data) {
-                                console.log(data);
+                                //console.log(data);
                             }
                         });
                     }
@@ -80,7 +81,7 @@ $(document).ready(function () {
 
             },
             error: function (data) {
-                console.log(data);
+                //console.log(data);
             }
         });
 

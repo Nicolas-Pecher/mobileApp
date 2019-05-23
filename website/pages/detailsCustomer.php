@@ -82,7 +82,7 @@
                         <div class="card-header">
                             <h5 class="">Projecten</h5>
                         </div>
-                        <table class="table thead-light">
+                        <table class="table table-striped thead-light">
                             <thead>
                                 <tr>
                                     <th>#</th>
